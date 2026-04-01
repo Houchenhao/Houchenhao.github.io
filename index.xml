@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>我的个人博客</title>
+    <link>https://Houchenhao.github.io/</link>
+    <description>Recent content from 我的个人博客</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    
+    <managingEditor>xxx@example.com (Houchenhao)</managingEditor>
+    <webMaster>xxx@example.com (Houchenhao)</webMaster>
+    
+    <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
+    
+    <lastBuildDate>Wed, 01 Apr 2026 11:01:46 +0800</lastBuildDate>
+    
+    
+    <atom:link href="https://Houchenhao.github.io/index.xml" rel="self" type="application/rss&#43;xml" />
+    
+
+    
+    
+
+    <item>
+      <title>Hello World</title>
+      <link>https://Houchenhao.github.io/post/hello-world/</link>
+      <pubDate>Wed, 01 Apr 2026 11:01:46 &#43;0800</pubDate>
+      <author>xxx@example.com (Houchenhao)</author>
+      <guid>https://Houchenhao.github.io/post/hello-world/</guid>
+      <description>
+        <![CDATA[<h1>Hello World</h1><p>作者：Houchenhao（xxx@example.com）</p>
+        
+          
+        
+        <hr><p>本文2026-04-01首发于<a href='https://Houchenhao.github.io/'>我的个人博客</a>，最后修改于2026-04-01</p>]]>
+      </description>
+      
+    </item>
+    
+  </channel>
+</rss>
