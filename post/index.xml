@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>���� on 我的个人博客</title>
+    <title>文章 on 我的个人博客</title>
     <link>https://Houchenhao.github.io/post/</link>
     <description>Recent content from 我的个人博客</description>
     <generator>Hugo</generator>
@@ -12,12 +12,30 @@
     
     <copyright>本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！</copyright>
     
-    <lastBuildDate>Wed, 01 Apr 2026 11:01:46 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 22 Apr 2026 00:00:00 +0000</lastBuildDate>
     
     
     <atom:link href="https://Houchenhao.github.io/post/index.xml" rel="self" type="application/rss&#43;xml" />
     
 
+    
+    
+
+    <item>
+      <title>CTF前置技能&#43;htttp协议基础知识</title>
+      <link>https://Houchenhao.github.io/post/1111/</link>
+      <pubDate>Wed, 22 Apr 2026 00:00:00 &#43;0000</pubDate>
+      <author>3405944767@qq.com (Houchenhao)</author>
+      <guid>https://Houchenhao.github.io/post/1111/</guid>
+      <description>
+        <![CDATA[<h1>CTF前置技能+htttp协议基础知识</h1><p>作者：Houchenhao（3405944767@qq.com）</p>
+        
+          
+        
+        <hr><p>本文2026-04-22首发于<a href='https://Houchenhao.github.io/'>我的个人博客</a>，最后修改于2026-04-22</p>]]>
+      </description>
+      
+    </item>
     
     
 
@@ -33,26 +51,6 @@
           <p>经典回顾v巨大根据规划健康的很v看i厉害，返回数据拷贝v合适的女孩。kejkbvjkahewjkvbjukwahvuk</p>
         
         <hr><p>本文2026-04-01首发于<a href='https://Houchenhao.github.io/'>我的个人博客</a>，最后修改于2026-04-01</p>]]>
-      </description>
-      
-    </item>
-    
-    
-
-    <item>
-      <title></title>
-      <link>https://Houchenhao.github.io/post/1111/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 &#43;0000</pubDate>
-      <author>3405944767@qq.com (Houchenhao)</author>
-      <guid>https://Houchenhao.github.io/post/1111/</guid>
-      <description>
-        <![CDATA[<h1></h1><p>作者：Houchenhao（3405944767@qq.com）</p>
-        
-          <p>date = &lsquo;2026-04-01T11:01:46+08:00&rsquo;
-draft = false
-title = &lsquo;Hello World&rsquo;<!-- raw HTML omitted --></p>
-        
-        <hr><p>本文0001-01-01首发于<a href='https://Houchenhao.github.io/'>我的个人博客</a>，最后修改于0001-01-01</p>]]>
       </description>
       
     </item>
