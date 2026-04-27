@@ -22,15 +22,41 @@
     
 
     <item>
-      <title>CTF前置技能&#43;htttp协议基础知识</title>
+      <title>htttp协议基础知识&#43;CTFHUB目前进度</title>
       <link>https://Houchenhao.github.io/post/1111/</link>
       <pubDate>Wed, 22 Apr 2026 00:00:00 &#43;0000</pubDate>
       <author>3405944767@qq.com (Houchenhao)</author>
       <guid>https://Houchenhao.github.io/post/1111/</guid>
       <description>
-        <![CDATA[<h1>CTF前置技能+htttp协议基础知识</h1><p>作者：Houchenhao（3405944767@qq.com）</p>
+        <![CDATA[<h1>htttp协议基础知识+CTFHUB目前进度</h1><p>作者：Houchenhao（3405944767@qq.com）</p>
         
-          
+          <h1 id="http基础知识">
+<a class="header-anchor" href="#http%e5%9f%ba%e7%a1%80%e7%9f%a5%e8%af%86"></a>
+HTTP基础知识
+</h1><h3 id="http">
+<a class="header-anchor" href="#http"></a>
+http
+</h3><p><strong>当我们在浏览器 中输入网址并回车后，浏览器会向服务器发送一个 HTTP 请求。这个请求由多个部分组成，其中最重要的是请求行、头部和正文。</strong></p>
+<p><strong>一个完整的http例如：</strong></p>
+<p><strong>GET /www.zip HTTP/1.1</strong>
+<strong>Host: challenge-bbb990ed1cd78ab4.sandbox.ctfhub.com:10800</strong>
+<strong>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0</strong>
+<strong>Accept: text/html,application/xhtml+xml,application/xml;q=0.9,<em>/</em>;q=0.8</strong>
+<strong>Accept-Language: zh-CN,zh;q=0.9,zh-TW;q=0.8,zh-HK;q=0.7,en-US;q=0.6,en;q=0.5</strong>
+<strong>Accept-Encoding: gzip, deflate, br</strong>
+<strong>Connection: keep-alive</strong>
+<strong>Upgrade-Insecure-Requests: 1</strong>
+<strong>If-Modified-Since: Mon, 17 Feb 2020 13:32:53 GMT</strong>
+<strong>If-None-Match: W/&ldquo;5e4a9605-260&rdquo;</strong>
+<strong>Priority: u=0, i</strong></p>
+<p><strong>1，请求行</strong></p>
+<p><strong>请求行包含三个部分，分别是请求方法、请求 URI 和 HTTP 版本号。</strong></p>
+<p><strong>1）请求方法指定了客户端想要执行的动作，例如 GET、POST、PUT、DELETE 等。</strong></p>
+<p><strong>2）请求 URI 指定了要访问的资源的位置，也就是我们想要的信息的存放地。</strong></p>
+<p><strong>3）HTTP 版本号表示请求所使用的 HTTP 协议版本，往往是HTTP1.1。</strong></p>
+<p><strong>2、头部</strong>
+<strong>包含了一系列的键值对，用于向服务器传递一些请求信息。例如，Accept 表示客户端可以接受的响应内容类型，User-Agent 表示客户端的浏览器信息，Referer 表示客户端从哪个页面跳转而来等等。</strong></p>
+<p><img src="https://i-blog.csdnimg.cn/direct/49649004c2ce488f9a3bcdd65224d727.png" alt="img"></p>
         
         <hr><p>本文2026-04-22首发于<a href='https://Houchenhao.github.io/'>我的个人博客</a>，最后修改于2026-04-22</p>]]>
       </description>
