@@ -226,6 +226,15 @@
       </ul>
     </li>
   </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#第一部分burp-suite-代理配置方法">第一部分：Burp Suite 代理配置方法</a></li>
+        <li><a href="#第二部分常见端口及安全意义">第二部分：常见端口及安全意义</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
 </div></div>
           <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -1654,6 +1663,144 @@ webshell
 <a class="header-anchor" href="#misc"></a>
 misc
 </h1><p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260410213010961.png" alt="image-20260410213010961"></p>
+<h1 id="burp代理配置以及默认端口详情">
+<a class="header-anchor" href="#burp%e4%bb%a3%e7%90%86%e9%85%8d%e7%bd%ae%e4%bb%a5%e5%8f%8a%e9%bb%98%e8%ae%a4%e7%ab%af%e5%8f%a3%e8%af%a6%e6%83%85"></a>
+burp代理配置以及默认端口详情
+</h1><h3 id="第一部分burp-suite-代理配置方法">
+<a class="header-anchor" href="#%e7%ac%ac%e4%b8%80%e9%83%a8%e5%88%86burp-suite-%e4%bb%a3%e7%90%86%e9%85%8d%e7%bd%ae%e6%96%b9%e6%b3%95"></a>
+第一部分：Burp Suite 代理配置方法
+</h3><p>这本质上是让浏览器和服务器之间的流量，先去 Burp Suite 那里“绕个路”，这样 Burp 才能把数据包拦下来给你看、让你改。配置方法主要有三种，我们按常用程度来讲：</p>
+<hr>
+<p><strong>1. 浏览器代理（最常用，适合挖洞和做 Web 题）</strong>
+这是你现阶段上手最直接的方式，<strong>一定要亲手配一遍</strong>。</p>
+<p><strong>操作很简单，就是两步：</strong></p>
+<ul>
+<li><strong>第一步（Burp 这边）：</strong> 打开 Burp，进 <code>Proxy</code> -&gt; <code>Options</code>。看 <code>Proxy Listeners</code> 这个框。默认会有一条 <code>127.0.0.1:8080</code> 的记录，看它状态是不是 <code>Running</code>（运行中）。地址 <code>127.0.0.1</code> 只监听来自你本机的流量，是很安全的做法。</li>
+<li><strong>第二步（浏览器这边）：</strong> 你需要一个浏览器插件来方便地切换代理，强烈推荐 <strong>FoxyProxy</strong> 或 <strong>SwitchyOmega</strong>。装好后，新建一个代理情景，参数照着填：
+<ul>
+<li><strong>代理协议：</strong> HTTP</li>
+<li><strong>代理地址：</strong> <code>127.0.0.1</code></li>
+<li><strong>代理端口：</strong> <code>8080</code>
+然后把这个情景应用上就行了。</li>
+</ul>
+</li>
+</ul>
+<p><strong>关于 HTTPS 的关键一步（必做）：</strong>
+当你访问 <code>https://</code> 的网站时，浏览器会报“连接不安全”，这是正常的，因为 Burp 是“中间人”。你需要：</p>
+<ol>
+<li>浏览器代理开着的情况下，访问 <code>http://burp</code>。</li>
+<li>点右上角的 <code>CA Certificate</code>，下载 Burp 的证书。</li>
+<li>把这个证书导入到你浏览器的“受信任的根证书颁发机构”里。
+做完这步，HTTPS 流量就能正常抓取了。</li>
+</ol>
+<hr>
+<p><strong>2. 系统全局代理</strong>
+在电脑的“网络和Internet设置”里，手动把 HTTP 和 HTTPS 代理都设为 <code>127.0.0.1:8080</code>。这个方法会让电脑上几乎所有支持代理的程序都走 Burp。</p>
+<ul>
+<li><strong>优点：</strong> 能抓到一些非浏览器的流量，比如部分桌面应用。</li>
+<li><strong>缺点：</strong> 容易产生大量噪音流量，而且不用 Burp 时记得关掉，不然上不了网。</li>
+</ul>
+<hr>
+<p><strong>3. 手机/模拟器代理（移动端挖洞必备）</strong>
+你挖 EduSRC 的时候，很多学校有移动 APP 或公众号网页，抓它们的包就得用到这个。</p>
+<ul>
+<li><strong>原理：</strong> 让手机 Wi-Fi 连到和电脑同一个局域网，然后把手机 Wi-Fi 的代理设为你电脑的 IP 和 Burp 的端口（比如 <code>192.168.1.5:8080</code>）。</li>
+<li><strong>证书：</strong> 需要把 Burp 证书导出安装到手机上，安卓和 iOS 的步骤不太一样，但挖 APP 漏洞这一步是必须的，可以回头细说。</li>
+</ul>
+<hr>
+<h3 id="第二部分常见端口及安全意义">
+<a class="header-anchor" href="#%e7%ac%ac%e4%ba%8c%e9%83%a8%e5%88%86%e5%b8%b8%e8%a7%81%e7%ab%af%e5%8f%a3%e5%8f%8a%e5%ae%89%e5%85%a8%e6%84%8f%e4%b9%89"></a>
+第二部分：常见端口及安全意义
+</h3><p>你用 <code>http 8080, https 80</code> 来举例，说明你观察到了一般规律，也注意到了特殊情况。我们直接来理清楚：</p>
+<p><strong>这是一份你以后会反复用到的常见端口清单，建议收藏：</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">服务</th>
+          <th style="text-align: left">默认端口</th>
+          <th style="text-align: left">你的“安全雷达”该怎么看</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>HTTP</strong></td>
+          <td style="text-align: left"><strong>80</strong></td>
+          <td style="text-align: left">看到 80 端口开，第一反应：这是 Web 入口，跑的是什么 CMS？有注入吗？</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>HTTPS</strong></td>
+          <td style="text-align: left"><strong>443</strong></td>
+          <td style="text-align: left">看到 443 端口，除了 Web 漏洞，还要看证书里有没有泄露域名、内网地址等敏感信息。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>HTTP 代理/Web 中间件</strong></td>
+          <td style="text-align: left"><strong>8080, 8888</strong></td>
+          <td style="text-align: left">这正是你 Burp 常用的端口。很多中间件（Tomcat, Nginx）和应用默认用这些端口，是重要的测试入口。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>FTP 文件传输</strong></td>
+          <td style="text-align: left"><strong>21</strong></td>
+          <td style="text-align: left">看到 21，立刻想：<strong>是否允许匿名登录？</strong> 这可以冲高危。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>SSH 安全外壳</strong></td>
+          <td style="text-align: left"><strong>22</strong></td>
+          <td style="text-align: left">管理员登录服务器的通道。看到它，暴力破解要极其谨慎。更重要的是，扫端口发现外网开22，说明管理员安全意识可能比较薄弱。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>Telnet 远程登录</strong></td>
+          <td style="text-align: left"><strong>23</strong></td>
+          <td style="text-align: left"><strong>明文传输的“老古董”</strong>。如果扫到它开着，基本等于中奖，流量里可能直接抓到账号密码。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>SMTP 发邮件</strong></td>
+          <td style="text-align: left"><strong>25</strong></td>
+          <td style="text-align: left">可以试试能不能伪造邮件，或者探测到内部员工的邮箱账号。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>DNS 域名服务</strong></td>
+          <td style="text-align: left"><strong>53</strong></td>
+          <td style="text-align: left">上不了网时就用它来测。安全上可以尝试 DNS 域传送漏洞，能一次性拿到所有域名记录。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>SMB 文件共享</strong></td>
+          <td style="text-align: left"><strong>445</strong></td>
+          <td style="text-align: left"><strong>臭名昭著的“永恒之蓝”漏洞</strong>就在这。内网里扫到 445，可以打一波试试，但一定要在合法授权范围内。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>数据库类</strong></td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">- MySQL</td>
+          <td style="text-align: left"><strong>3306</strong></td>
+          <td style="text-align: left">扫到它，就用暴力破解撞一下账号密码，root 空口令很常见。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">- MSSQL</td>
+          <td style="text-align: left"><strong>1433</strong></td>
+          <td style="text-align: left">微软的数据库，权限大，能执行系统命令。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">- Oracle</td>
+          <td style="text-align: left"><strong>1521</strong></td>
+          <td style="text-align: left">企业级应用，漏洞利用难度高，但打下来回报也大。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">- Redis</td>
+          <td style="text-align: left"><strong>6379</strong></td>
+          <td style="text-align: left"><strong>未授权访问重灾区。</strong> 不需要密码直接用，可以写 Webshell 或写计划任务反弹Shell，你将来一定会遇到。</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>关于你的困惑：<code>http8080，https80</code></strong>
+你提的这个很好。</p>
+<ul>
+<li><code>http://xxx.com:8080</code> 意味着，我用明文传输的 HTTP 协议，去连接 <a href="https://xxx.com/">xxx.com</a> 的 <strong>8080</strong> 端口。</li>
+<li><code>http://xxx.com:80</code> 就是访问默认的 HTTP 端口，URL 里 <code>:80</code> 可以省略。</li>
+<li><strong><code>https://xxx.com:80</code></strong> 这种情况基本是配错了。HTTPS 协议默认找 443 端口，强行指定 80 去建立加密连接，浏览器一般会报错。</li>
+</ul>
 </div>
     <footer class="article-footer"><div class="share-wrapper"></div><ul class="article-category-list"></ul>
 <ul class="article-tag-list" itemprop="keywords"></ul>
@@ -1663,7 +1810,7 @@ misc
     aria-label="Article navigation"
     data-aos="fade-up"
   ><div class="article-nav-link-wrap left"><img
-              data-src="/images/cover2.jpg"
+              data-src="/images/cover3.jpg"
               data-sizes="auto"
               alt="Hello World"
               class="lazyload"
@@ -1707,10 +1854,10 @@ misc
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;1.7k</span
+          >&nbsp;1.9k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;00:10</span>
+        <span class="icon-coffee">&nbsp;00:11</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -1822,6 +1969,15 @@ misc
     <li>
       <ul>
         <li></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#第一部分burp-suite-代理配置方法">第一部分：Burp Suite 代理配置方法</a></li>
+        <li><a href="#第二部分常见端口及安全意义">第二部分：常见端口及安全意义</a></li>
       </ul>
     </li>
   </ul>
