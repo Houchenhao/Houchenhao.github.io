@@ -235,6 +235,45 @@
       </ul>
     </li>
   </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#方法一直接拖进去最简单有效">方法一：直接拖进去（最简单有效）</a></li>
+        <li><a href="#方法二用-strings-命令提取更快更干净">方法二：用 <code>strings</code> 命令提取（更快更干净）</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#curl-是干嘛的">curl 是干嘛的？</a></li>
+        <li><a href="#常见-curl-指令有哪些">常见 curl 指令有哪些？</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#-dirsearch-在你的场景下怎么用">⚙️ <code>dirsearch</code> 在你的场景下怎么用？</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#什么是-git-目录为什么泄露很危险">什么是 .git 目录？为什么泄露很危险？</a></li>
+      </ul>
+    </li>
+    <li><a href="#githack">GitHack</a>
+      <ul>
+        <li><a href="#四一条完整的解题思路总结">四、一条完整的解题思路总结</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
 </div></div>
           <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -1801,6 +1840,307 @@ burp代理配置以及默认端口详情
 <li><code>http://xxx.com:80</code> 就是访问默认的 HTTP 端口，URL 里 <code>:80</code> 可以省略。</li>
 <li><strong><code>https://xxx.com:80</code></strong> 这种情况基本是配错了。HTTPS 协议默认找 443 端口，强行指定 80 去建立加密连接，浏览器一般会报错。</li>
 </ul>
+<h1 id="1-vim-的缓存文件命名规则">
+<a class="header-anchor" href="#1-vim-%e7%9a%84%e7%bc%93%e5%ad%98%e6%96%87%e4%bb%b6%e5%91%bd%e5%90%8d%e8%a7%84%e5%88%99"></a>
+1. Vim 的缓存文件命名规则
+</h1><p>当你用 <code>vim index.php</code> 编辑文件时，为了防崩溃，Vim 会创建一个<strong>交换文件</strong>来实时保存你的修改。命名规则是：</p>
+<blockquote>
+<p><strong><code>.原文件名.扩展名</code></strong></p>
+</blockquote>
+<p>其中，扩展名的循环顺序是：</p>
+<ul>
+<li>第一次：<code>.index.php.swp</code></li>
+<li>第二次：<code>.index.php.swo</code></li>
+<li>第三次：<code>.index.php.swn</code></li>
+<li>第四次：<code>.index.php.swm</code></li>
+<li>以此类推，依次使用 <strong>s w p o n m</strong> 这几个字母。</li>
+</ul>
+<p>如果这四个都用完了，Vim 会继续往后用 <code>.swa</code>, <code>.swb</code> 等。</p>
+<p><strong>但现实渗透中，遇到前两个（.swp, .swo）和 .bak 文件最常见。</strong> 因为很少有人会崩溃四次以上还留着这些文件。</p>
+<h1 id="解决">
+<a class="header-anchor" href="#%e8%a7%a3%e5%86%b3"></a>
+解决
+</h1><p>用代码编辑器（比如 VS Code）来恢复，思路很简单，就是<strong>只提取出文本部分，丢掉那些 Vim 的元数据</strong>。</p>
+<h3 id="方法一直接拖进去最简单有效">
+<a class="header-anchor" href="#%e6%96%b9%e6%b3%95%e4%b8%80%e7%9b%b4%e6%8e%a5%e6%8b%96%e8%bf%9b%e5%8e%bb%e6%9c%80%e7%ae%80%e5%8d%95%e6%9c%89%e6%95%88"></a>
+方法一：直接拖进去（最简单有效）
+</h3><p>直接把 <code>.index.php.swp</code> 文件拖进 VS Code 或 Sublime Text。</p>
+<p>你会看到大片乱码，但纯文本的 PHP 代码会散落在其中，通常集中在文件的中后部。直接把可读的代码部分一行行复制出来就行。</p>
+<h3 id="方法二用-strings-命令提取更快更干净">
+<a class="header-anchor" href="#%e6%96%b9%e6%b3%95%e4%ba%8c%e7%94%a8-strings-%e5%91%bd%e4%bb%a4%e6%8f%90%e5%8f%96%e6%9b%b4%e5%bf%ab%e6%9b%b4%e5%b9%b2%e5%87%80"></a>
+方法二：用 <code>strings</code> 命令提取（更快更干净）
+</h3><p>这是 Linux 自带的工具，专门从二进制文件中提取可打印字符，特别适合你现在的情况。</p>
+<ol>
+<li>
+<p>在文件所在目录打开终端</p>
+</li>
+<li>
+<p>运行命令：</p>
+<p>bash</p>
+<pre tabindex="0"><code>strings .index.php.swp &gt; index.php
+</code></pre></li>
+<li>
+<p>完成后，目录下会生成一个 <code>index.php</code>，用代码编辑器打开它，里面就是提取出的纯文本源码。</p>
+</li>
+</ol>
+<p><code>strings</code> 会自动过滤掉二进制乱码，通常会抓出完整的 PHP 源码和数据库密码等关键信息。建议两种方法都试试，哪种有效用哪种。</p>
+<h1 id="curl">
+<a class="header-anchor" href="#curl"></a>
+Curl
+</h1><pre tabindex="0"><code>curl challenge-801aa09cb1ad910e.sandbox.ctfhub.com:10800/.index.php.swp -o -
+</code></pre><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">部分</th>
+          <th style="text-align: left">含义</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>curl</code></td>
+          <td style="text-align: left">发起 HTTP 请求的工具</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>challenge-...ctfhub.com:10800</code></td>
+          <td style="text-align: left">目标地址，端口 10800</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>/.index.php.swp</code></td>
+          <td style="text-align: left">请求路径，正是 Vim 缓存文件</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>-o -</code></td>
+          <td style="text-align: left"><strong>把下载的内容直接输出到终端屏幕</strong>（<code>-o</code> 指定输出，<code>-</code> 代表标准输出）</td>
+      </tr>
+  </tbody>
+</table>
+<p>所以整条命令的意思是：<strong>从 CTF 环境下载 <code>.index.php.swp</code> 文件，并把内容直接打印在终端里</strong>。这样你就能立刻看到里面有没有源码，不用再去文件管理器里打开。</p>
+<hr>
+<h3 id="curl-是干嘛的">
+<a class="header-anchor" href="#curl-%e6%98%af%e5%b9%b2%e5%98%9b%e7%9a%84"></a>
+curl 是干嘛的？
+</h3><p><code>curl</code> 是一个<strong>命令行下的 HTTP 客户端</strong>，你可以把它理解成“终端的浏览器”。它不发请求时就在那待着，你一敲命令，它就向指定 URL 发请求，然后把服务器返回的内容原样显示出来或保存下来。</p>
+<p>它在 CTF 和渗透测试里主要有三个用途：</p>
+<ol>
+<li><strong>快速验证</strong>：马上知道某个 URL 能不能访问、返回了啥。</li>
+<li><strong>下载文件</strong>：尤其适合远程服务器没有图形界面时。</li>
+<li><strong>测试漏洞</strong>：手动构造各种奇怪的请求（改请求头、改方法、带 Cookie），看服务器什么反应。</li>
+</ol>
+<hr>
+<h3 id="常见-curl-指令有哪些">
+<a class="header-anchor" href="#%e5%b8%b8%e8%a7%81-curl-%e6%8c%87%e4%bb%a4%e6%9c%89%e5%93%aa%e4%ba%9b"></a>
+常见 curl 指令有哪些？
+</h3><p><strong>基础请求</strong></p>
+<p>bash</p>
+<pre tabindex="0"><code>curl http://example.com           # 发起 GET 请求，显示返回内容
+curl -I http://example.com        # 只显示响应头（HTTP Headers）
+curl -v http://example.com        # 显示完整通信过程（请求头+响应头+内容）
+</code></pre><p><strong>下载与输出</strong></p>
+<p>bash</p>
+<pre tabindex="0"><code>curl -o 文件名 网址               # 保存到指定文件
+curl -O 网址/文件名               # 以原文件名保存
+curl 网址 -o -                    # 直接输出到终端（就是你命令里的用法）
+</code></pre><p><strong>指定请求方法和参数</strong></p>
+<p>bash</p>
+<pre tabindex="0"><code>curl -X POST 网址                 # 发 POST 请求（默认是 GET）
+curl -d &#34;user=admin&amp;pass=123&#34; 网址 # POST 请求带数据，会自动转为 POST
+curl -H &#34;Cookie: session=xxx&#34; 网址 # 带着 Cookie 访问
+</code></pre><p><strong>跟随重定向与代理</strong></p>
+<p>bash</p>
+<pre tabindex="0"><code>curl -L 网址                      # 自动跟随 301/302 跳转
+curl -x http://127.0.0.1:8080 网址 # 通过代理（比如经过 Burp Suite）访问
+</code></pre><ul>
+<li>第一次：<code>.index.php.swp</code></li>
+<li>第二次：<code>.index.php.swo</code></li>
+<li>第三次：<code>.index.php.swn</code></li>
+<li>第四次：<code>.index.php.swm</code></li>
+<li>以此类推，依次使用 <strong>s w p o n m</strong> 这几个字母。</li>
+</ul>
+<p>如果这四个都用完了，Vim 会继续往后用 <code>.swa</code>, <code>.swb</code> 等。</p>
+<h1 id="dirsearch">
+<a class="header-anchor" href="#dirsearch"></a>
+Dirsearch
+</h1><h3 id="-dirsearch-在你的场景下怎么用">
+<a class="header-anchor" href="#-dirsearch-%e5%9c%a8%e4%bd%a0%e7%9a%84%e5%9c%ba%e6%99%af%e4%b8%8b%e6%80%8e%e4%b9%88%e7%94%a8"></a>
+⚙️ <code>dirsearch</code> 在你的场景下怎么用？
+</h3><p>在你当前这个CTF题目里，<code>dirsearch</code>的核心思路就是把题目给的网址扫一遍，找出所有碰巧能直接访问到的敏感文件路径。</p>
+<p><strong>最直接的扫描命令</strong></p>
+<p>bash</p>
+<pre tabindex="0"><code>dirsearch -u http://challenge-801aa09cb1ad910e.sandbox.ctfhub.com:10800 -e php,swp,txt,bak
+</code></pre><ul>
+<li><code>-u</code> 后边跟上你要扫的完整网址。</li>
+<li><code>-e</code> 特别重要，它的作用是让<code>dirsearch</code>在“敲门”时，不仅要敲<code>/admin</code>，还要敲<code>/admin.php</code>、<code>/admin.swp</code>这些带后缀的文件。像<code>swp</code>这个后缀就是专门用来找Vim缓存文件的。</li>
+</ul>
+<p><strong>常用参数组合（速查表）</strong></p>
+<p>为了方便你在别的题目里使用，我把几个最常用的参数整理成了一张表：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">参数</th>
+          <th style="text-align: left">功能</th>
+          <th style="text-align: left">使用场景举例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>-u [网址]</code></td>
+          <td style="text-align: left">指定要扫描的目标URL</td>
+          <td style="text-align: left">这是必填项，告诉它要去扫谁</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>-e [后缀]</code></td>
+          <td style="text-align: left">指定要扫描的文件后缀名</td>
+          <td style="text-align: left"><strong>关键功能</strong>！针对PHP站常用<code>-e php,txt,zip</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>-w [字典]</code></td>
+          <td style="text-align: left">使用你自定义的“敲门”列表</td>
+          <td style="text-align: left">当自带的字典不够用，你有更全的字典时</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>-r</code></td>
+          <td style="text-align: left">递归扫描</td>
+          <td style="text-align: left">发现一个目录后，继续深入往下扫</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>-x [状态码]</code></td>
+          <td style="text-align: left">忽略指定的HTTP状态码</td>
+          <td style="text-align: left">比如 <code>-x 404</code> 只给你看“敲门”成功的结果，眼前清净<!-- raw HTML omitted --></td>
+      </tr>
+  </tbody>
+</table>
+<h1 id="git">
+<a class="header-anchor" href="#git"></a>
+Git
+</h1><p><strong>Git 是目前最流行的分布式版本控制系统</strong>，你可以把它理解成一个超强版的 &ldquo;存档+时光机&rdquo; 工具。</p>
+<p>它的核心功能就是<strong>追踪和记录代码的每一次修改</strong>。具体来说，它能做到这几点：</p>
+<ul>
+<li><strong>存档与备份</strong>：每次完成一个功能，执行一次 <code>git commit</code>（提交），Git 就会给整个项目拍一张“快照”，记录下此刻所有文件的样子。</li>
+<li><strong>无限撤销</strong>：想回到任何一次存档的状态？一条命令就能让你的代码“时光倒流”。</li>
+<li><strong>多分支开发</strong>：可以像树枝分叉一样，同时开发新功能和修复旧Bug，互不干扰，最后再合并起来。</li>
+<li><strong>团队协作</strong>：能将所有人的修改合并在一起，如果有人和你改了同一个文件，它还会提示冲突，让你来决定保留谁的内容。</li>
+</ul>
+<hr>
+<h3 id="什么是-git-目录为什么泄露很危险">
+<a class="header-anchor" href="#%e4%bb%80%e4%b9%88%e6%98%af-git-%e7%9b%ae%e5%bd%95%e4%b8%ba%e4%bb%80%e4%b9%88%e6%b3%84%e9%9c%b2%e5%be%88%e5%8d%b1%e9%99%a9"></a>
+什么是 .git 目录？为什么泄露很危险？
+</h3><p>每个用 Git 管理的项目，根目录下都有一个隐藏的 <code>.git</code> 文件夹。这个文件夹里，就存着这个项目的 <strong>&ldquo;完整记忆&rdquo;</strong> ，包括从创建伊始所有的快照、分支、历史记录等。</p>
+<p>所以，<strong>Git 泄露漏洞</strong>的意思是：运维人员在上线网站时，不小心把 <code>.git</code> 这个文件夹也一起上传到了公开的服务器上。</p>
+<p>后果就是，攻击者只要访问 <code>http://你的目标网站/.git/</code>，就能用工具把 <code>.git</code> 文件夹整个下载下来，从而<strong>完整还原出整个网站的源代码</strong>。这比我们之前看到的 <code>.swp</code> 或 <code>.DS_Store</code> 泄露要严重得多，因为后者只是片段，而 <code>.git</code> 泄露几乎是服务端的完整大本营。</p>
+<p><strong>一、Git泄露</strong>
+<strong>在信息安全领域，.git 文件泄露是一种常见且危害较大的敏感信息泄露场景。它源于 Git 版本控制系统在项目中生成的 .git 目录被意外暴露在 Web 服务器上，攻击者可通过该目录获取项目的完整源代码、历史提交记录、配置文件等敏感信息。</strong></p>
+<p><strong>1、.git 目录的作用与组成</strong>
+<strong>Git 作为分布式版本控制系统，会在项目根目录生成 .git 目录，用于存储版本控制所需的所有元数据，包括：</strong></p>
+<p><strong>版本历史：所有提交记录（commits）、分支（branches）、标签（tags）等。</strong>
+<strong>文件快照：项目文件的不同版本数据（存储在 objects 目录）。</strong>
+<strong>配置信息：仓库配置（config）、当前分支指针（HEAD）、索引文件（index）等。</strong>
+<strong>核心子目录及文件：</strong></p>
+<p><strong>objects/：存储文件快照（ blob 对象）、目录结构（ tree 对象）、提交记录（ commit 对象）等，是仓库数据的核心。</strong>
+<strong>refs/：记录分支、标签对应的提交哈希（如 refs/heads/master 指向主分支最新提交）。</strong>
+<strong>HEAD：指向当前所在分支的指针（如 ref: refs/heads/master）。</strong>
+<strong>index：暂存区信息，记录待提交的文件状态。</strong>
+<strong>config：仓库配置，可能包含远程仓库地址、用户名等信息。</strong>
+<strong>2、.git 泄露的成因</strong>
+<strong>部署失误：开发或运维人员在部署 Web 项目时，未排除 .git 目录，导致其被上传至生产服务器的 Web 根目录（如 wwwroot、public 等）。</strong>
+<strong>权限配置不当：Web 服务器（如 Nginx、Apache）对 .git 目录未做访问限制，允许外部直接访问。</strong>
+<strong>目录遍历：服务器存在目录遍历安全风险时，攻击者可通过构造路径（如 ../.git/HEAD）绕过限制访问 .git 内容。</strong>
+<strong>3、.git 泄露的危害</strong>
+<strong>源代码泄露：攻击者可还原项目完整源代码，分析业务逻辑，寻找 SQL 注入、XSS 等。</strong>
+<strong>敏感信息暴露：历史提交中可能包含数据库账号密码、API 密钥、配置文件等敏感数据。</strong>
+<strong>开发细节泄露：通过提交记录可了解开发习惯、项目架构，甚至获取内部开发文档。</strong>
+<strong>供应链风险：若项目依赖第三方库，攻击者可能通过源码分析依赖组件的缺陷。</strong></p>
+<h2 id="githack">
+<a class="header-anchor" href="#githack"></a>
+GitHack
+</h2><p>当网站服务器意外泄露 <code>.git</code> 目录（如可通过 <code>http://目标域名/.git</code> 访问）时，GitHack 可通过解析 <code>.git</code> 目录下的版本控制文件（如 <code>config</code>、<code>index</code>、<code>objects</code> 等），还原出项目的完整源代码，包括可能包含的 flag、配置文件、敏感逻辑等信息。</p>
+<p><img src="C:%5CUsers%5C34059%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20260510182816654.png" alt="image-20260510182816654"></p>
+<p><strong>git show [commit-id] —— 查看某次提交的详细内容（最推荐）</strong></p>
+<p><strong>这是最直接的方法，能一次性看到一次提交到底加了什么、删了什么。</strong></p>
+<p><strong>bash</strong>
+<strong>git show a9ee26</strong>
+<strong>（a9ee26 就是你 git log 里看到的那次 add flag 的 ID）</strong></p>
+<p><strong>执行后，在输出的结果里找 以 + 号开头的绿字行，flag 通常就在那里。</strong></p>
+<ol start="2">
+<li><strong>git diff [旧id] [新id] —— 对比两次提交的差异</strong></li>
+</ol>
+<p><strong>这个能精确显示出代码是如何被修改的。</strong></p>
+<p><strong>bash</strong>
+<strong>git diff a9ee26 ee7230</strong>
+<strong>（a9ee26 是 add flag，ee7230 是 remove flag）</strong></p>
+<p><strong>执行后，所有以 - 号开头的红字行，就是被删除的内容，flag 常常在这里。</strong></p>
+<ol start="3">
+<li><strong>git checkout [commit-id] —— 让整个仓库“时光倒流”</strong></li>
+</ol>
+<p><strong>直接把你的工作目录恢复到某次提交时的样子，这样你就可以用 ls 看文件、用 cat 读文件内容了。</strong></p>
+<p><strong>bash</strong>
+<strong>git checkout a9ee26</strong>
+<strong>执行后，你当前文件夹里的文件就会变成“flag 还在”的那个版本。直接 cat 可能的文件名（比如 flag.txt）就能看到。看完想回到最新状态，只需：</strong></p>
+<p><strong>bash</strong>
+<strong>git checkout master</strong>
+4. <strong>一些辅助查看的命令</strong></p>
+<p><strong>git show 和 git diff 已经够用了。如果输出太多，看着眼花，可以配合这些命令：</strong></p>
+<p><strong>git show a9ee26 | grep &ldquo;flag&rdquo; —— 直接在输出里搜带 &ldquo;flag&rdquo; 的那一行</strong></p>
+<p><strong>git diff a9ee26 ee7230 | grep &ldquo;flag&rdquo; —— 同上</strong></p>
+<p><strong>git show a9ee26 &ndash;name-only —— 只看这次提交改了哪些文件，不显示具体内容</strong></p>
+<p><strong>总结一下，你就按这个顺序来：</strong>
+<strong>先敲 git show a9ee26 直接看，如果眼花了找不到，</strong></p>
+<ul>
+<li><strong>git log</strong> 看的是管理员<strong>主动提交</strong>过的历史。比如他在某次 <code>commit</code> 中不小心提交了数据库密码，即使后来删掉了，密码依然在这次历史里。</li>
+<li><strong>git stash list</strong> 检查的是管理员<strong>临时暂存</strong>但根本没提交的变更。有时候管理员把有敏感信息的配置改了改，用 <code>stash</code> 暂存起来后忘了清理，这份数据就会留在 <code>.git/refs/stash</code> 里，被打包还原回来</li>
+</ul>
+<p><strong>在GitHack目录下不能dirsearch   没权限</strong>
+<strong>git目录一般都是root用户操作的  如果是普通用户可以有两种解决</strong></p>
+<p><strong>sudo git stash pop</strong>
+<strong>或者</strong></p>
+<p><strong>cd ..</strong>
+<strong>sudo chown -R kali:kali challenge-224114732395a686.sandbox.ctfhub.com_10800</strong>  这个是修改这个文件下的权限用户
+<strong>cd challenge-224114732395a686.sandbox.ctfhub.com_10800</strong>
+<strong>git stash pop</strong>
+<strong>sudo git checkout master    恢复干净状态</strong></p>
+<p><strong>sudo git stash drop    丢弃</strong></p>
+<p><strong>没有权限时可以用sudo切换用户一般都是root到root来执行操作</strong></p>
+<p><strong>查看历史</strong></p>
+<p>bash</p>
+<pre tabindex="0"><code>git log                    # 看所有提交记录
+git log --oneline          # 一行一条记录，看着清爽
+git show &lt;commit-id&gt;       # 看某次提交改了什么
+</code></pre><p><strong>2. 对比差异</strong></p>
+<p>bash</p>
+<pre tabindex="0"><code>git diff &lt;id1&gt; &lt;id2&gt;       # 对比两次提交的区别
+git diff HEAD~1 HEAD       # 对比最近一次提交和上一次
+</code></pre><p><strong>3. 检查 stash（临时暂存）</strong></p>
+<p>bash</p>
+<pre tabindex="0"><code>git stash list             # 列出所有 stash
+git stash pop              # 弹出最近的 stash
+git stash show -p          # 不弹出，只看看 stash 里的内容
+</code></pre><p><strong>4. 切换版本与分支</strong></p>
+<p>bash</p>
+<pre tabindex="0"><code>git branch -a              # 看所有分支
+git checkout &lt;分支名或提交id&gt;  # 切换过去
+git checkout master        # 切回主分支
+</code></pre><p><strong>5. 深入检查（进阶）</strong></p>
+<p>bash</p>
+<pre tabindex="0"><code>git reflog                 # 看所有 HEAD 的移动记录，能找回被彻底删掉的提交
+git grep &#34;flag&#34; &lt;commit-id&gt; # 在某次提交中搜索 &#34;flag&#34; 关键词
+</code></pre><p><strong>权限相关（你踩过的坑）</strong></p>
+<p>bash</p>
+<pre tabindex="0"><code>sudo chown -R kali:kali &lt;目录名&gt;   # 用 sudo 跑完后拿回文件所有权
+git add &lt;文件名&gt;                    # 标记冲突已解决
+</code></pre><hr>
+<h3 id="四一条完整的解题思路总结">
+<a class="header-anchor" href="#%e5%9b%9b%e4%b8%80%e6%9d%a1%e5%ae%8c%e6%95%b4%e7%9a%84%e8%a7%a3%e9%a2%98%e6%80%9d%e8%b7%af%e6%80%bb%e7%bb%93"></a>
+四、一条完整的解题思路总结
+</h3><p>以后遇到 Git 泄露题，你的“检查清单”应该是：</p>
+<ol>
+<li><strong>恢复仓库</strong>：<code>python2 GitHack.py http://目标/.git/</code></li>
+<li><strong>进入目录</strong>：<code>cd dist/目标目录</code></li>
+<li><strong>查历史</strong>：<code>git log</code>，看有没有 <code>add flag</code>、<code>remove flag</code> 的提交</li>
+<li><strong>查 stash</strong>：<code>git stash list</code>，看有没有暂存的草稿</li>
+<li><strong>查分支</strong>：<code>git branch -a</code>，看有没有别的分支</li>
+<li><strong>查标签</strong>：<code>git tag</code>，看有没有用 tag 标记的 flag</li>
+<li><strong>对比差异</strong>：<code>git diff</code> 或 <code>git show</code>，揪出被删掉的内容</li>
+<li><strong>搜关键词</strong>：<code>git grep &quot;flag&quot;</code> 或直接 <code>grep -r &quot;flag&quot; .</code></li>
+</ol>
 </div>
     <footer class="article-footer"><div class="share-wrapper"></div><ul class="article-category-list"></ul>
 <ul class="article-tag-list" itemprop="keywords"></ul>
@@ -1810,7 +2150,7 @@ burp代理配置以及默认端口详情
     aria-label="Article navigation"
     data-aos="fade-up"
   ><div class="article-nav-link-wrap left"><img
-              data-src="/images/cover1.jpg"
+              data-src="/images/cover3.jpg"
               data-sizes="auto"
               alt="Hello World"
               class="lazyload"
@@ -1854,10 +2194,10 @@ burp代理配置以及默认端口详情
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;1.9k</span
+          >&nbsp;2.6k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;00:11</span>
+        <span class="icon-coffee">&nbsp;00:14</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -1978,6 +2318,45 @@ burp代理配置以及默认端口详情
       <ul>
         <li><a href="#第一部分burp-suite-代理配置方法">第一部分：Burp Suite 代理配置方法</a></li>
         <li><a href="#第二部分常见端口及安全意义">第二部分：常见端口及安全意义</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#方法一直接拖进去最简单有效">方法一：直接拖进去（最简单有效）</a></li>
+        <li><a href="#方法二用-strings-命令提取更快更干净">方法二：用 <code>strings</code> 命令提取（更快更干净）</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#curl-是干嘛的">curl 是干嘛的？</a></li>
+        <li><a href="#常见-curl-指令有哪些">常见 curl 指令有哪些？</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#-dirsearch-在你的场景下怎么用">⚙️ <code>dirsearch</code> 在你的场景下怎么用？</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#什么是-git-目录为什么泄露很危险">什么是 .git 目录？为什么泄露很危险？</a></li>
+      </ul>
+    </li>
+    <li><a href="#githack">GitHack</a>
+      <ul>
+        <li><a href="#四一条完整的解题思路总结">四、一条完整的解题思路总结</a></li>
       </ul>
     </li>
   </ul>
