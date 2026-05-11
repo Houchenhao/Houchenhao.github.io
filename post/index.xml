@@ -22,91 +22,56 @@
     
 
     <item>
-      <title>htttp协议基础知识&#43;CTFHUB目前进度</title>
+      <title>大学生</title>
       <link>https://Houchenhao.github.io/post/1111/</link>
       <pubDate>Wed, 22 Apr 2026 00:00:00 &#43;0000</pubDate>
       <author>3405944767@qq.com (Houchenhao)</author>
       <guid>https://Houchenhao.github.io/post/1111/</guid>
       <description>
-        <![CDATA[<h1>htttp协议基础知识+CTFHUB目前进度</h1><p>作者：Houchenhao（3405944767@qq.com）</p>
+        <![CDATA[<h1>大学生</h1><p>作者：Houchenhao（3405944767@qq.com）</p>
         
-          <h1 id="大学ctf打了3年安全厂商安服沉淀3年目前小技术管理个人建议如果你是普通大学感觉有两个出路第一个考个还不错的学校的研究生出来技术一般就能进甲方比较稳定-第二个也就是我选择的专攻技术大一大二可以专心学习ctfweb学习各种漏洞原理简单绕过杂项可以学很多基础比如wireshark之类的密码学可以了解各种加密算法二进制逆向基础的题型也不难借此了解汇编数据结构栈溢出之类的基础总之ctf主要打牢基础大三大四建议ctf大厂实习护网红队src结合一些比较实战并且能丰富简历的项目这样出来找工作还是比较轻松的但是这几年大环境确实不好了但是个人感觉安全比开发来说更有趣并且对普通学历的人更友好-至于工作之后如果是乙方建议往代码开发红队企业src之类感兴趣且有深度的方向持续专研至少要有一个拿得出手跟客户出牛逼的技术如果在甲方那更稳定且少走弯路搞管理加一点技术">
-<a class="header-anchor" href="#%e5%a4%a7%e5%ad%a6ctf%e6%89%93%e4%ba%863%e5%b9%b4%e5%ae%89%e5%85%a8%e5%8e%82%e5%95%86%e5%ae%89%e6%9c%8d%e6%b2%89%e6%b7%803%e5%b9%b4%e7%9b%ae%e5%89%8d%e5%b0%8f%e6%8a%80%e6%9c%af%e7%ae%a1%e7%90%86%e4%b8%aa%e4%ba%ba%e5%bb%ba%e8%ae%ae%e5%a6%82%e6%9e%9c%e4%bd%a0%e6%98%af%e6%99%ae%e9%80%9a%e5%a4%a7%e5%ad%a6%e6%84%9f%e8%a7%89%e6%9c%89%e4%b8%a4%e4%b8%aa%e5%87%ba%e8%b7%af%e7%ac%ac%e4%b8%80%e4%b8%aa%e8%80%83%e4%b8%aa%e8%bf%98%e4%b8%8d%e9%94%99%e7%9a%84%e5%ad%a6%e6%a0%a1%e7%9a%84%e7%a0%94%e7%a9%b6%e7%94%9f%e5%87%ba%e6%9d%a5%e6%8a%80%e6%9c%af%e4%b8%80%e8%88%ac%e5%b0%b1%e8%83%bd%e8%bf%9b%e7%94%b2%e6%96%b9%e6%af%94%e8%be%83%e7%a8%b3%e5%ae%9a-%e7%ac%ac%e4%ba%8c%e4%b8%aa%e4%b9%9f%e5%b0%b1%e6%98%af%e6%88%91%e9%80%89%e6%8b%a9%e7%9a%84%e4%b8%93%e6%94%bb%e6%8a%80%e6%9c%af%e5%a4%a7%e4%b8%80%e5%a4%a7%e4%ba%8c%e5%8f%af%e4%bb%a5%e4%b8%93%e5%bf%83%e5%ad%a6%e4%b9%a0ctfweb%e5%ad%a6%e4%b9%a0%e5%90%84%e7%a7%8d%e6%bc%8f%e6%b4%9e%e5%8e%9f%e7%90%86%e7%ae%80%e5%8d%95%e7%bb%95%e8%bf%87%e6%9d%82%e9%a1%b9%e5%8f%af%e4%bb%a5%e5%ad%a6%e5%be%88%e5%a4%9a%e5%9f%ba%e7%a1%80%e6%af%94%e5%a6%82wireshark%e4%b9%8b%e7%b1%bb%e7%9a%84%e5%af%86%e7%a0%81%e5%ad%a6%e5%8f%af%e4%bb%a5%e4%ba%86%e8%a7%a3%e5%90%84%e7%a7%8d%e5%8a%a0%e5%af%86%e7%ae%97%e6%b3%95%e4%ba%8c%e8%bf%9b%e5%88%b6%e9%80%86%e5%90%91%e5%9f%ba%e7%a1%80%e7%9a%84%e9%a2%98%e5%9e%8b%e4%b9%9f%e4%b8%8d%e9%9a%be%e5%80%9f%e6%ad%a4%e4%ba%86%e8%a7%a3%e6%b1%87%e7%bc%96%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e6%a0%88%e6%ba%a2%e5%87%ba%e4%b9%8b%e7%b1%bb%e7%9a%84%e5%9f%ba%e7%a1%80%e6%80%bb%e4%b9%8bctf%e4%b8%bb%e8%a6%81%e6%89%93%e7%89%a2%e5%9f%ba%e7%a1%80%e5%a4%a7%e4%b8%89%e5%a4%a7%e5%9b%9b%e5%bb%ba%e8%ae%aectf%e5%a4%a7%e5%8e%82%e5%ae%9e%e4%b9%a0%e6%8a%a4%e7%bd%91%e7%ba%a2%e9%98%9fsrc%e7%bb%93%e5%90%88%e4%b8%80%e4%ba%9b%e6%af%94%e8%be%83%e5%ae%9e%e6%88%98%e5%b9%b6%e4%b8%94%e8%83%bd%e4%b8%b0%e5%af%8c%e7%ae%80%e5%8e%86%e7%9a%84%e9%a1%b9%e7%9b%ae%e8%bf%99%e6%a0%b7%e5%87%ba%e6%9d%a5%e6%89%be%e5%b7%a5%e4%bd%9c%e8%bf%98%e6%98%af%e6%af%94%e8%be%83%e8%bd%bb%e6%9d%be%e7%9a%84%e4%bd%86%e6%98%af%e8%bf%99%e5%87%a0%e5%b9%b4%e5%a4%a7%e7%8e%af%e5%a2%83%e7%a1%ae%e5%ae%9e%e4%b8%8d%e5%a5%bd%e4%ba%86%e4%bd%86%e6%98%af%e4%b8%aa%e4%ba%ba%e6%84%9f%e8%a7%89%e5%ae%89%e5%85%a8%e6%af%94%e5%bc%80%e5%8f%91%e6%9d%a5%e8%af%b4%e6%9b%b4%e6%9c%89%e8%b6%a3%e5%b9%b6%e4%b8%94%e5%af%b9%e6%99%ae%e9%80%9a%e5%ad%a6%e5%8e%86%e7%9a%84%e4%ba%ba%e6%9b%b4%e5%8f%8b%e5%a5%bd-%e8%87%b3%e4%ba%8e%e5%b7%a5%e4%bd%9c%e4%b9%8b%e5%90%8e%e5%a6%82%e6%9e%9c%e6%98%af%e4%b9%99%e6%96%b9%e5%bb%ba%e8%ae%ae%e5%be%80%e4%bb%a3%e7%a0%81%e5%bc%80%e5%8f%91%e7%ba%a2%e9%98%9f%e4%bc%81%e4%b8%9asrc%e4%b9%8b%e7%b1%bb%e6%84%9f%e5%85%b4%e8%b6%a3%e4%b8%94%e6%9c%89%e6%b7%b1%e5%ba%a6%e7%9a%84%e6%96%b9%e5%90%91%e6%8c%81%e7%bb%ad%e4%b8%93%e7%a0%94%e8%87%b3%e5%b0%91%e8%a6%81%e6%9c%89%e4%b8%80%e4%b8%aa%e6%8b%bf%e5%be%97%e5%87%ba%e6%89%8b%e8%b7%9f%e5%ae%a2%e6%88%b7%e5%87%ba%e7%89%9b%e9%80%bc%e7%9a%84%e6%8a%80%e6%9c%af%e5%a6%82%e6%9e%9c%e5%9c%a8%e7%94%b2%e6%96%b9%e9%82%a3%e6%9b%b4%e7%a8%b3%e5%ae%9a%e4%b8%94%e5%b0%91%e8%b5%b0%e5%bc%af%e8%b7%af%e6%90%9e%e7%ae%a1%e7%90%86%e5%8a%a0%e4%b8%80%e7%82%b9%e6%8a%80%e6%9c%af"></a>
-大学ctf打了3年，安全厂商安服沉淀3年，目前小技术管理。个人建议，如果你是普通大学感觉有两个出路，第一个考个还不错的学校的研究生，出来技术一般就能进甲方比较稳定。 第二个也就是我选择的，专攻技术，大一大二可以专心学习ctf，web学习各种漏洞原理简单绕过，杂项可以学很多基础比如wireshark之类的，密码学可以了解各种加密算法，二进制逆向基础的题型也不难，借此了解汇编，数据结构，栈溢出之类的基础，总之ctf主要打牢基础。大三大四建议ctf+大厂实习+护网红队+src，结合一些比较实战并且能丰富简历的项目。这样出来找工作还是比较轻松的，但是这几年大环境确实不好了，但是个人感觉安全比开发来说更有趣并且对普通学历的人更友好。 至于工作之后如果是乙方建议往代码开发，红队，企业src之类感兴趣且有深度的方向持续专研，至少要有一个拿得出手跟客户出牛逼的技术。如果在甲方那更稳定且少走弯路，搞管理加一点技术。
-</h1><h1 id="虚拟机知识">
-<a class="header-anchor" href="#%e8%99%9a%e6%8b%9f%e6%9c%ba%e7%9f%a5%e8%af%86"></a>
-虚拟机知识
-</h1><h2 id="kali-linux虚拟机需要iso镜像文件因为需要个性化配置自动创建了一个vmdk空白磁盘文件然后通过iso配置">
-<a class="header-anchor" href="#kali-linux%e8%99%9a%e6%8b%9f%e6%9c%ba%e9%9c%80%e8%a6%81iso%e9%95%9c%e5%83%8f%e6%96%87%e4%bb%b6%e5%9b%a0%e4%b8%ba%e9%9c%80%e8%a6%81%e4%b8%aa%e6%80%a7%e5%8c%96%e9%85%8d%e7%bd%ae%e8%87%aa%e5%8a%a8%e5%88%9b%e5%bb%ba%e4%ba%86%e4%b8%80%e4%b8%aavmdk%e7%a9%ba%e7%99%bd%e7%a3%81%e7%9b%98%e6%96%87%e4%bb%b6%e7%84%b6%e5%90%8e%e9%80%9a%e8%bf%87iso%e9%85%8d%e7%bd%ae"></a>
-kali linux虚拟机需要iso镜像文件，因为需要个性化配置，自动创建了一个vmdk空白磁盘文件，然后通过iso配置
-</h2><h2 id="但是靶机不需要可视化图像因此不需要iso镜像文件只需要更换磁盘文件即可直接把别人修改好的vmdk文件拿来用">
-<a class="header-anchor" href="#%e4%bd%86%e6%98%af%e9%9d%b6%e6%9c%ba%e4%b8%8d%e9%9c%80%e8%a6%81%e5%8f%af%e8%a7%86%e5%8c%96%e5%9b%be%e5%83%8f%e5%9b%a0%e6%ad%a4%e4%b8%8d%e9%9c%80%e8%a6%81iso%e9%95%9c%e5%83%8f%e6%96%87%e4%bb%b6%e5%8f%aa%e9%9c%80%e8%a6%81%e6%9b%b4%e6%8d%a2%e7%a3%81%e7%9b%98%e6%96%87%e4%bb%b6%e5%8d%b3%e5%8f%af%e7%9b%b4%e6%8e%a5%e6%8a%8a%e5%88%ab%e4%ba%ba%e4%bf%ae%e6%94%b9%e5%a5%bd%e7%9a%84vmdk%e6%96%87%e4%bb%b6%e6%8b%bf%e6%9d%a5%e7%94%a8"></a>
-但是靶机不需要可视化图像因此不需要iso镜像文件，只需要更换磁盘文件即可，直接把别人修改好的vmdk文件拿来用
-</h2><h2 id="镜像就相当于克隆出了一个系统">
-<a class="header-anchor" href="#%e9%95%9c%e5%83%8f%e5%b0%b1%e7%9b%b8%e5%bd%93%e4%ba%8e%e5%85%8b%e9%9a%86%e5%87%ba%e4%ba%86%e4%b8%80%e4%b8%aa%e7%b3%bb%e7%bb%9f"></a>
-镜像就相当于克隆出了一个系统
-</h2><h2 id="处理器cpu">
-<a class="header-anchor" href="#%e5%a4%84%e7%90%86%e5%99%a8cpu"></a>
-处理器CPU
-</h2><p><strong>处理器相当于公司大楼数量，内核相当于大楼里的员工，内核总数就是总员工数</strong></p>
-<p><strong>内核是真正的干活计算单元，一个核心最多只能感一件事，多个核心就能干多件事，来提升效率</strong></p>
-<h2 id="硬盘">
-<a class="header-anchor" href="#%e7%a1%ac%e7%9b%98"></a>
-硬盘
-</h2><p><strong>硬盘装有系统，文件，软件(可以发挥功能的文件</strong></p>
-<p><strong>整理文件碎片是把文件放连续便于读取</strong></p>
-<p><strong>接口从慢到快有IDE,SATA,M.2，接口就是用来把磁盘上的文件呈现给人类，相当于连接口，翻译官</strong></p>
-<p>等同电源接口，USB接口(和端口意思很像)</p>
+          <h1 id="更新逻辑网站详情就不润色别的界面了哈哈哈有点懒">
+<a class="header-anchor" href="#%e6%9b%b4%e6%96%b0%e9%80%bb%e8%be%91%e7%bd%91%e7%ab%99%e8%af%a6%e6%83%85%e5%b0%b1%e4%b8%8d%e6%b6%a6%e8%89%b2%e5%88%ab%e7%9a%84%e7%95%8c%e9%9d%a2%e4%ba%86%e5%93%88%e5%93%88%e5%93%88%e6%9c%89%e7%82%b9%e6%87%92"></a>
+更新逻辑+网站详情（就不润色别的界面了哈哈哈有点懒）
+</h1><h2 id="网站采用hugogitgithub生成的一个自主经营的网站记录自己的学习">
+<a class="header-anchor" href="#%e7%bd%91%e7%ab%99%e9%87%87%e7%94%a8hugogitgithub%e7%94%9f%e6%88%90%e7%9a%84%e4%b8%80%e4%b8%aa%e8%87%aa%e4%b8%bb%e7%bb%8f%e8%90%a5%e7%9a%84%e7%bd%91%e7%ab%99%e8%ae%b0%e5%bd%95%e8%87%aa%e5%b7%b1%e7%9a%84%e5%ad%a6%e4%b9%a0"></a>
+网站采用hugo+git+github生成的一个自主经营的网站，记录自己的学习
+</h2><p><strong>Hugo（你的自动化印刷机）</strong></p>
 <ul>
-<li><strong>物理硬件</strong> = <strong>硬盘</strong>（负责永久存储）</li>
-<li><strong>操作系统显示</strong> = <strong>C盘/D盘</strong>（硬盘上的分区）</li>
-<li><strong>数据中转站</strong> = <strong>内存</strong>（负责临时存放正在运行的数据）</li>
-<li>数据要拿到内存中去处理</li>
+<li><strong>是什么：</strong> 一个<strong>静态网站生成器</strong>。它把你写好的 Markdown 文章（如 <code>my-first-post.md</code>）和你选的主题模板一瞬间“编译”成一整套完整的 HTML、CSS 文件。</li>
+<li><strong>作用：</strong> 让你不用手写网页代码，只管写文章就行。</li>
+<li><strong>工厂比喻：</strong> <strong>设计部+印刷车间</strong>。把文字和图片排版好，印成一本本精美的小册子（整个网站的文件）。</li>
 </ul>
-<h2 id="cddvdide">
-<a class="header-anchor" href="#cddvdide"></a>
-CD/DVD(IDE)
-</h2><p><strong>DVD是光盘，CD/DVD(IDE)等于虚拟机的光驱</strong></p>
-<p><strong>除此之外还有CD光盘，游戏机光盘</strong></p>
-<p><strong>光盘只是可读，而硬盘可读可写</strong></p>
-<p><strong>在装虚拟机时需要从物理光盘或者iso镜像文件(等价于光盘)</strong></p>
-<p><strong>可以说硬盘是家，光盘是快递，光驱是快递员，虚拟机接受了光盘里的信息后，光盘实际上就没用了</strong></p>
-<p><strong>旧版仿真针对的是老系统，把先进的光驱伪装一下让老系统认识</strong></p>
-<h2 id="网络适配器">
-<a class="header-anchor" href="#%e7%bd%91%e7%bb%9c%e9%80%82%e9%85%8d%e5%99%a8"></a>
-网络适配器
-</h2><p><strong>桥接模式，在主机旁边独立租房，有自己的ip，和主机是邻居，能被局域网其他设备看到</strong></p>
-<p><strong>NAT模式，和主机住在了一起里面，别人看不到</strong></p>
-<p><strong>仅主机模式，只和主机关进小黑屋，能和主机交流也能和住进黑屋里的别的虚拟机交流，但是不能上网</strong></p>
-<p><strong>LAN区段，建立一个微信群，只有群里的虚拟机才能看到</strong></p>
-<h2 id="网卡">
-<a class="header-anchor" href="#%e7%bd%91%e5%8d%a1"></a>
-网卡
-</h2><p><strong>网卡是房子的门，WIFI是看不见的无线门，mac是身份证号，ip是门牌号，端口是房子里各个物品的连接口</strong></p>
-<p><strong>监视器就是显示器，声卡是用于发出声音的硬件</strong></p>
-<p><strong>虚拟机引擎用于加速</strong></p>
-<h2 id="拖拽传文件">
-<a class="header-anchor" href="#%e6%8b%96%e6%8b%bd%e4%bc%a0%e6%96%87%e4%bb%b6"></a>
-拖拽传文件
-</h2><p>纠缠了我好久的文件从物理机到虚拟机我终于解决了，直接ctrl+c和ctrl+v就进去了，或者使用winSCP利用ssh服务连接上，拖拽功能随VM版本变化而稳定性不同，拖拽关闭可以增强安全性，拖拽可能会成为攻击的通道·！！！完美解决哈哈哈</p>
-<p>拖拽漏洞实例：CVE-2016-7461利用拖拽功能内存越界访问，恶意程序释放出来</p>
-<p>CVE-2017-4901:漏洞的利用代码公开，恶意代码逃逸</p>
-<p>CVE-2025-22247:普通用户触发不安全文件操作</p>
-<h2 id="sql和数据库理解">
-<a class="header-anchor" href="#sql%e5%92%8c%e6%95%b0%e6%8d%ae%e5%ba%93%e7%90%86%e8%a7%a3"></a>
-SQL和数据库理解
-</h2><p><strong>SQL只是查询语言，那意思是说比如说比如啊，就比如说很简单，一个购物平台，我在那个搜索框里面搜索东西，实际上它后台用到的是SQL语句，然后他拿的东西就是它后面的被存入到数据库里边的东西，而它想要被存入到数据库，那么它这个数据库就会用自动用这个数据库语言去呃，去就是写到它的数据库里边，进而就是有这些有了这些商品</strong></p>
-<h2 id="算法">
-<a class="header-anchor" href="#%e7%ae%97%e6%b3%95"></a>
-算法
-</h2><ul>
-<li><strong>正在贬值的部分（“术”）：</strong> 手写代码的能力、默写标准解法的熟练度、应对无AI竞赛的刷题技巧。这部分正在被AI快速替代。</li>
-<li><strong>正在升值的部分（“道”）：</strong> 面对复杂问题时的<strong>拆解能力</strong>、对算法模型的<strong>场景匹配能力</strong>、对复杂度的<strong>权衡决策能力</strong>。这部分是AI难以替代的“人类壁垒”。</li>
+<p><strong>2. Git</strong></p>
+<ul>
+<li><strong>是什么：</strong> 一个<strong>分布式版本控制系统</strong>。它在你本地工作，记录你对所有文件每一次的修改（“谁、在什么时候、改了什么地方”）。</li>
+<li><strong>作用：</strong> 给项目存档，方便“时光倒流”，也是把本地文件推送到远程仓库的工具。</li>
+<li><strong>工厂比喻：</strong> <strong>档案室管理员</strong>。把印刷好的小册子按版本编号存档，并负责把最新版打包装箱，准备发往外地。</li>
 </ul>
-<h2 id="第一部分基础数据结构你的工具箱">
-<a class="header-anchor" href="#%e7%ac%ac%e4%b8%80%e9%83%a8%e5%88%86%e5%9f%ba%e7%a1%80%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e4%bd%a0%e7%9a%84%e5%b7%a5%e5%85%b7%e7%ae%b1"></a>
-第一部分：基础数据结构——你的“工具箱”
-</h2><p>在任何复杂的策略之前，首先要识别出数据长什么样。这就像你要修理东西，先得知道手里拿的是扳手还是螺丝刀。</p>
+<p>**3. GitHub</p>
+<ul>
+<li><strong>是什么：</strong> 一个<strong>基于网页的代码托管平台</strong>。它接收你用 <code>git push</code> 推送上来的代码，并提供了一个公开的网址让别人能看到你的网站。</li>
+<li><strong>作用：</strong> 作为远程存储中心，通过 GitHub Pages 等服务把你的网站文件直接发布到公网。</li>
+<li><strong>工厂比喻：</strong> <strong>你的海外总仓库和临街商铺</strong>。管理员把打包好的箱子（git push）送到这里，然后直接拆箱上架，向全世界顾客展示。</li>
+</ul>
+<p>更新采用git命令：</p>
+<p>hugo
+cd public
+git add .
+git commit -m &ldquo;更新&rdquo;
+git push</p>
+<p>这是一个先把我的文本变成静态网站，然后保存草稿，最后上架的过程</p>
+<p>但是这样通常是不安全的在这个过程中.git文件也进入了暂存区这会导致<strong>git泄露</strong></p>
+<h3 id="一git-泄露是什么">
+<a class="header-anchor" href="#%e4%b8%80git-%e6%b3%84%e9%9c%b2%e6%98%af%e4%bb%80%e4%b9%88"></a>
+一、Git 泄露是什么？
+</h3><p><strong>一句话：服务器上应该被隐藏的 <code>.git</code> 文件夹，被不小心公开了，任何人都能通过网络直接访问。</strong></p>
+<p>就像你把家里的 <strong>钥匙</strong> 忘在了门垫下面，谁路过都能捡起来开门。</p>
+<hr>
+<h3 id="二git-文件夹里到底有什么为什么它这么重要">
+<a class="header-anchor" href="#%e4%ba%8cgit-%e6%96%87%e4%bb%b6%e5%a4%b9%e9%87%8c%e5%88%b0%e5%ba%95%e6%9c%89%e4%bb%80%e4%b9%88%e4%b8%ba%e4%bb%80%e4%b9%88%e5%ae%83%e8%bf%99%e4%b9%88%e9%87%8d%e8%a6%81"></a>
+二、<code>.git</code> 文件夹里到底有什么？为什么它这么重要？
+</h3><p><code>.git</code> 文件夹是 <strong>Git 的灵魂</strong>，它保存着整个项目的 <strong>完整版本历史记忆</strong>。</p>
         
         <hr><p>本文2026-04-22首发于<a href='https://Houchenhao.github.io/'>我的个人博客</a>，最后修改于2026-04-22</p>]]>
       </description>

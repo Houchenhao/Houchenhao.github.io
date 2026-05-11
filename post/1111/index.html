@@ -8,7 +8,7 @@
   name="viewport"
   content="width=device-width, initial-scale=1, shrink-to-fit=no"
 /><title>
-  htttp协议基础知识&#43;CTFHUB目前进度 | Houchenhao
+  大学生 | Houchenhao
 </title>
 <meta name="description" content="我是网络安全小登，欢迎大家来到我的博客"/><script>
   window.siteConfig = JSON.parse("{\"anchor_icon\":null,\"base\":\"https://Houchenhao.github.io/\",\"clipboard\":{\"copyright\":{\"count\":50,\"enable\":false,\"license_type\":\"by-nc-sa\"},\"fail\":{\"en\":\"Copy failed (ﾟ⊿ﾟ)ﾂ\",\"ja\":\"コピー失敗 (ﾟ⊿ﾟ)ﾂ\",\"pt-br\":\"Falha ao copiar (ﾟ⊿ﾟ)ﾂ\",\"zh-cn\":\"复制失败 (ﾟ⊿ﾟ)ﾂ\",\"zh-tw\":\"複製失敗 (ﾟ⊿ﾟ)ﾂ\"},\"success\":{\"en\":\"Copy successfully (*^▽^*)\",\"ja\":\"コピー成功 (*^▽^*)\",\"pt-br\":\"Copiado com sucesso (*^▽^*)\",\"zh-cn\":\"复制成功 (*^▽^*)\",\"zh-tw\":\"複製成功 (*^▽^*)\"}},\"code_block\":{\"expand\":true},\"icon_font\":\"4552607_a0oqhord1y\",\"outdate\":{\"daysago\":180,\"enable\":false,\"message\":{\"en\":\"This article was last updated on {time}. Please note that the content may no longer be applicable.\",\"ja\":\"この記事は最終更新日：{time}。記載内容が現在有効でない可能性がありますのでご注意ください。\",\"pt-br\":\"Este artigo foi atualizado pela última vez em {time}. Observe que o conteúdo pode não ser mais aplicável.\",\"zh-cn\":\"本文最后更新于 {time}，请注意文中内容可能已不适用。\",\"zh-tw\":\"本文最後更新於 {time}，請注意文中內容可能已不適用。\"}}}");
@@ -33,7 +33,7 @@
     type="font/woff2"
     crossorigin="anonymous"
   /><link rel="stylesheet" href="/css/loader.min.ac746e154f756f8220326eeb52a719f142ab038be5a8ddf30ea5ef15ef2356ea.css" /><meta property="og:type" content="website" />
-  <meta property="og:title" content="htttp协议基础知识&#43;CTFHUB目前进度 | Houchenhao" />
+  <meta property="og:title" content="大学生 | Houchenhao" />
   <meta
     property="og:description"
     content="我是网络安全小登，欢迎大家来到我的博客"
@@ -121,9 +121,9 @@
       </a><a id="main-nav-toggle" class="nav-icon" aria-label="Toggle navigation" role="button"></a>
   </nav>
   <nav id="sub-nav" aria-label="Secondary navigation"></nav></div>
-<header id="header" aria-label="Site header"><picture></picture><img  fetchpriority="high" src="/images/banner.jpg" alt="htttp协议基础知识&#43;CTFHUB目前进度"><div id="header-outer">
+<header id="header" aria-label="Site header"><picture></picture><img  fetchpriority="high" src="/images/banner.jpg" alt="大学生"><div id="header-outer">
     <div id="header-title"><span id="logo">
-            <h1 data-aos="slide-up">htttp协议基础知识&#43;CTFHUB目前进度</h1>
+            <h1 data-aos="slide-up">大学生</h1>
           </span><h2 id="subtitle-wrap" data-aos="slide-down"></h2></div>
   </div>
 </header><div id="content"
@@ -136,6 +136,17 @@
     ><div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
 <div class="sidebar-toc-wrapper toc-div-class">
   <nav id="TableOfContents">
+  <ul>
+    <li><a href="#网站采用hugogitgithub生成的一个自主经营的网站记录自己的学习">网站采用hugo+git+github生成的一个自主经营的网站，记录自己的学习</a>
+      <ul>
+        <li><a href="#一git-泄露是什么">一、Git 泄露是什么？</a></li>
+        <li><a href="#二git-文件夹里到底有什么为什么它这么重要">二、<code>.git</code> 文件夹里到底有什么？为什么它这么重要？</a></li>
+        <li><a href="#三为什么-git-泄露很危险">三、为什么 <code>.git</code> 泄露很危险？</a></li>
+        <li><a href="#但你的-github-pages-为什么没事">但你的 GitHub Pages 为什么没事？</a></li>
+      </ul>
+    </li>
+  </ul>
+
   <ul>
     <li><a href="#kali-linux虚拟机需要iso镜像文件因为需要个性化配置自动创建了一个vmdk空白磁盘文件然后通过iso配置">kali linux虚拟机需要iso镜像文件，因为需要个性化配置，自动创建了一个vmdk空白磁盘文件，然后通过iso配置</a></li>
     <li><a href="#但是靶机不需要可视化图像因此不需要iso镜像文件只需要更换磁盘文件即可直接把别人修改好的vmdk文件拿来用">但是靶机不需要可视化图像因此不需要iso镜像文件，只需要更换磁盘文件即可，直接把别人修改好的vmdk文件拿来用</a></li>
@@ -367,9 +378,155 @@
       >2026-04-22</time
     >
   </span></div>
-</div><div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h1 id="大学ctf打了3年安全厂商安服沉淀3年目前小技术管理个人建议如果你是普通大学感觉有两个出路第一个考个还不错的学校的研究生出来技术一般就能进甲方比较稳定-第二个也就是我选择的专攻技术大一大二可以专心学习ctfweb学习各种漏洞原理简单绕过杂项可以学很多基础比如wireshark之类的密码学可以了解各种加密算法二进制逆向基础的题型也不难借此了解汇编数据结构栈溢出之类的基础总之ctf主要打牢基础大三大四建议ctf大厂实习护网红队src结合一些比较实战并且能丰富简历的项目这样出来找工作还是比较轻松的但是这几年大环境确实不好了但是个人感觉安全比开发来说更有趣并且对普通学历的人更友好-至于工作之后如果是乙方建议往代码开发红队企业src之类感兴趣且有深度的方向持续专研至少要有一个拿得出手跟客户出牛逼的技术如果在甲方那更稳定且少走弯路搞管理加一点技术">
-<a class="header-anchor" href="#%e5%a4%a7%e5%ad%a6ctf%e6%89%93%e4%ba%863%e5%b9%b4%e5%ae%89%e5%85%a8%e5%8e%82%e5%95%86%e5%ae%89%e6%9c%8d%e6%b2%89%e6%b7%803%e5%b9%b4%e7%9b%ae%e5%89%8d%e5%b0%8f%e6%8a%80%e6%9c%af%e7%ae%a1%e7%90%86%e4%b8%aa%e4%ba%ba%e5%bb%ba%e8%ae%ae%e5%a6%82%e6%9e%9c%e4%bd%a0%e6%98%af%e6%99%ae%e9%80%9a%e5%a4%a7%e5%ad%a6%e6%84%9f%e8%a7%89%e6%9c%89%e4%b8%a4%e4%b8%aa%e5%87%ba%e8%b7%af%e7%ac%ac%e4%b8%80%e4%b8%aa%e8%80%83%e4%b8%aa%e8%bf%98%e4%b8%8d%e9%94%99%e7%9a%84%e5%ad%a6%e6%a0%a1%e7%9a%84%e7%a0%94%e7%a9%b6%e7%94%9f%e5%87%ba%e6%9d%a5%e6%8a%80%e6%9c%af%e4%b8%80%e8%88%ac%e5%b0%b1%e8%83%bd%e8%bf%9b%e7%94%b2%e6%96%b9%e6%af%94%e8%be%83%e7%a8%b3%e5%ae%9a-%e7%ac%ac%e4%ba%8c%e4%b8%aa%e4%b9%9f%e5%b0%b1%e6%98%af%e6%88%91%e9%80%89%e6%8b%a9%e7%9a%84%e4%b8%93%e6%94%bb%e6%8a%80%e6%9c%af%e5%a4%a7%e4%b8%80%e5%a4%a7%e4%ba%8c%e5%8f%af%e4%bb%a5%e4%b8%93%e5%bf%83%e5%ad%a6%e4%b9%a0ctfweb%e5%ad%a6%e4%b9%a0%e5%90%84%e7%a7%8d%e6%bc%8f%e6%b4%9e%e5%8e%9f%e7%90%86%e7%ae%80%e5%8d%95%e7%bb%95%e8%bf%87%e6%9d%82%e9%a1%b9%e5%8f%af%e4%bb%a5%e5%ad%a6%e5%be%88%e5%a4%9a%e5%9f%ba%e7%a1%80%e6%af%94%e5%a6%82wireshark%e4%b9%8b%e7%b1%bb%e7%9a%84%e5%af%86%e7%a0%81%e5%ad%a6%e5%8f%af%e4%bb%a5%e4%ba%86%e8%a7%a3%e5%90%84%e7%a7%8d%e5%8a%a0%e5%af%86%e7%ae%97%e6%b3%95%e4%ba%8c%e8%bf%9b%e5%88%b6%e9%80%86%e5%90%91%e5%9f%ba%e7%a1%80%e7%9a%84%e9%a2%98%e5%9e%8b%e4%b9%9f%e4%b8%8d%e9%9a%be%e5%80%9f%e6%ad%a4%e4%ba%86%e8%a7%a3%e6%b1%87%e7%bc%96%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e6%a0%88%e6%ba%a2%e5%87%ba%e4%b9%8b%e7%b1%bb%e7%9a%84%e5%9f%ba%e7%a1%80%e6%80%bb%e4%b9%8bctf%e4%b8%bb%e8%a6%81%e6%89%93%e7%89%a2%e5%9f%ba%e7%a1%80%e5%a4%a7%e4%b8%89%e5%a4%a7%e5%9b%9b%e5%bb%ba%e8%ae%aectf%e5%a4%a7%e5%8e%82%e5%ae%9e%e4%b9%a0%e6%8a%a4%e7%bd%91%e7%ba%a2%e9%98%9fsrc%e7%bb%93%e5%90%88%e4%b8%80%e4%ba%9b%e6%af%94%e8%be%83%e5%ae%9e%e6%88%98%e5%b9%b6%e4%b8%94%e8%83%bd%e4%b8%b0%e5%af%8c%e7%ae%80%e5%8e%86%e7%9a%84%e9%a1%b9%e7%9b%ae%e8%bf%99%e6%a0%b7%e5%87%ba%e6%9d%a5%e6%89%be%e5%b7%a5%e4%bd%9c%e8%bf%98%e6%98%af%e6%af%94%e8%be%83%e8%bd%bb%e6%9d%be%e7%9a%84%e4%bd%86%e6%98%af%e8%bf%99%e5%87%a0%e5%b9%b4%e5%a4%a7%e7%8e%af%e5%a2%83%e7%a1%ae%e5%ae%9e%e4%b8%8d%e5%a5%bd%e4%ba%86%e4%bd%86%e6%98%af%e4%b8%aa%e4%ba%ba%e6%84%9f%e8%a7%89%e5%ae%89%e5%85%a8%e6%af%94%e5%bc%80%e5%8f%91%e6%9d%a5%e8%af%b4%e6%9b%b4%e6%9c%89%e8%b6%a3%e5%b9%b6%e4%b8%94%e5%af%b9%e6%99%ae%e9%80%9a%e5%ad%a6%e5%8e%86%e7%9a%84%e4%ba%ba%e6%9b%b4%e5%8f%8b%e5%a5%bd-%e8%87%b3%e4%ba%8e%e5%b7%a5%e4%bd%9c%e4%b9%8b%e5%90%8e%e5%a6%82%e6%9e%9c%e6%98%af%e4%b9%99%e6%96%b9%e5%bb%ba%e8%ae%ae%e5%be%80%e4%bb%a3%e7%a0%81%e5%bc%80%e5%8f%91%e7%ba%a2%e9%98%9f%e4%bc%81%e4%b8%9asrc%e4%b9%8b%e7%b1%bb%e6%84%9f%e5%85%b4%e8%b6%a3%e4%b8%94%e6%9c%89%e6%b7%b1%e5%ba%a6%e7%9a%84%e6%96%b9%e5%90%91%e6%8c%81%e7%bb%ad%e4%b8%93%e7%a0%94%e8%87%b3%e5%b0%91%e8%a6%81%e6%9c%89%e4%b8%80%e4%b8%aa%e6%8b%bf%e5%be%97%e5%87%ba%e6%89%8b%e8%b7%9f%e5%ae%a2%e6%88%b7%e5%87%ba%e7%89%9b%e9%80%bc%e7%9a%84%e6%8a%80%e6%9c%af%e5%a6%82%e6%9e%9c%e5%9c%a8%e7%94%b2%e6%96%b9%e9%82%a3%e6%9b%b4%e7%a8%b3%e5%ae%9a%e4%b8%94%e5%b0%91%e8%b5%b0%e5%bc%af%e8%b7%af%e6%90%9e%e7%ae%a1%e7%90%86%e5%8a%a0%e4%b8%80%e7%82%b9%e6%8a%80%e6%9c%af"></a>
-大学ctf打了3年，安全厂商安服沉淀3年，目前小技术管理。个人建议，如果你是普通大学感觉有两个出路，第一个考个还不错的学校的研究生，出来技术一般就能进甲方比较稳定。 第二个也就是我选择的，专攻技术，大一大二可以专心学习ctf，web学习各种漏洞原理简单绕过，杂项可以学很多基础比如wireshark之类的，密码学可以了解各种加密算法，二进制逆向基础的题型也不难，借此了解汇编，数据结构，栈溢出之类的基础，总之ctf主要打牢基础。大三大四建议ctf+大厂实习+护网红队+src，结合一些比较实战并且能丰富简历的项目。这样出来找工作还是比较轻松的，但是这几年大环境确实不好了，但是个人感觉安全比开发来说更有趣并且对普通学历的人更友好。 至于工作之后如果是乙方建议往代码开发，红队，企业src之类感兴趣且有深度的方向持续专研，至少要有一个拿得出手跟客户出牛逼的技术。如果在甲方那更稳定且少走弯路，搞管理加一点技术。
+</div><div class="hr-line"></div><div class="e-content article-entry" itemprop="articleBody"><h1 id="更新逻辑网站详情就不润色别的界面了哈哈哈有点懒">
+<a class="header-anchor" href="#%e6%9b%b4%e6%96%b0%e9%80%bb%e8%be%91%e7%bd%91%e7%ab%99%e8%af%a6%e6%83%85%e5%b0%b1%e4%b8%8d%e6%b6%a6%e8%89%b2%e5%88%ab%e7%9a%84%e7%95%8c%e9%9d%a2%e4%ba%86%e5%93%88%e5%93%88%e5%93%88%e6%9c%89%e7%82%b9%e6%87%92"></a>
+更新逻辑+网站详情（就不润色别的界面了哈哈哈有点懒）
+</h1><h2 id="网站采用hugogitgithub生成的一个自主经营的网站记录自己的学习">
+<a class="header-anchor" href="#%e7%bd%91%e7%ab%99%e9%87%87%e7%94%a8hugogitgithub%e7%94%9f%e6%88%90%e7%9a%84%e4%b8%80%e4%b8%aa%e8%87%aa%e4%b8%bb%e7%bb%8f%e8%90%a5%e7%9a%84%e7%bd%91%e7%ab%99%e8%ae%b0%e5%bd%95%e8%87%aa%e5%b7%b1%e7%9a%84%e5%ad%a6%e4%b9%a0"></a>
+网站采用hugo+git+github生成的一个自主经营的网站，记录自己的学习
+</h2><p><strong>Hugo（你的自动化印刷机）</strong></p>
+<ul>
+<li><strong>是什么：</strong> 一个<strong>静态网站生成器</strong>。它把你写好的 Markdown 文章（如 <code>my-first-post.md</code>）和你选的主题模板一瞬间“编译”成一整套完整的 HTML、CSS 文件。</li>
+<li><strong>作用：</strong> 让你不用手写网页代码，只管写文章就行。</li>
+<li><strong>工厂比喻：</strong> <strong>设计部+印刷车间</strong>。把文字和图片排版好，印成一本本精美的小册子（整个网站的文件）。</li>
+</ul>
+<p><strong>2. Git</strong></p>
+<ul>
+<li><strong>是什么：</strong> 一个<strong>分布式版本控制系统</strong>。它在你本地工作，记录你对所有文件每一次的修改（“谁、在什么时候、改了什么地方”）。</li>
+<li><strong>作用：</strong> 给项目存档，方便“时光倒流”，也是把本地文件推送到远程仓库的工具。</li>
+<li><strong>工厂比喻：</strong> <strong>档案室管理员</strong>。把印刷好的小册子按版本编号存档，并负责把最新版打包装箱，准备发往外地。</li>
+</ul>
+<p>**3. GitHub</p>
+<ul>
+<li><strong>是什么：</strong> 一个<strong>基于网页的代码托管平台</strong>。它接收你用 <code>git push</code> 推送上来的代码，并提供了一个公开的网址让别人能看到你的网站。</li>
+<li><strong>作用：</strong> 作为远程存储中心，通过 GitHub Pages 等服务把你的网站文件直接发布到公网。</li>
+<li><strong>工厂比喻：</strong> <strong>你的海外总仓库和临街商铺</strong>。管理员把打包好的箱子（git push）送到这里，然后直接拆箱上架，向全世界顾客展示。</li>
+</ul>
+<p>更新采用git命令：</p>
+<p>hugo
+cd public
+git add .
+git commit -m &ldquo;更新&rdquo;
+git push</p>
+<p>这是一个先把我的文本变成静态网站，然后保存草稿，最后上架的过程</p>
+<p>但是这样通常是不安全的在这个过程中.git文件也进入了暂存区这会导致<strong>git泄露</strong></p>
+<h3 id="一git-泄露是什么">
+<a class="header-anchor" href="#%e4%b8%80git-%e6%b3%84%e9%9c%b2%e6%98%af%e4%bb%80%e4%b9%88"></a>
+一、Git 泄露是什么？
+</h3><p><strong>一句话：服务器上应该被隐藏的 <code>.git</code> 文件夹，被不小心公开了，任何人都能通过网络直接访问。</strong></p>
+<p>就像你把家里的 <strong>钥匙</strong> 忘在了门垫下面，谁路过都能捡起来开门。</p>
+<hr>
+<h3 id="二git-文件夹里到底有什么为什么它这么重要">
+<a class="header-anchor" href="#%e4%ba%8cgit-%e6%96%87%e4%bb%b6%e5%a4%b9%e9%87%8c%e5%88%b0%e5%ba%95%e6%9c%89%e4%bb%80%e4%b9%88%e4%b8%ba%e4%bb%80%e4%b9%88%e5%ae%83%e8%bf%99%e4%b9%88%e9%87%8d%e8%a6%81"></a>
+二、<code>.git</code> 文件夹里到底有什么？为什么它这么重要？
+</h3><p><code>.git</code> 文件夹是 <strong>Git 的灵魂</strong>，它保存着整个项目的 <strong>完整版本历史记忆</strong>。</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">里面有什么</th>
+          <th style="text-align: left">记录了什么</th>
+          <th style="text-align: left">通俗理解</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>所有历史版本的完整快照</strong></td>
+          <td style="text-align: left">从项目创建到现在的每一次 <code>commit</code>，所有文件的完整内容</td>
+          <td style="text-align: left">就像一台时光机，保存着你写文章时<strong>每一个时刻的完整草稿</strong></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>所有修改记录</strong></td>
+          <td style="text-align: left">谁在什么时候做了什么修改，包括被删除的内容</td>
+          <td style="text-align: left">就像 Word 文档的“修订记录”，但永远删不掉</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>所有分支、标签、暂存</strong></td>
+          <td style="text-align: left">所有分支、tag、stash 等临时保存的内容</td>
+          <td style="text-align: left">包括那些你没正式提交、只是临时暂存的草稿</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>关键点：即使你把一句密码从代码里删了，并提交了一个“删除密码”的新版本，<code>.git</code> 仍然完整保留着“你曾经在这行写过密码”这个事实。</strong></p>
+<hr>
+<h3 id="三为什么-git-泄露很危险">
+<a class="header-anchor" href="#%e4%b8%89%e4%b8%ba%e4%bb%80%e4%b9%88-git-%e6%b3%84%e9%9c%b2%e5%be%88%e5%8d%b1%e9%99%a9"></a>
+三、为什么 <code>.git</code> 泄露很危险？
+</h3><p>因为别人拿到 <code>.git</code> 文件夹后，就能用工具（比如 <code>GitHack</code>）在本地 <strong>完整重建你的整个项目</strong>，包括：</p>
+<ol>
+<li><strong>所有历史版本的源码</strong>——就像拿到了你网站的所有源代码，可以一行行分析找漏洞</li>
+<li><strong>所有曾经存在过又被删除的内容</strong>——你删除的数据库密码、API 密钥、内网地址，全都会暴露</li>
+<li><strong>所有临时暂存的草稿</strong>——你 stash 起来忘了清理的敏感信息</li>
+<li><strong>项目的完整演进过程</strong>——从最初的雏形到最新的版本，每一步改动都一览无余</li>
+</ol>
+<p><strong>关键在第 2 步和第 3 步。</strong></p>
+<p>当你运行 <code>hugo</code> 后，<code>public</code> 文件夹里不仅有你博客的 HTML、CSS 等文件，还会<strong>包含你之前已经初始化好的 <code>.git</code> 文件夹</strong>（因为 <code>public</code> 文件夹本身也是一个 Git 仓库）。</p>
+<p>而你执行的 <code>git add .</code>，这个 <code>.</code> 代表“当前目录下的所有内容”。它会无差别地把 <code>public</code> 文件夹里的所有东西——包括那个隐藏的 <code>.git</code> 文件夹本身——都加入 Git 的暂存区。</p>
+<p>所以，当你 <code>git commit</code> 和 <code>git push</code> 后，<strong>这个 <code>.git</code> 文件夹就随着你的博客一起，被完整地上传到了 GitHub 上你的公开仓库里。</strong></p>
+<hr>
+<h3 id="但你的-github-pages-为什么没事">
+<a class="header-anchor" href="#%e4%bd%86%e4%bd%a0%e7%9a%84-github-pages-%e4%b8%ba%e4%bb%80%e4%b9%88%e6%b2%a1%e4%ba%8b"></a>
+但你的 GitHub Pages 为什么没事？
+</h3><p>这里有个关键区别：<strong>GitHub Pages 默认会保护 <code>.git</code> 目录</strong>，不让它直接对外公开访问。所以你的博客虽然也把 <code>.git</code> 推上去了，但别人没法通过 <code>你的域名/.git/</code> 这种地址直接下载它。</p>
+<p>可如果是你自己租一台云服务器，把 <code>public</code> 文件夹里的所有文件手动上传到服务器的网页根目录（比如 <code>/var/www/html/</code>），那就不一样了。这时，<code>http://你的网站/.git/</code> 就真的可能被任何人直接访问到，这就是我们之前 CTF 里利用的那个漏洞场景。</p>
+<p>标准的 Hugo + GitHub Pages 部署流程，通常会避免把 <code>.git</code> 一起提交到公开仓库。常见做法是直接用 <code>hugo deploy</code> 或配置 GitHub Actions，只把 <code>public</code> 里的<strong>网页文件</strong>同步到公开的 <code>username.github.io</code> 仓库中，而不会把 <code>.git</code> 文件夹也带上。</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">命令</th>
+          <th style="text-align: left">你在干嘛</th>
+          <th style="text-align: left">通俗理解</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>hugo</code></td>
+          <td style="text-align: left">把 Markdown + 主题，编译成完整的静态网站</td>
+          <td style="text-align: left">你在电脑上写好了文章草稿，现在按下“打印”按钮，把草稿变成一本可以拿在手里读的书</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>cd public</code></td>
+          <td style="text-align: left">进入编译好的网站文件夹</td>
+          <td style="text-align: left">这本印好的“书”，就放在 <code>public</code> 文件夹里</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>git add .</code></td>
+          <td style="text-align: left">把整本“书”的所有页面都加入 Git 的暂存区</td>
+          <td style="text-align: left">告诉 Git：“这本书的所有页我都要存档”</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>git commit -m &quot;更新&quot;</code></td>
+          <td style="text-align: left">提交一次版本快照，备注信息叫“更新”</td>
+          <td style="text-align: left">正式在版本库中拍一张快照，并贴上标签叫“更新”</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>git push</code></td>
+          <td style="text-align: left">把本地 Git 仓库推送到远程 GitHub 上</td>
+          <td style="text-align: left">把这张快照上传到云端，让你的博客能被别人看到</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>这套流程的整个逻辑就是：</strong>
+本地写文章 → 编译成网站 → 用 Git 做版本控制 → 推送到 GitHub Pages 等平台上发布</p>
+<p>上面说到了git泄露但是我还是没尝试解决办法，因为怕删掉，方法如下,等哪天闲了再尝试，毕竟还是要追求确定性</p>
+<p>加一个gittignore，里面写入public/</p>
+<p>博客你需要先让 Git <strong>“忘记”</strong> 这些文件，然后 <code>.gitignore</code> 才会生效。</p>
+<p>在你的博客项目根目录（就是你刚才执行 <code>git commit</code> 的地方），依次执行：</p>
+<p><strong>第一步：让 Git 停止跟踪 public/ 和 resources/</strong></p>
+<p>bash</p>
+<pre tabindex="0"><code>git rm -r --cached public/
+git rm -r --cached resources/
+</code></pre><p><code>--cached</code> 的意思是“只从 Git 仓库的跟踪列表里移除，但保留本地文件夹里的原文件”。</p>
+<p><strong>第二步：重新提交这个“移除”操作</strong></p>
+<p>bash</p>
+<pre tabindex="0"><code>git add .
+git commit -m &#34;修复：真正忽略 public 和 resources&#34;
+</code></pre><p><strong>第三步：推送到远程</strong></p>
+<p>bash</p>
+<pre tabindex="0"><code>git push
+</code></pre><p>推送时可能会遇到你截图里的那个 <code>rejected</code> 错误，如果遇到就先 <code>git pull</code> 再 <code>git push</code>。</p>
+<h1 id="大学ctf打了3年安全厂商安服沉淀3年目前小技术管理个人建议如果你是普通大学感觉有两个出路第一个考个还不错的学校的研究生出来技术一般就能进甲方比较稳定-第二个也就是我选择的专攻技术大一大二可以专心学习ctfweb学习各种漏洞原理简单绕过杂项可以学很多基础比如wireshark之类的密码学可以了解各种加密算法二进制逆向基础的题型也不难借此了解汇编数据结构栈溢出之类的基础总之ctf主要打牢基础大三大四建议ctf大厂实习护网红队src结合一些比较实战并且能丰富简历的项目这样出来找工作还是比较轻松的但是这几年大环境确实不好了但是个人感觉安全比开发来说更有趣并且对普通学历的人更友好-至于工作之后如果是乙方建议往代码开发红队企业src之类感兴趣且有深度的方向持续专研至少要有一个拿得出手跟客户出牛逼的技术如果在甲方那更稳定且少走弯路搞管理加一点技术在b站看到的别人的分享你说我能不能做的比他还好呢侯晨浩同学哈哈哈">
+<a class="header-anchor" href="#%e5%a4%a7%e5%ad%a6ctf%e6%89%93%e4%ba%863%e5%b9%b4%e5%ae%89%e5%85%a8%e5%8e%82%e5%95%86%e5%ae%89%e6%9c%8d%e6%b2%89%e6%b7%803%e5%b9%b4%e7%9b%ae%e5%89%8d%e5%b0%8f%e6%8a%80%e6%9c%af%e7%ae%a1%e7%90%86%e4%b8%aa%e4%ba%ba%e5%bb%ba%e8%ae%ae%e5%a6%82%e6%9e%9c%e4%bd%a0%e6%98%af%e6%99%ae%e9%80%9a%e5%a4%a7%e5%ad%a6%e6%84%9f%e8%a7%89%e6%9c%89%e4%b8%a4%e4%b8%aa%e5%87%ba%e8%b7%af%e7%ac%ac%e4%b8%80%e4%b8%aa%e8%80%83%e4%b8%aa%e8%bf%98%e4%b8%8d%e9%94%99%e7%9a%84%e5%ad%a6%e6%a0%a1%e7%9a%84%e7%a0%94%e7%a9%b6%e7%94%9f%e5%87%ba%e6%9d%a5%e6%8a%80%e6%9c%af%e4%b8%80%e8%88%ac%e5%b0%b1%e8%83%bd%e8%bf%9b%e7%94%b2%e6%96%b9%e6%af%94%e8%be%83%e7%a8%b3%e5%ae%9a-%e7%ac%ac%e4%ba%8c%e4%b8%aa%e4%b9%9f%e5%b0%b1%e6%98%af%e6%88%91%e9%80%89%e6%8b%a9%e7%9a%84%e4%b8%93%e6%94%bb%e6%8a%80%e6%9c%af%e5%a4%a7%e4%b8%80%e5%a4%a7%e4%ba%8c%e5%8f%af%e4%bb%a5%e4%b8%93%e5%bf%83%e5%ad%a6%e4%b9%a0ctfweb%e5%ad%a6%e4%b9%a0%e5%90%84%e7%a7%8d%e6%bc%8f%e6%b4%9e%e5%8e%9f%e7%90%86%e7%ae%80%e5%8d%95%e7%bb%95%e8%bf%87%e6%9d%82%e9%a1%b9%e5%8f%af%e4%bb%a5%e5%ad%a6%e5%be%88%e5%a4%9a%e5%9f%ba%e7%a1%80%e6%af%94%e5%a6%82wireshark%e4%b9%8b%e7%b1%bb%e7%9a%84%e5%af%86%e7%a0%81%e5%ad%a6%e5%8f%af%e4%bb%a5%e4%ba%86%e8%a7%a3%e5%90%84%e7%a7%8d%e5%8a%a0%e5%af%86%e7%ae%97%e6%b3%95%e4%ba%8c%e8%bf%9b%e5%88%b6%e9%80%86%e5%90%91%e5%9f%ba%e7%a1%80%e7%9a%84%e9%a2%98%e5%9e%8b%e4%b9%9f%e4%b8%8d%e9%9a%be%e5%80%9f%e6%ad%a4%e4%ba%86%e8%a7%a3%e6%b1%87%e7%bc%96%e6%95%b0%e6%8d%ae%e7%bb%93%e6%9e%84%e6%a0%88%e6%ba%a2%e5%87%ba%e4%b9%8b%e7%b1%bb%e7%9a%84%e5%9f%ba%e7%a1%80%e6%80%bb%e4%b9%8bctf%e4%b8%bb%e8%a6%81%e6%89%93%e7%89%a2%e5%9f%ba%e7%a1%80%e5%a4%a7%e4%b8%89%e5%a4%a7%e5%9b%9b%e5%bb%ba%e8%ae%aectf%e5%a4%a7%e5%8e%82%e5%ae%9e%e4%b9%a0%e6%8a%a4%e7%bd%91%e7%ba%a2%e9%98%9fsrc%e7%bb%93%e5%90%88%e4%b8%80%e4%ba%9b%e6%af%94%e8%be%83%e5%ae%9e%e6%88%98%e5%b9%b6%e4%b8%94%e8%83%bd%e4%b8%b0%e5%af%8c%e7%ae%80%e5%8e%86%e7%9a%84%e9%a1%b9%e7%9b%ae%e8%bf%99%e6%a0%b7%e5%87%ba%e6%9d%a5%e6%89%be%e5%b7%a5%e4%bd%9c%e8%bf%98%e6%98%af%e6%af%94%e8%be%83%e8%bd%bb%e6%9d%be%e7%9a%84%e4%bd%86%e6%98%af%e8%bf%99%e5%87%a0%e5%b9%b4%e5%a4%a7%e7%8e%af%e5%a2%83%e7%a1%ae%e5%ae%9e%e4%b8%8d%e5%a5%bd%e4%ba%86%e4%bd%86%e6%98%af%e4%b8%aa%e4%ba%ba%e6%84%9f%e8%a7%89%e5%ae%89%e5%85%a8%e6%af%94%e5%bc%80%e5%8f%91%e6%9d%a5%e8%af%b4%e6%9b%b4%e6%9c%89%e8%b6%a3%e5%b9%b6%e4%b8%94%e5%af%b9%e6%99%ae%e9%80%9a%e5%ad%a6%e5%8e%86%e7%9a%84%e4%ba%ba%e6%9b%b4%e5%8f%8b%e5%a5%bd-%e8%87%b3%e4%ba%8e%e5%b7%a5%e4%bd%9c%e4%b9%8b%e5%90%8e%e5%a6%82%e6%9e%9c%e6%98%af%e4%b9%99%e6%96%b9%e5%bb%ba%e8%ae%ae%e5%be%80%e4%bb%a3%e7%a0%81%e5%bc%80%e5%8f%91%e7%ba%a2%e9%98%9f%e4%bc%81%e4%b8%9asrc%e4%b9%8b%e7%b1%bb%e6%84%9f%e5%85%b4%e8%b6%a3%e4%b8%94%e6%9c%89%e6%b7%b1%e5%ba%a6%e7%9a%84%e6%96%b9%e5%90%91%e6%8c%81%e7%bb%ad%e4%b8%93%e7%a0%94%e8%87%b3%e5%b0%91%e8%a6%81%e6%9c%89%e4%b8%80%e4%b8%aa%e6%8b%bf%e5%be%97%e5%87%ba%e6%89%8b%e8%b7%9f%e5%ae%a2%e6%88%b7%e5%87%ba%e7%89%9b%e9%80%bc%e7%9a%84%e6%8a%80%e6%9c%af%e5%a6%82%e6%9e%9c%e5%9c%a8%e7%94%b2%e6%96%b9%e9%82%a3%e6%9b%b4%e7%a8%b3%e5%ae%9a%e4%b8%94%e5%b0%91%e8%b5%b0%e5%bc%af%e8%b7%af%e6%90%9e%e7%ae%a1%e7%90%86%e5%8a%a0%e4%b8%80%e7%82%b9%e6%8a%80%e6%9c%af%e5%9c%a8b%e7%ab%99%e7%9c%8b%e5%88%b0%e7%9a%84%e5%88%ab%e4%ba%ba%e7%9a%84%e5%88%86%e4%ba%ab%e4%bd%a0%e8%af%b4%e6%88%91%e8%83%bd%e4%b8%8d%e8%83%bd%e5%81%9a%e7%9a%84%e6%af%94%e4%bb%96%e8%bf%98%e5%a5%bd%e5%91%a2%e4%be%af%e6%99%a8%e6%b5%a9%e5%90%8c%e5%ad%a6%e5%93%88%e5%93%88%e5%93%88"></a>
+大学ctf打了3年，安全厂商安服沉淀3年，目前小技术管理。个人建议，如果你是普通大学感觉有两个出路，第一个考个还不错的学校的研究生，出来技术一般就能进甲方比较稳定。 第二个也就是我选择的，专攻技术，大一大二可以专心学习ctf，web学习各种漏洞原理简单绕过，杂项可以学很多基础比如wireshark之类的，密码学可以了解各种加密算法，二进制逆向基础的题型也不难，借此了解汇编，数据结构，栈溢出之类的基础，总之ctf主要打牢基础。大三大四建议ctf+大厂实习+护网红队+src，结合一些比较实战并且能丰富简历的项目。这样出来找工作还是比较轻松的，但是这几年大环境确实不好了，但是个人感觉安全比开发来说更有趣并且对普通学历的人更友好。 至于工作之后如果是乙方建议往代码开发，红队，企业src之类感兴趣且有深度的方向持续专研，至少要有一个拿得出手跟客户出牛逼的技术。如果在甲方那更稳定且少走弯路，搞管理加一点技术。（在b站看到的别人的分享，你说我能不能做的比他还好呢侯晨浩同学哈哈哈）
 </h1><h1 id="虚拟机知识">
 <a class="header-anchor" href="#%e8%99%9a%e6%8b%9f%e6%9c%ba%e7%9f%a5%e8%af%86"></a>
 虚拟机知识
@@ -2150,7 +2307,7 @@ git add &lt;文件名&gt;                    # 标记冲突已解决
     aria-label="Article navigation"
     data-aos="fade-up"
   ><div class="article-nav-link-wrap left"><img
-              data-src="/images/cover3.jpg"
+              data-src="/images/cover2.jpg"
               data-sizes="auto"
               alt="Hello World"
               class="lazyload"
@@ -2194,10 +2351,10 @@ git add &lt;文件名&gt;                    # 标记冲突已解决
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;2.6k</span
+          >&nbsp;2.9k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;00:14</span>
+        <span class="icon-coffee">&nbsp;00:15</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -2222,6 +2379,17 @@ git add &lt;文件名&gt;                    # 标记冲突已解决
   <div class="sidebar-wrap"><div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
 <div class="sidebar-toc-wrapper toc-div-class">
   <nav id="TableOfContents">
+  <ul>
+    <li><a href="#网站采用hugogitgithub生成的一个自主经营的网站记录自己的学习">网站采用hugo+git+github生成的一个自主经营的网站，记录自己的学习</a>
+      <ul>
+        <li><a href="#一git-泄露是什么">一、Git 泄露是什么？</a></li>
+        <li><a href="#二git-文件夹里到底有什么为什么它这么重要">二、<code>.git</code> 文件夹里到底有什么？为什么它这么重要？</a></li>
+        <li><a href="#三为什么-git-泄露很危险">三、为什么 <code>.git</code> 泄露很危险？</a></li>
+        <li><a href="#但你的-github-pages-为什么没事">但你的 GitHub Pages 为什么没事？</a></li>
+      </ul>
+    </li>
+  </ul>
+
   <ul>
     <li><a href="#kali-linux虚拟机需要iso镜像文件因为需要个性化配置自动创建了一个vmdk空白磁盘文件然后通过iso配置">kali linux虚拟机需要iso镜像文件，因为需要个性化配置，自动创建了一个vmdk空白磁盘文件，然后通过iso配置</a></li>
     <li><a href="#但是靶机不需要可视化图像因此不需要iso镜像文件只需要更换磁盘文件即可直接把别人修改好的vmdk文件拿来用">但是靶机不需要可视化图像因此不需要iso镜像文件，只需要更换磁盘文件即可，直接把别人修改好的vmdk文件拿来用</a></li>
@@ -2480,9 +2648,9 @@ git add &lt;文件名&gt;                    # 标记冲突已解决
   <div><script data-pjax>
         window.REIMU_POST = {
           author: "Houchenhao",
-          title: "htttp协议基础知识\u002bCTFHUB目前进度",
+          title: "大学生",
           url: "https:\/\/Houchenhao.github.io\/post\/1111\/",
-          description: "\r大学ctf打了3年，安全厂商安服沉淀3年，目前小技术管理。个人建议，如果你是普通大学感觉有两个出路，第一个考个还不错的学校的研究生，出来技术一般就能进甲方比较稳定。 第二个也就是我选择的，专攻技术，大一大二可以专心学习ctf，web学习各种漏洞原理简单绕过，杂项可以学很多基础比如wireshark之类的，密码学可以了解各种加密算法，二进制逆向基础的题型也不难，借此了解汇编，数据结构，栈溢出之类的基础，总之ctf主要打牢基础。大三大四建议ctf\u002b大厂实习\u002b护网红队\u002bsrc，结合一些比较实战并且能丰富简历的项目。这样出来找工作还是比较轻松的，但是这几年大环境确实不好了，但是个人感觉安全比开发来说 …",
+          description: "\r更新逻辑\u002b网站详情（就不润色别的界面了哈哈哈有点懒）\r网站采用hugo\u002bgit\u002bgithub生成的一个自主经营的网站，记录自己的学习\rHugo（你的自动化印刷机）\n是什么： 一个静态网站生成器。它把你写好的 Markdown 文章（如 my-first-post.md）和你选的主题模板一瞬间“编译”成一整套完整的 HTML、CSS 文件。 作用： 让你不用手写网页代码，只管写文章就行。 工厂比喻： 设计部\u002b印刷车间。把文字和图片排版好，印成一本本精美的小册子（整个网站的文件）。 2. Git\n是什么： 一个分布式版本控制系统。它在你本地工作，记录你对所有文件每一次的修改（“谁、在什么时候、改 …",
           cover: "https:\/\/Houchenhao.github.io\/images\/banner.jpg",
         };
       </script><script src="/js/insert_highlight.js" integrity="" crossorigin="anonymous" data-pjax ></script><script src="/js/tabs.js" integrity="" crossorigin="anonymous" data-pjax defer></script><script type="module" data-pjax>const PhotoSwipeLightbox = (await safeImport("https:\/\/npm.webcache.cn\/photoswipe@5.4.4\/dist\/photoswipe-lightbox.esm.min.js", "sha384-DiL6M\/gG\u002bwmTxmCRZyD1zee6lIhawn5TGvED0FOh7fXcN9B0aZ9dexSF\/N6lrZi\/")).default;const initPswp = (gallery, children) => {
